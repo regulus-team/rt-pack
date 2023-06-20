@@ -2,7 +2,7 @@
 
 
 
-![](rt-skeleton.gif)
+![](/projects/rt-skeleton/rt-skeleton.gif)
 
 
 
