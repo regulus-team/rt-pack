@@ -16,12 +16,11 @@
     "progress"
   ],
   "bugs": {
-    "url": "git+https://github.com/Andriypodolian/rt-skeleton/issue",
-    "email": "georgboosh@gmail.com"
+    "url": "git+https://github.com/regulus-team/rt-pack/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Andriypodolian/rt-skeleton.git"
+    "url": "git+https://github.com/regulus-team/rt-pack/tree/main/projects/rt-skeleton"
   },
   "peerDependencies": {
     "@angular/common": "^16.0.0",
