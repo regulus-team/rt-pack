@@ -5,12 +5,33 @@
 ![](rt-skeleton.gif)
 
 
-### Import or add global style for skeleton placeholder 
-```scss
+
+
+## rtSkeletonPlaceholder directive
+
+| Option                | Default | Type  | Description |
+|-----------------------|---------|-------|-------------|
+| **widthSkeleton**     | 100%    | Input |             |
+| **heightSkeleton**    | 100%    | Input |             |
+| **radiusPlaceholder** | 5px     | Input |             |
+| **leftSkeleton**      | 0       | Input |             |
+
+
+
+## rtSkeletonContainer directive
+
+| Option                | Default | Type  | Description                     |
+|-----------------------|---------|-------|---------------------------------|
+| **iterations**        | 1       | Input | amount mock containers for load |
+
+``*rtForSkeleton extended by *ngFor directive``
+
+### Import or add global style for skeleton placeholder
+```css
 @import 'node_modules/rt-skeleton/styles/styles.scss';
 ```
 
-```scss
+```css
 .rt-skeleton-segment {
 
   background: linear-gradient(0.85turn, rgba(39, 39, 39, 0.09), rgba(39, 39, 39, 0.03), rgba(39, 39, 39, 0.09));
@@ -115,23 +136,5 @@
   </div>
 </div>
 ```
-
-## rtSkeletonPlaceholder directive
-
-| Option                | Default | Type  | Description |
-|-----------------------|---------|-------|-------------|
-| **widthSkeleton**     | 100%    | Input |             |
-| **heightSkeleton**    | 100%    | Input |             |
-| **radiusPlaceholder** | 5px     | Input |             |
-| **leftSkeleton**      | 0       | Input |             |
-
-## *rtForSkeleton extended by *ngFor directive
-
-## rtSkeletonContainer directive
-
-| Option                | Default | Type  | Description                     |
-|-----------------------|---------|-------|---------------------------------|
-| **iterations**        | 1       | Input | amount mock containers for load |
-
 
 https://www.regulus.team/
