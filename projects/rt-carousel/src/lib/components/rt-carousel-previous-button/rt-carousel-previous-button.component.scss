@@ -1,0 +1,22 @@
+
+.rt-carousel__next-part {
+  cursor: pointer;
+  display: flex;
+  z-index: 1;
+  height: 100%;
+  transition: box-shadow .3s;
+  width: 35px;
+  align-items: center;
+  justify-content: center;
+}
+
+.rt-carousel__shadow-left-array {
+  box-shadow: 10px 0 10px -10px #000000b5;
+  border-right: solid 0.3px;
+  border-image: linear-gradient(to bottom, transparent, #878787, rgba(0, 0, 0, 0)) 0 100%;
+  z-index: 11;
+  height: 100%;
+  width: 35px;
+  align-items: center;
+  justify-content: center;
+}

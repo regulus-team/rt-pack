@@ -1,0 +1,92 @@
+<div class="rt-skeleton-example">
+
+
+  <div class="examples">
+    <div class="rt-skeleton__group">
+      <span>RT_SKELETON - FIELDS</span>
+      <div class="view-container">
+
+        <div
+          class="rt-skeleton__item"
+          rtSkeletonContainer
+          [while]="inProgress$ | async"
+          *ngIf="{item: item$ | async} as data"
+        >
+
+          <div
+            class="item__avatar"
+            rtSkeletonPlaceholder
+            radiusPlaceholder="50%"
+            widthSkeleton="50px"
+            heightSkeleton="50px"
+          >
+            <img class="item__avatar" src="/assets/icons/avatar_1.png" alt="">
+          </div>
+
+          <div class="item-group"><span>Name: </span>
+            <div rtSkeletonPlaceholder widthSkeleton="150px" class="item__value">{{data.item.name.first_name}}</div>
+          </div>
+          <div class="item-group"><span>Age: </span>
+            <div rtSkeletonPlaceholder widthSkeleton="150px" class="item__value">{{data.item.age}}</div>
+          </div>
+          <div class="item-group"><span>address: </span>
+            <div rtSkeletonPlaceholder widthSkeleton="150px" class="item__value">{{data.item.address}}</div>
+          </div>
+          <div class="item-group"><span>phone: </span>
+            <div rtSkeletonPlaceholder widthSkeleton="150px" class="item__value">{{data.item.phone}}</div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="rt-skeleton__group">
+      <span>RT_SKELETON - NgFor</span>
+      <div
+        rtSkeletonContainer
+        [iterations]="2"
+        [while]="inProgress$ | async"
+        class="rt-skeleton-example__container"
+      >
+        <div
+          class="rt-skeleton__item"
+          *rtForSkeleton="let data of items$ | async;"
+        >
+          <div
+            rtSkeletonPlaceholder
+            radiusPlaceholder="50%"
+            widthSkeleton="50px"
+            heightSkeleton="50px"
+            class="item__avatar"
+          >
+            <img class="item__avatar" src="/assets/icons/avatar_1.png" alt="">
+          </div>
+
+          <div class="item-group">
+            <div>Name:</div>
+            <div class="item__value" rtSkeletonPlaceholder widthSkeleton="150px">{{data.name.first_name}}</div>
+          </div>
+          <div class="item-group">
+            <div>Age:</div>
+            <div class="item__value" rtSkeletonPlaceholder widthSkeleton="150px">{{data.age}}</div>
+          </div>
+          <div class="item-group">
+            <div>Address:</div>
+            <div class="item__value" rtSkeletonPlaceholder widthSkeleton="150px">{{data.address}}</div>
+          </div>
+          <div class="item-group">
+            <div>Phone:</div>
+            <div class="item__value" rtSkeletonPlaceholder widthSkeleton="150px">{{data.phone}}</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <markdown mermaid lineNumbers clipboard [data]="readme"></markdown>
+
+</div>

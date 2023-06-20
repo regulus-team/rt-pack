@@ -1,0 +1,50 @@
+.rt-skeleton-example {
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.examples {
+  display: flex;
+  gap: 16px;
+}
+
+.rt-skeleton-example__container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.rt-skeleton__item {
+  background: #d8e3fe;
+  width: 250px;
+  border-radius: 12px;
+  height: 200px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.item__value {
+  color: gray;
+  min-height: 24px;
+}
+
+.item__avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.item-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rt-skeleton__group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

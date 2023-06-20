@@ -1,0 +1,20 @@
+.rt-carousel__shadow-right-array {
+  box-shadow: -12px 0 12px -10px rgb(0 0 0 / 71%);
+  border-left: solid 0.3px;
+  border-image: linear-gradient(to bottom, transparent, #b6b6b6, rgba(0, 0, 0, 0)) 0 100%;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  height: 100%;
+  width: 35px;
+}
+
+.rt-carousel__next-part {
+  cursor: pointer;
+  width: 35px;
+  align-items: center;
+  display: flex;
+  z-index: 1;
+  height: 100%;
+  transition: box-shadow .3s;
+}
