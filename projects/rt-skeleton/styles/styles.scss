@@ -1,0 +1,19 @@
+.rt-skeleton-segment {
+  background: linear-gradient(0.85turn, rgba(39, 39, 39, 0.09), rgba(39, 39, 39, 0.03), rgba(39, 39, 39, 0.09));
+  animation: colorChange 2s infinite linear;
+
+  @keyframes colorChange {
+    from {
+      background-position: top 0 left 0;
+      background-size: 1000%
+    }
+    50% {
+      background-position: top center;
+      background-size: 1000%
+    }
+    to {
+      background-position: top 0 right 0;
+      background-size: 1000%
+    }
+  }
+}

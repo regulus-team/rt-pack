@@ -1,0 +1,30 @@
+{
+  "name": "rt-tab-carousel",
+  "version": "1.0.12",
+  "license": "MIT",
+  "description": "Angular tab carousel component",
+  "scripts": {
+    "lib:build": "ng build rt-carousel",
+    "lib:watch": "ng build rt-carousel --watch",
+    "lib:publish": "npm run lib:build && cd ../../dist/rt-carousel && npm pack && npm publish"
+  },
+  "keywords": [
+    "angular",
+    "carousel",
+    "tab",
+    "tabs",
+    "angular-carousel",
+    "angular-tab",
+    "angular-tabs",
+    "angular-tab-carousel",
+    "angular-tabs-carousel"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

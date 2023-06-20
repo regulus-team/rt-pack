@@ -1,0 +1,33 @@
+.header {
+  height: 56px;
+  background: var(--primary-400);
+  align-items: center;
+  display: flex;
+  padding: 0 20px;
+  gap: 26px;
+}
+
+.header__label {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.header__team {
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.header__link {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header__link_activate {
+  border-bottom: solid 4px;
+  padding: 10px 0;
+}

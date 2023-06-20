@@ -1,14 +1,15 @@
 {
   "name": "rt-pack",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "create:library": "ng generate library"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^16.0.0",
     "@angular/common": "^16.0.0",
@@ -18,6 +19,16 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "@types/katex": "^0.16.0",
+    "@types/marked": "^4.3.0",
+    "clipboard": "^2.0.11",
+    "install": "^0.13.0",
+    "katex": "^0.16.7",
+    "marked": "4",
+    "mermaid": "^10.2.3",
+    "ngx-markdown": "^16.0.0",
+    "prismjs": "^1.29.0",
+    "rt-tab-carousel": "^1.0.12",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -33,6 +44,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "ng-packagr": "^16.0.0",
     "typescript": "~5.0.2"
   }
 }
