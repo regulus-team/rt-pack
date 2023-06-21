@@ -151,23 +151,23 @@
         }
       }
     },
-    "rt-carousel": {
+    "rt-tab-carousel": {
       "projectType": "library",
-      "root": "projects/rt-carousel",
-      "sourceRoot": "projects/rt-carousel/src",
+      "root": "projects/rt-tab-carousel",
+      "sourceRoot": "projects/rt-tab-carousel/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/rt-carousel/ng-package.json"
+            "project": "projects/rt-tab-carousel/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/rt-carousel/tsconfig.lib.prod.json"
+              "tsConfig": "projects/rt-tab-carousel/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/rt-carousel/tsconfig.lib.json"
+              "tsConfig": "projects/rt-tab-carousel/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -175,7 +175,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/rt-carousel/tsconfig.spec.json",
+            "tsConfig": "projects/rt-tab-carousel/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

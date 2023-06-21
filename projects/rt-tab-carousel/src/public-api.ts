@@ -1,5 +1,5 @@
 /*
- * Public API Surface of rt-carousel
+ * Public API Surface of rt-tab-carousel
  */
 
 export * from './lib/services/rt-carousel.service';

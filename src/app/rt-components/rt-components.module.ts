@@ -1,12 +1,15 @@
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {MarkdownModule} from 'ngx-markdown';
 import {RtSkeletonModule} from 'rt-skeleton';
+import {RtCarouselModule} from 'rt-tab-carousel';
+
+import {RtCarouselRootComponent} from './components/rt-carousel-root/rt-carousel-root.component';
 import {RtSkeletonComponent} from './components/rt-skeleton-root/rt-skeleton.component';
 import {SideBarComponent} from './components/side-bar/side-bar.component';
 import {RtComponentsRootComponent} from './containers/rt-components-root/rt-components-root.component';
-import { RtCarouselComponent } from './containers/rt-carousel/rt-carousel.component';
+
 
 const routes: Routes = [
   {
@@ -18,8 +21,8 @@ const routes: Routes = [
         component: RtSkeletonComponent,
       },
       {
-        path: 'rt-carousel',
-        component: RtCarouselComponent,
+        path: 'rt-tab-carousel',
+        component: RtCarouselRootComponent,
       },
     ],
   },
@@ -29,15 +32,17 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     RtSkeletonComponent,
+    RtCarouselRootComponent,
     SideBarComponent,
     RtComponentsRootComponent,
-    RtCarouselComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
     RtSkeletonModule,
     MarkdownModule,
+    RtCarouselModule,
+    NgOptimizedImage,
   ],
 })
 export class RtComponentsModule {

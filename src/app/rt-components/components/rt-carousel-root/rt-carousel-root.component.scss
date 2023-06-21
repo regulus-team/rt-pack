@@ -1,0 +1,241 @@
+
+.date-picker {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.date-picker__label {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.date-picker-year {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.date-picker-year__label {
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  color: var(--primary-200);
+}
+
+.date-picker-select {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+}
+
+.date-picker-title {
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  color: var(--tertiary-800);
+  white-space: nowrap;
+  display: flex;
+  gap: 5px;
+}
+
+.date-picker-title_img {
+  width: 20px;
+}
+
+.date-picker__group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+.date-picker-available-dates {
+  flex: 1;
+  width: 0;
+  overflow: scroll;
+  height: 90px;
+  align-items: center;
+  display: flex;
+  padding: 0 16px;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0
+  }
+}
+
+.date-picker-available-dates-content {
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+
+.date-picker-previous-date,
+.date-picker-next-date {
+  cursor: pointer;
+  height: 90px;
+  width: 24px;
+  align-items: center;
+  display: flex;
+  z-index: 1;
+  transition: box-shadow .3s;
+}
+
+
+.date-picker-previous-date {
+  width: auto;
+  padding: 0 10px 0 0;
+}
+
+.date-picker-previous-date__shadow-left-array {
+  box-shadow: 10px 0 10px -10px #000000b5;
+  border-right: solid 0.3px;
+  border-image: linear-gradient(to bottom, transparent, #0e0e0e, rgb(0 0 0 / 0%)) 0 100%;
+}
+
+.date-picker-previous-date__shadow-right-array {
+  box-shadow: -10px 0 10px -10px #000000b5;
+  border-left: solid 0.3px;
+  border-image: linear-gradient(to bottom, transparent, #0e0e0e, rgb(0 0 0 / 0%)) 0 100%;
+}
+
+.date-picker-month-caption {
+  width: 48px;
+  min-width: 48px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 14px;
+  font-weight: 500;
+  border-left: 1px dashed var(--text-border-light);
+  color: var(--tertiary-600);
+}
+
+.date-picker-month-caption-fixed {
+  font-size: 14px;
+  font-weight: 500;
+  width: 20px;
+  color: var(--tertiary-600);
+}
+
+.date-picker-day-view {
+  width: 48px;
+  min-width: 48px;
+  height: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px 0 0;
+  padding: 7px 8px 4px 8px;
+  background: #FFFFFF;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.date-picker-day-view__active {
+  background: var(--primary-200);
+
+  .date-picker-day-name, .date-picker-day-number {
+    color: white;
+  }
+
+  .date-picker-point {
+    background: white;
+  }
+}
+
+.date-picker-day-name {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--tertiary-600);
+}
+
+.date-picker-day-number {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--tertiary-800);
+}
+
+.date-picker-point {
+  width: 4px;
+  height: 4px;
+  min-width: 4px;
+  min-height: 4px;
+  border-radius: 2px;
+  background-color: var(--primary-200);
+}
+
+
+.year-button {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.date-picker_arrow {
+  display: flex;
+  align-items: center;
+}
+
+.rt-carousel__next-part {
+  cursor: pointer;
+  width: 24px;
+  align-items: center;
+  display: flex;
+  z-index: 1;
+  transition: box-shadow .3s;
+}
+
+.rt-carousel__shadow-left-array {
+  box-shadow: 10px 0 10px -10px #000000b5;
+  border-right: solid 0.3px;
+  border-image: linear-gradient(to bottom, transparent, #878787, rgba(0, 0, 0, 0)) 0 100%;
+  z-index: 11;
+}
+
+.rt-carousel__shadow-right-array {
+  box-shadow: -10px 0 10px -10px #000000b5;
+  border-left: solid 0.3px;
+  border-image: linear-gradient(to bottom, transparent, #878787, rgba(0, 0, 0, 0)) 0 100%;
+  z-index: 10;
+}
+
+.rt-carousel-directive-example {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  overflow: auto;
+}
+
+.services-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #434343;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.services-info__value {
+  color: #fcfcfc;
+  background: var(--primary-200);
+  padding: 6px;
+  border-radius: 5px;
+}
+
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

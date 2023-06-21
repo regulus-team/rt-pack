@@ -1,8 +1,23 @@
 # RT-TAB-CAROUSEL
 
+## Install
+
+```bash
+yarn add rt-tab-skeleton
+```
+
+or
+
+```bash
+npm install rt-tab-skeleton
+```
 
 
-![](rt-tab-carousel.png)
+
+![](/projects/rt-tab-carousel/rt-tab-carousel_1.gif)
+![](/projects/rt-tab-carousel/rt-tab-carousel_2.gif)
+
+
 ``rtCarouselContainer``
 
 Use for a ready-made container in which all the items lie
@@ -13,7 +28,6 @@ Use for a ready-made container in which all the items lie
 | **uuidCarousel** *required | null    | Input | This is a required property that indicates ownership and creates relationships between controls, containers, and items |
 | **activeClass**            | null    | Input | Apply class for styling for the last selected tab                                                                      |
 | **antiBounce**             | 5       | Input | Anti bounce for scrolling                                                                                              |
-
 
 # IMPORTANT USE trackBy for *ngFor
 
@@ -37,8 +51,8 @@ Use for a ready-made container in which all the items lie
 ## Button components
 
 ``` html
-<rt-rt-carousel-previous-button></rt-rt-carousel-previous-button>
-<rt-rt-carousel-next-button></rt-rt-carousel-next-button>
+<rt-carousel-previous-button></rt-carousel-previous-button>
+<rt-carousel-next-button></rt-carousel-next-button>
 ```
 
 | Option           | Default         | Type  | Description                                                                                                            |
@@ -70,12 +84,12 @@ Use for a ready-made container in which all the items lie
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
-  selector: 'rt-carousel-directive-example',
-  templateUrl: './rt-carousel-directive-example.component.html',
-  styleUrls: ['./rt-carousel-directive-example.component.scss'],
+  selector: 'rt-tab-carousel-directive-example',
+  templateUrl: './rt-tab-carousel-root.component.html',
+  styleUrls: ['./rt-tab-carousel-root.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RtCarouselDirectiveExampleComponent {
+export class RtCarouselRootComponent {
   disableTab = false;
   selectedTabIndex: number;
 
@@ -136,6 +150,7 @@ export class RtCarouselDirectiveExampleComponent {
 ## Note that you can also use ready-made button components
 
 ```html
+
 <rt-carousel-previous-button uuidCarousel="carousel-text-book"></rt-carousel-previous-button>
 <rt-carousel-next-button uuidCarousel="carousel-text-book"></rt-carousel-next-button>
 ```

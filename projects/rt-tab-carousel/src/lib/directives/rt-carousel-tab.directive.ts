@@ -31,9 +31,9 @@ export class RtCarouselTabDirective implements OnInit, OnDestroy {
   @Input() set disabledTab(value: boolean) {
     this._disabledTab = value;
     if (value) {
-      this.renderer.addClass(this.el.nativeElement, 'rt-carousel-tab__disabled');
+      this.renderer.addClass(this.el.nativeElement, 'rt-tab-carousel-tab__disabled');
     } else {
-      this.renderer.removeClass(this.el.nativeElement, 'rt-carousel-tab__disabled');
+      this.renderer.removeClass(this.el.nativeElement, 'rt-tab-carousel-tab__disabled');
     }
   }
 
