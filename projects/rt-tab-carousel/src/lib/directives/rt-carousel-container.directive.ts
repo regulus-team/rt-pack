@@ -48,7 +48,7 @@ export class RtCarouselContainerDirective implements OnInit, AfterViewInit, OnDe
     this.renderer.setStyle(this.el.nativeElement, 'align-items', 'center');
     this.renderer.setStyle(this.el.nativeElement, 'gap', '6px');
     this.renderer.setStyle(this.el.nativeElement, 'scrollbar-width', 'none');
-    this.renderer.addClass(this.el.nativeElement, 'rt-carousel-container');
+    this.renderer.addClass(this.el.nativeElement, 'rt-tab-carousel-container');
   }
 
   ngAfterViewInit(): void {

@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'rt-carousel-next-button',
+  selector: 'rt-tab-carousel-next-button',
   templateUrl: './rt-carousel-next-button.component.html',
   styleUrls: ['./rt-carousel-next-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
