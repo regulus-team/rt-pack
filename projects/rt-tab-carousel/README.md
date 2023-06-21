@@ -14,8 +14,8 @@ npm install rt-tab-skeleton
 
 
 
-![](/projects/rt-tab-carousel/rt-tab-carousel_1.gif)
-![](/projects/rt-tab-carousel/rt-tab-carousel_2.gif)
+![](/projects/rt-tab-carousel/rt-carousel_1.gif)
+![](/projects/rt-tab-carousel/rt-carousel_2.gif)
 
 
 ``rtCarouselContainer``
