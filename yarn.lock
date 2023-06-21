@@ -6041,10 +6041,10 @@ rt-skeleton@^1.0.11:
   dependencies:
     tslib "^2.3.0"
 
-rt-tab-carousel@^1.0.18:
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/rt-tab-carousel/-/rt-tab-carousel-1.0.18.tgz#54a95aa11a0b250541032f16458afbe34c313215"
-  integrity sha512-k2RM4ACtlx1Sj5ziGbBxgcJv8kzAlNhuPwCQCPqhKTHnQtxGllGcraFKDh2u5+vc4w71dbZvH+gy5n4rp6LOIQ==
+rt-tab-carousel@^1.0.19:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/rt-tab-carousel/-/rt-tab-carousel-1.0.19.tgz#d14b515f1f7069bb686b61bbed6450cbbcfac85b"
+  integrity sha512-3OeEc0fXKvZ5YxhhRnDXT6A71w3j6U3VGkYRmKsqFJk8GqpvX1sfgNQBtOodpY8vJybX1JozY3nW6cRvNNHlNA==
   dependencies:
     tslib "^2.3.0"
 
