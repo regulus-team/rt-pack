@@ -1,7 +1,7 @@
 # RT-TAB-CAROUSEL
 
-![](projects/rt-tab-carousel/rt-carousel_1.gif)
-![](projects/rt-tab-carousel/rt-carousel_2.gif)
+![](/projects/rt-tab-carousel/rt-carousel_1.gif)
+![](/projects/rt-tab-carousel/rt-carousel_2.gif)
 
 
 ## Install
