@@ -2,15 +2,6 @@
 
 ![](/projects/rt-skeleton/rt-skeleton.gif)
 
-### Import or add global style for skeleton placeholder 
-```scss
-@import 'node_modules/rt-skeleton/styles/styles.scss';
-```
-
-
-
-
-
 
 ## rtSkeletonPlaceholder directive
 
