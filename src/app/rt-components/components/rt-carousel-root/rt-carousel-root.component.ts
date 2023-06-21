@@ -37,6 +37,11 @@ export interface DateNavigationInfo {
 })
 export class RtCarouselRootComponent implements OnInit {
   @ViewChild('dateNav') dateNav: ElementRef<HTMLElement>;
+
+  loadingReadme$ = new BehaviorSubject<boolean>(true);
+  readme = '';
+
+
   public dateLastMonth$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   public currentYear$: BehaviorSubject<number> = new BehaviorSubject<number>(null);
   public navigationItems$: Observable<DateNavigationInfo[]>;
@@ -71,6 +76,7 @@ export class RtCarouselRootComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.readMarkdownFile();
     this.navigationItems$ = this.availableDates$.pipe(
       // Sort dates from oldest to newest.
       map(dates => dates.sort((a, b) => a.date.getTime() - b.date.getTime())),
@@ -130,5 +136,24 @@ export class RtCarouselRootComponent implements OnInit {
 
   setScrollStep(value) {
     this.rtCarouselService.setScrollStep('dates-carousel', +value);
+  }
+
+  readMarkdownFile() {
+    const fileReader = new FileReader();
+
+    fileReader.onload = (e) => {
+      this.loadingReadme$.next(false);
+      this.readme = fileReader.result as string;
+    };
+
+    const filePath = '/assets/rt-tab-carousel/README.md';
+
+    fetch(filePath)
+      .then(response => response.text())
+      .then(text => {
+        const blob = new Blob([text], {type: 'text/plain'});
+
+        fileReader.readAsText(blob);
+      });
   }
 }
