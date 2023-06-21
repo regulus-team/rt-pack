@@ -2,7 +2,7 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {MarkdownModule} from 'ngx-markdown';
-import {RtSkeletonModule} from '../../../projects/rt-skeleton/src/lib/rt-skeleton.module';
+import {RtSkeletonModule} from 'rt-skeleton';
 import {RtSkeletonComponent} from './components/rt-skeleton-root/rt-skeleton.component';
 import {SideBarComponent} from './components/side-bar/side-bar.component';
 import {RtComponentsRootComponent} from './containers/rt-components-root/rt-components-root.component';
@@ -36,7 +36,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    RtSkeletonModule,
     RtSkeletonModule,
     MarkdownModule,
   ],

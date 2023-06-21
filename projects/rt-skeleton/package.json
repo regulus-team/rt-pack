@@ -1,10 +1,6 @@
 {
   "name": "rt-skeleton",
-<<<<<<< HEAD
-  "version": "1.0.10",
-=======
   "version": "1.0.11",
->>>>>>> main
   "license": "MIT",
   "scripts": {
     "lib:build": "ng build rt-skeleton",
@@ -20,20 +16,11 @@
     "progress"
   ],
   "bugs": {
-<<<<<<< HEAD
-    "url": "git+https://github.com/Andriypodolian/rt-skeleton/issue",
-    "email": "georgboosh@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Andriypodolian/rt-skeleton.git"
-=======
     "url": "git+https://github.com/regulus-team/rt-pack/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/regulus-team/rt-pack/tree/main/projects/rt-skeleton"
->>>>>>> main
+    "url": "git+https://github.com/regulus-team/rt-pack.git"
   },
   "peerDependencies": {
     "@angular/common": "^16.0.0",

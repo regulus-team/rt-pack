@@ -6029,6 +6029,13 @@ rollup@^3.0.0, rollup@^3.21.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
+rt-skeleton@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/rt-skeleton/-/rt-skeleton-1.0.11.tgz#e92e0a9f93980deed0fa0f996c84f0ea9041f7ac"
+  integrity sha512-7mMd2Oe9Xm/+BiGH8C7DqbsC5POQohd+fZGYwtTLwmV6opom8Rcd+Wdm46ZZWB/7K5NWsYNrMRpp8ImD4Ugw5g==
+  dependencies:
+    tslib "^2.3.0"
+
 rt-tab-carousel@^1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/rt-tab-carousel/-/rt-tab-carousel-1.0.12.tgz#a220beb067e869ceaf5432767c643f59fea37d7a"
