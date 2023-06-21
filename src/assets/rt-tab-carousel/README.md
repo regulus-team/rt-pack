@@ -3,16 +3,19 @@
 ## Install
 
 ```bash
-yarn add rt-tab-skeleton
+yarn add rt-tab-carousel
 ```
 
 or
 
 ```bash
-npm install rt-tab-skeleton
+npm install rt-tab-carousel
 ```
 
 
+
+![](/projects/rt-tab-carousel/rt-carousel_1.gif)
+![](/projects/rt-tab-carousel/rt-carousel_2.gif)
 
 
 ``rtCarouselContainer``
@@ -154,7 +157,7 @@ export class RtCarouselRootComponent {
 
 ### rt-carousel-directive-example.scss
 
-```scss
+```css
 .rt-carousel-example {
   display: flex;
   flex-direction: column;

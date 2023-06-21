@@ -1,6 +1,6 @@
 {
   "name": "rt-tab-carousel",
-  "version": "1.0.19",
+  "version": "1.0.22",
   "license": "MIT",
   "description": "Angular tab carousel component",
   "scripts": {
