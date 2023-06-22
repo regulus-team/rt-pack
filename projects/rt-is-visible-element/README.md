@@ -1,7 +1,7 @@
 ## RT IS VISIBLE ELEMENT
 
 
-![](/projects/rt-query-params-router-link/rt-query-params-router-link.gif)
+![](/projects/rt-is-visible-element/rt-is-visible-element.gif)
 
 # Install
 

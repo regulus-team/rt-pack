@@ -1,7 +1,5 @@
 ## RT IS VISIBLE ELEMENT
 
-![](/projects/rt-query-params-router-link/rt-query-params-router-link.gif)
-
 # Install
 
 ```bash
