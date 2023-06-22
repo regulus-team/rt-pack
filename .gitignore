@@ -40,3 +40,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/projects/rt-overflow-tooltip/node_modules/
+/projects/rt-query-params-router-link/node_modules/

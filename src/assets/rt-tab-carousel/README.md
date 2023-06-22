@@ -13,11 +13,6 @@ npm install rt-tab-carousel
 ```
 
 
-
-![](/projects/rt-tab-carousel/rt-carousel_1.gif)
-![](/projects/rt-tab-carousel/rt-carousel_2.gif)
-
-
 ``rtCarouselContainer``
 
 Use for a ready-made container in which all the items lie

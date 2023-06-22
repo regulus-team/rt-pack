@@ -1,0 +1,33 @@
+{
+  "name": "rt-define-stroke-width",
+  "version": "1.0.4",
+  "license": "MIT",
+  "scripts": {
+    "lib:build": "ng build rt-define-stroke-width",
+    "lib:watch": "ng build rt-define-stroke-width --watch",
+    "lib:publish": "npm run lib:build && cd ../../dist/rt-define-stroke-width && npm pack && npm publish"
+  },
+  "keywords": [
+    "angular",
+    "font",
+    "stroke",
+    "width",
+    "define",
+    "define-stroke-width"
+  ],
+  "bugs": {
+    "url": "git+https://github.com/regulus-team/rt-pack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regulus-team/rt-pack.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

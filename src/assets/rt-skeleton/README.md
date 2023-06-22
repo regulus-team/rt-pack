@@ -1,12 +1,5 @@
 ## RT_SKELETON
 
-
-
-![](/projects/rt-skeleton/rt-skeleton.gif)
-
-
-
-
 ## rtSkeletonPlaceholder directive
 
 | Option                | Default | Type  | Description |

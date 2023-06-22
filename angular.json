@@ -183,6 +183,237 @@
           }
         }
       }
+    },
+    "rt-table-moving": {
+      "projectType": "library",
+      "root": "projects/rt-table-moving",
+      "sourceRoot": "projects/rt-table-moving/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rt-table-moving/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rt-table-moving/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rt-table-moving/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/rt-table-moving/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "rt-auto-focus": {
+      "projectType": "library",
+      "root": "projects/rt-auto-focus",
+      "sourceRoot": "projects/rt-auto-focus/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rt-auto-focus/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rt-auto-focus/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rt-auto-focus/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/rt-auto-focus/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "rt-overflow-tooltip": {
+      "projectType": "library",
+      "root": "projects/rt-overflow-tooltip",
+      "sourceRoot": "projects/rt-overflow-tooltip/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rt-overflow-tooltip/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rt-overflow-tooltip/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rt-overflow-tooltip/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/rt-overflow-tooltip/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "rt-query-params-router-link": {
+      "projectType": "library",
+      "root": "projects/rt-query-params-router-link",
+      "sourceRoot": "projects/rt-query-params-router-link/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rt-query-params-router-link/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rt-query-params-router-link/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rt-query-params-router-link/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/rt-query-params-router-link/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "rt-define-stroke-width": {
+      "projectType": "library",
+      "root": "projects/rt-define-stroke-width",
+      "sourceRoot": "projects/rt-define-stroke-width/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rt-define-stroke-width/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rt-define-stroke-width/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rt-define-stroke-width/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/rt-define-stroke-width/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "rt-platform": {
+      "projectType": "library",
+      "root": "projects/rt-platform",
+      "sourceRoot": "projects/rt-platform/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rt-platform/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rt-platform/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rt-platform/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/rt-platform/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "rt-is-visible-element": {
+      "projectType": "library",
+      "root": "projects/rt-is-visible-element",
+      "sourceRoot": "projects/rt-is-visible-element/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rt-is-visible-element/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rt-is-visible-element/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rt-is-visible-element/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/rt-is-visible-element/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }

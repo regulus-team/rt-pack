@@ -1,0 +1,22 @@
+<div class="rt-is-visible-element">
+  <div class="user-list">
+    <div
+      class="user-list__item"
+      *ngFor="let user of users; let index=index"
+      rtIsElementVisible
+      [debounceTime]="100"
+      [isContinuous]="true"
+      (isIntersecting)="isIntersecting($event, index)"
+    >
+      {{user.name}}
+    </div>
+  </div>
+
+  <div class="rt-is-visible-element__res">
+    <div *ngFor="let item of users; let index=index">
+      <div [ngStyle]="{'color': consoleDict[index] ? '#356580' : '#1fa7ff'}">{{consoleDict[index]}}</div>
+    </div>
+  </div>
+
+  <markdown mermaid clipboard [data]="readme"></markdown>
+</div>

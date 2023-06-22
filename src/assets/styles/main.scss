@@ -55,7 +55,7 @@ h1 {
 code {
   font-size: 1em;
   border-radius: 2px;
-  background: #d9d9d9;
+  background: #e6e6e6;
   padding: 0 5px;
   font-variant-ligatures: none;
   font-family: 'Fira Mono', 'Andale Mono', 'Consolas', monospace;
@@ -104,4 +104,12 @@ tr:nth-child(2n) td {
 
 a {
   color: var(--additional-error);
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+li {
+  margin-left: 16px;
 }

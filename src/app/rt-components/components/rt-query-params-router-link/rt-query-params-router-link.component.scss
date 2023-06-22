@@ -1,0 +1,18 @@
+.rt-query-params-router-link__link {
+  cursor: pointer;
+  padding: 6px;
+
+  &_active {
+    color: var(--primary-400);
+    font-weight: bold;
+  }
+
+  &:hover {
+    background-color: #e6e6e6;
+  }
+}
+
+
+.rt-query-params-router-link__container {
+  border: solid;
+}

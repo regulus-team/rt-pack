@@ -18,6 +18,29 @@
       "es2020",
       "dom"
     ],
+    "paths": {
+      "rt-auto-focus": [
+        "dist/rt-auto-focus"
+      ],
+      "rt-define-stroke-width": [
+        "dist/rt-define-stroke-width"
+      ],
+      "rt-is-visible-element": [
+        "dist/rt-is-visible-element"
+      ],
+      "rt-overflow-tooltip": [
+        "dist/rt-overflow-tooltip"
+      ],
+      "rt-platform": [
+        "dist/rt-platform"
+      ],
+      "rt-query-params-router-link": [
+        "dist/rt-query-params-router-link"
+      ],
+      "rt-table-moving": [
+        "dist/rt-table-moving"
+      ]
+    },
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true

@@ -1,0 +1,32 @@
+{
+  "name": "rt-query-params-router-link",
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "router",
+    "query",
+    "router-link"
+  ],
+  "scripts": {
+    "lib:build": "ng build rt-query-params-router-link",
+    "lib:watch": "ng build rt-query-params-router-link --watch",
+    "lib:publish": "npm run lib:build && cd ../../dist/rt-query-params-router-link && npm pack && npm publish"
+  },
+  "bugs": {
+    "url": "git+https://github.com/regulus-team/rt-pack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regulus-team/rt-pack.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0",
+    "rt-platform": "^0.0.2"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

@@ -57,7 +57,7 @@ export class RtSkeletonComponent implements OnInit {
     });
   }
 
-  readMarkdownFile() {
+  readMarkdownFile(): void {
     const fileReader = new FileReader();
 
     fileReader.onload = (e) => {

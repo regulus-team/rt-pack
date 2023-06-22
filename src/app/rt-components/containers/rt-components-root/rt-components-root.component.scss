@@ -1,13 +1,16 @@
 .rt-components-root {
   display: flex;
-  margin-top: 24px;
+  height: calc(100vh - 80px);
 }
 
 .rt-components-root__side-bar {
-  width: 250px;
+  width: 300px;
+  border-right: solid gainsboro;
+  padding: 16px 0;
 }
 
 .rt-components-root__content {
   flex: 1;
   overflow: auto;
+  padding: 0 16px;
 }

@@ -1,0 +1,31 @@
+{
+  "name": "rt-is-visible-element",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "lib:build": "ng build rt-is-visible-element",
+    "lib:watch": "ng build rt-is-visible-element --watch",
+    "lib:publish": "npm run lib:build && cd ../../dist/rt-is-visible-element && npm pack && npm publish"
+  },
+  "keywords": [
+    "angular",
+    "scroll",
+    "intersection",
+    "observer"
+  ],
+  "bugs": {
+    "url": "git+https://github.com/regulus-team/rt-pack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regulus-team/rt-pack.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

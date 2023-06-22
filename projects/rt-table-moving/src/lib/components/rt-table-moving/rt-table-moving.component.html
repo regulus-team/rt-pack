@@ -1,0 +1,180 @@
+<div class="rt-table-moving">
+
+
+  <!--  CONTROLS -->
+  <div class="rt-table-moving__controls">
+    <div>
+      <span class="rt-table-moving__controls-range">{{firstClassNumber}}-{{lastClassNumber}}</span> /
+      <span>{{maxCountVisibleDynamicColumns}}</span>
+    </div>
+
+    <div class="controls__group">
+      <button
+        class="button button_reset icon_clickable"
+        (click)="seePreviousPart()"
+        [ngClass]="{'icon_disabled': firstClassNumber < 2}"
+      >
+        <img src="/assets/images/icons/icn_chevron-left.svg" alt="left">
+      </button>
+
+      <button
+        class="button button_reset icon_clickable"
+        (click)="seeNextPart()"
+        [ngClass]="{'icon_disabled': lastClassNumber >= maxCountVisibleDynamicColumns}"
+      >
+        <img src="/assets/images/icons/icn_chevron-right.svg" alt="right">
+      </button>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="rt-table-moving__header">
+
+    <!--  HEADER STATIC DATA  -->
+    <div
+      *ngFor="let item of staticItems; let index=index"
+
+      class="rt-table-moving__header-label rt-table-moving__header-static"
+
+      [ngStyle]="{
+      'width': item.header.width ? item.header.width + 'px' : '150px',
+      'display': staticItems.length ? 'flex' : 'none',
+      'flex': dynamicData.length ? 'none' : 'auto'
+      }"
+
+    >
+      <div
+        *ngIf="item?.header.isRemovable"
+        class="rt-table-moving__delete-icon" (click)="deleteColumn('static', index)"
+      >
+        <img
+          class="filter-black-transform transform-to-FFFFFF transform-to-CD2222_on-hover"
+          ngSrc="/assets/images/icons/delete.svg" width="14" height="18" alt="Edit">
+      </div>
+
+      {{item.header.title}}
+    </div>
+
+    <!--  HEADER DYNAMIC DATA  -->
+    <div
+      [ngStyle]="{
+      'display': dynamicData.length ? 'flex' : 'none'
+      }"
+      class="rt-table-moving__header-label rt-table-moving__header-dynamic"
+
+      *ngFor="let i of [].constructor(itemsOnPage); let indexItem=index;">
+      <ng-container *ngIf="{index: firstClassNumber + indexItem - 1} as extractedHeader">
+
+        <div
+          *ngIf="dynamicData[extractedHeader.index]?.header.isRemovable"
+              class="rt-table-moving__delete-icon" (click)="deleteColumn('dynamic', extractedHeader.index)"
+        >
+          <img
+            class="filter-black-transform transform-to-FFFFFF transform-to-CD2222_on-hover"
+            ngSrc="/assets/images/icons/delete.svg" width="14" height="18" alt="Edit">
+        </div>
+
+
+        {{dynamicData[extractedHeader.index]?.header.title}}
+      </ng-container>
+    </div>
+  </div>
+
+
+  <!-- CONTENT -->
+  <div class="rt-table-moving__content">
+
+    <!--  CONTENT STATIC  -->
+    <div
+      class="rt-table-moving__header-static"
+      [ngStyle]="{
+         'display': staticItems.length ? 'flex' : 'none',
+         'flex': dynamicData.length ? 'none' : 'auto'
+      }"
+    >
+
+      <div
+        *ngFor="let staticItem of staticItems; let last=last; let staticGroupIndex=index"
+        class="rt-table-moving__column rt-table-moving__column-static"
+        [ngStyle]=" {'width': staticItem.header.width ? staticItem.header.width + 'px' : '150px'}"
+        [ngClass]="{ 'rt-table-moving__column_last': last && !dynamicData.length}"
+      >
+
+        <ng-container *ngFor="let item of staticItem.data; let itemIndex=index">
+          <div
+            *ngIf="(itemOnEdit !== itemIndex || groupIndex !== staticGroupIndex) || (groupOnEdit !== 'static' || !groupOnEdit); else inputForEditStatic"
+            [rtOverflowTooltip]="item.value"
+            class="rt-table-moving__item rt-table-moving__item-static rt-table-moving__item-static_editable"
+            [ngClass]="{'rt-table-moving__item-static_readonly': !item.isEditable}"
+            (click)="markItemForEdit(item, 'static', itemIndex, staticGroupIndex)"
+          >
+            {{item.value}}
+          </div>
+        </ng-container>
+
+
+        <ng-template #inputForEditStatic>
+                        <textarea
+                          rtAutofocus
+                          class="rt-table-moving__single-input"
+                          type="text"
+                          [maxlength]="256"
+                          [formControl]="singleItemInput"
+                          (blur)="markItemForEdit(null, 'static', null, null)"
+                        ></textarea>
+        </ng-template>
+
+
+      </div>
+    </div>
+
+
+    <!--  CONTENT DYNAMIC  -->
+    <div class="rt-table-moving__header-dynamic" [ngStyle]="{'display': dynamicData.length ? 'flex' : 'none'}">
+      <div
+        *ngFor="let i of [].constructor(itemsOnPage); let indexItem=index; let odd=odd; let last=last"
+        class="rt-table-moving__column"
+        [ngClass]="{'rt-table-moving__column_last': last}"
+      >
+        <ng-container *ngIf="{index: firstClassNumber + indexItem - 1} as extractedContent">
+
+          <ng-container *ngFor="let item of dynamicData[extractedContent.index]?.data; let itemIndex=index">
+
+            <div
+              *ngIf="(itemOnEdit !== itemIndex || groupIndex !== extractedContent.index) || (groupOnEdit !== 'dynamic' || !groupOnEdit); else inputForEdit"
+              class="rt-table-moving__item rt-table-moving__item-dynamic rt-table-moving__item-static_editable"
+              [ngClass]="{
+              'rt-table-moving__odd-column': !odd,
+              'rt-table-moving__item-static_readonly': !item.isEditable
+              }"
+              [rtOverflowTooltip]="item.value"
+              (click)="markItemForEdit(item, 'dynamic', itemIndex, extractedContent.index)"
+            >
+              {{item.value}}
+            </div>
+          </ng-container>
+
+
+          <ng-template #inputForEdit>
+                        <textarea
+                          rtAutofocus
+                          class="rt-table-moving__single-input"
+                          type="text"
+                          [maxlength]="256"
+                          [formControl]="singleItemInput"
+                          (blur)="markItemForEdit(null, 'dynamic', null, null)"
+                        ></textarea>
+          </ng-template>
+        </ng-container>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
