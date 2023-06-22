@@ -1,6 +1,6 @@
 {
   "name": "rt-is-visible-element",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "scripts": {
     "lib:build": "ng build rt-is-visible-element",
