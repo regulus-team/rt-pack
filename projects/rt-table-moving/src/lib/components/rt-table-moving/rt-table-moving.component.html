@@ -33,9 +33,7 @@
     <!--  HEADER STATIC DATA  -->
     <div
       *ngFor="let item of staticItems; let index=index"
-
-      class="rt-table-moving__header-label rt-table-moving__header-static"
-
+      class="header__group"
       [ngStyle]="{
       'width': item.header.width ? item.header.width + 'px' : '150px',
       'display': staticItems.length ? 'flex' : 'none',
@@ -43,16 +41,19 @@
       }"
 
     >
-      <div
-        *ngIf="item?.header.isRemovable"
-        class="rt-table-moving__delete-icon" (click)="deleteColumn('static', index)"
-      >
-        <img
-          class="filter-black-transform transform-to-FFFFFF transform-to-CD2222_on-hover"
-          ngSrc="/assets/images/icons/delete.svg" width="14" height="18" alt="Edit">
-      </div>
+      <div class="rt-table-moving__header-label rt-table-moving__header-static">
+        <div
+          *ngIf="item?.header.isRemovable"
+          class="rt-table-moving__delete-icon" (click)="deleteColumn('static', index)"
+        >
+          <img
+            class="filter-black-transform transform-to-FFFFFF transform-to-CD2222_on-hover"
+            ngSrc="/assets/images/icons/delete.svg" width="14" height="18" alt="Edit">
+        </div>
 
-      {{item.header.title}}
+        {{item.header.title}}
+      </div>
+      <div class="rt-table-moving__header-label" *ngIf="item.header.subTitle">{{item.header.subTitle}}</div>
     </div>
 
     <!--  HEADER DYNAMIC DATA  -->
@@ -60,23 +61,30 @@
       [ngStyle]="{
       'display': dynamicData.length ? 'flex' : 'none'
       }"
-      class="rt-table-moving__header-label rt-table-moving__header-dynamic"
+      class="header__group header__group_dynamic"
 
       *ngFor="let i of [].constructor(itemsOnPage); let indexItem=index;">
+
+
       <ng-container *ngIf="{index: firstClassNumber + indexItem - 1} as extractedHeader">
+        <div class="rt-table-moving__header-label rt-table-moving__header-static">
+          <div
+            *ngIf="dynamicData[extractedHeader.index]?.header.isRemovable"
+            class="rt-table-moving__delete-icon" (click)="deleteColumn('dynamic', extractedHeader.index)"
+          >
+            <img
+              class="filter-black-transform transform-to-FFFFFF transform-to-CD2222_on-hover"
+              ngSrc="/assets/images/icons/delete.svg" width="14" height="18" alt="Edit">
+          </div>
 
-        <div
-          *ngIf="dynamicData[extractedHeader.index]?.header.isRemovable"
-              class="rt-table-moving__delete-icon" (click)="deleteColumn('dynamic', extractedHeader.index)"
-        >
-          <img
-            class="filter-black-transform transform-to-FFFFFF transform-to-CD2222_on-hover"
-            ngSrc="/assets/images/icons/delete.svg" width="14" height="18" alt="Edit">
+
+          {{dynamicData[extractedHeader.index]?.header.title}}
         </div>
-
-
-        {{dynamicData[extractedHeader.index]?.header.title}}
+        <div class="rt-table-moving__header-label"
+             *ngIf="dynamicData[extractedHeader.index]?.header.subTitle">{{dynamicData[extractedHeader.index]?.header.subTitle}}</div>
       </ng-container>
+
+
     </div>
   </div>
 

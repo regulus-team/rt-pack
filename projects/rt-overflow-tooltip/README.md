@@ -1,24 +1,55 @@
-# RtOverflowTooltip
+# About
+RT Overflow Tooltip
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
-## Code scaffolding
+![](/projects/rt-overflow-tooltip/rt-overflow-tooltip.gif)
 
-Run `ng generate component component-name --project rt-overflow-tooltip` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project rt-overflow-tooltip`.
-> Note: Don't forget to add `--project rt-overflow-tooltip` or else it will be added to the default project in your `angular.json` file. 
+Provides directive that shows tooltip when text is overflowed.
 
-## Build
+# Usage
 
-Run `ng build rt-overflow-tooltip` to build the project. The build artifacts will be stored in the `dist/` directory.
+Add `RtOverflowTooltipModule` in imports into your `module:
 
-## Publishing
+```ts
+import {RtOverflowTooltipModule} from 'rt-overflow-tooltip';
 
-After building your library with `ng build rt-overflow-tooltip`, go to the dist folder `cd dist/rt-overflow-tooltip` and run `npm publish`.
+@NgModule({
+  ...
+  imports: [
+    ...
+    RtOverflowTooltipModule,
+    ...
+  ],
+  ...
+})
+export class YourModule {
+}  
+```
 
-## Running unit tests
+Apply the `rt-overflow-tooltip` attribute to the required element. Provided text will be displayed only if it is overflowed.
+`RtOverflowTooltip` extends `MatToolTip` so you can use all its properties.
 
-Run `ng test rt-overflow-tooltip` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Please note that `RtOverflowTooltip` only defines the tooltip's logic.
+You should define the display of the overflowing element itself.
 
-## Further help
+# Example
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Simple usage:
+```html
+<div>
+  <div class="css-hide-overflow" [rtOverflowTooltip]="'tooltip'">Some text</div>
+</div>
+
+<style>
+  .css-hide-overflow {
+    display: block;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+
+```
+
+https://www.regulus.team/

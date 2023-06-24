@@ -1,6 +1,6 @@
 {
   "name": "rt-skeleton",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "MIT",
   "scripts": {
     "lib:build": "ng build rt-skeleton",
@@ -29,6 +29,5 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "style": "styles.scss",
   "sideEffects": false
 }

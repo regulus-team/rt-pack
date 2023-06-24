@@ -19,6 +19,7 @@ export interface RtTableGroupedDataModel {
 
 export interface RtTableMovingHeaderModel {
   title: string;
+  subTitle?: string;
   width?: number;
   isRemovable?: boolean;
 }

@@ -5,6 +5,25 @@
 - rtQueryParamsRouterLink - base path
 - classActiveLink - class for active link
 
+# Usages
+
+```ts
+@NgModule({
+...
+  imports: [
+  ...
+    RtQueryParamsRouterLinkModule,
+    RtPlatformModule.forRoot({
+      localBaseUrl: 'some_local_url',
+      serverBaseUrl: 'some_server_url',
+    }),
+  ],
+})
+export class AnyModule {
+}
+```
+
+
 ```html
 
 <nav>

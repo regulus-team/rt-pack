@@ -14,6 +14,7 @@ import {RtTableMovingComponent} from './components/rt-table-moving/rt-table-movi
     CommonModule,
     RtOverflowTooltipModule,
     ReactiveFormsModule,
+    RtAutofocusInputModule,
     NgOptimizedImage,
   ],
   exports: [

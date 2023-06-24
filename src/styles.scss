@@ -1,3 +1,7 @@
+
 @import "src/assets/styles/main";
 @import "prismjs/themes/prism.css";
-@import "dist/rt-skeleton/styles/styles";
+@import "node_modules/rt-skeleton/styles/styles";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

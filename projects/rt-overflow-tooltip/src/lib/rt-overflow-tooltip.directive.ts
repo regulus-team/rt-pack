@@ -84,6 +84,7 @@ export class RtOverflowTooltipDirective extends MatTooltip implements OnInit, On
   }
 
   ngOnInit(): void {
+
     // Apply provided tooltip text to the element.
     this.message = this.rtOverflowTooltip;
 
@@ -108,6 +109,7 @@ export class RtOverflowTooltipDirective extends MatTooltip implements OnInit, On
 
     // Disable tooltip if the text content is not overflowing (all the content is on the page, so no need to show tooltip).
     this.disabled = calculatedContentWidth <= actualContentWidth;
+
   }
 
   ngOnDestroy(): void {

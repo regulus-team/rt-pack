@@ -2,13 +2,6 @@
 # yarn lockfile v1
 
 
-rt-platform@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/rt-platform/-/rt-platform-0.0.3.tgz#6b6e0e1db1fa225695e212d41568e3a4d7946ef7"
-  integrity sha512-ySgL8RcPJaADjWhfdtyHoC+r5sDRgvJhLq+/nKZs1A79fDIZlyuFuILWYfD6apI322YJQESA6WKpQwRQ+q7EoQ==
-  dependencies:
-    tslib "^2.3.0"
-
 tslib@^2.3.0:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.5.3.tgz#24944ba2d990940e6e982c4bea147aba80209913"
