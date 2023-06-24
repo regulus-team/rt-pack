@@ -353,3 +353,8 @@
   width: 100%;
   border-bottom: solid 1px var(--text-border-light);
 }
+
+.rt-table-moving__item-column {
+  flex: 1;
+  display: flex;
+}

@@ -168,7 +168,7 @@
 
           <ng-container *ngFor="let item of dynamicData[extractedContent.index]?.data; let itemIndex=index">
 
-            <div>
+            <div class="rt-table-moving__item-column">
               <div
                 *ngIf="(itemOnEdit !== itemIndex || groupIndex !== extractedContent.index) || (groupOnEdit !== 'dynamic' || !groupOnEdit); else inputForEdit"
                 class="rt-table-moving__item-group"
