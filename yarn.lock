@@ -6795,14 +6795,14 @@ rollup@^3.0.0, rollup@^3.21.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
-rt-auto-focus@^1.0.0:
+rt-auto-focus@^1.0.0, rt-auto-focus@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/rt-auto-focus/-/rt-auto-focus-1.0.1.tgz#b76cc4bcbd7ac6dc0655b54339153f989b5e117e"
   integrity sha512-oU2O2LrNSSKDesZoI0oLXdYAaEKGkAZHlMxoZbZnIOqe1j4HHaMCrlhfTakV2LYj2hCX8p6GSYS9IozSXlBsPA==
   dependencies:
     tslib "^2.3.0"
 
-rt-define-stroke-width@^1.0.3:
+rt-define-stroke-width@^1.0.1, rt-define-stroke-width@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/rt-define-stroke-width/-/rt-define-stroke-width-1.0.4.tgz#a49119f71669b8be7367aadee26e82b8350c07bf"
   integrity sha512-vBvFFcKjaaSAe8q4uA0L6tIUbimQ63apVcilMRShvyqz7pV4oapiSxT5/QJMi88cL4L9rSG/EIrRDbVSPPUSGw==
@@ -6815,6 +6815,16 @@ rt-is-visible-element@^1.0.0:
   integrity sha512-2AMrT9lSKOkwLmnlCqUYfT++oyJssLTKxVw9fq7lNRdePuvqJeXB7gjg1fWOH2EOVj7plNTHXvDdHDK0XWw/QA==
   dependencies:
     tslib "^2.3.0"
+
+rt-overflow-tooltip@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/rt-overflow-tooltip/-/rt-overflow-tooltip-1.0.1.tgz#bbb28e3970508773c5748c75d74360dfc063953f"
+  integrity sha512-FRYW0esjPj4y3UM6C++m+Md5UH6peHOFUGv8dyhnuDLce6M4cOllAdOmTln+XaSUfJXSpT+vJh4MMMQWDIeFJA==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    rt-define-stroke-width "^1.0.1"
+    rt-platform "^0.0.3"
 
 rt-platform@^0.0.3:
   version "0.0.3"
@@ -6845,6 +6855,16 @@ rt-tab-carousel@^1.0.19:
   integrity sha512-5m8JtQKek7QvLcyl9kgC3/gvEl9bZHFuiB6ekX2N7NHfv1lGYmGAOmcf9UdRxRHqDD2ao5fHdmlWPO1NrRKL0g==
   dependencies:
     tslib "^2.3.0"
+
+rt-table-moving@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/rt-table-moving/-/rt-table-moving-1.0.2.tgz#798fb989f6c7a1f64e827ebddf12c65802407123"
+  integrity sha512-Tl7ULHi7V6fEVCwnEv2lZqWFHZovV2vh/JVcjpdlcjfoXQf0oZLbFCHfs/O4LPyiwZ10cmiNRBSMXAC/SYUkQQ==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    rt-auto-focus "^1.0.1"
+    rt-overflow-tooltip "^1.0.1"
 
 run-async@^2.4.0:
   version "2.4.1"

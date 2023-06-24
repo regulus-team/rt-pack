@@ -1,0 +1,106 @@
+// Transform black to a specific color. Supposed to be used for small icons.
+.filter-black-transform {
+  &.transform-to-777777 {
+    filter: brightness(0) saturate(100%) invert(49%) sepia(0%) saturate(949%) hue-rotate(148deg) brightness(95%) contrast(94%);
+
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(49%) sepia(0%) saturate(949%) hue-rotate(148deg) brightness(95%) contrast(94%);
+    }
+  }
+
+  &.transform-to-CD2222 {
+    filter: brightness(0) saturate(100%) invert(17%) sepia(98%) saturate(2813%) hue-rotate(349deg) brightness(92%) contrast(92%);
+
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(17%) sepia(98%) saturate(2813%) hue-rotate(349deg) brightness(92%) contrast(92%);
+    }
+  }
+
+  &.transform-to-8B64B6 {
+    filter: brightness(0) saturate(100%) invert(46%) sepia(61%) saturate(421%) hue-rotate(226deg) brightness(86%) contrast(89%);
+
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(46%) sepia(61%) saturate(421%) hue-rotate(226deg) brightness(86%) contrast(89%);
+    }
+  }
+
+  &.transform-to-F8A320 {
+    filter: brightness(0) saturate(100%) invert(61%) sepia(93%) saturate(888%) hue-rotate(346deg) brightness(106%) contrast(94%);
+
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(61%) sepia(93%) saturate(888%) hue-rotate(346deg) brightness(106%) contrast(94%);
+    }
+  }
+
+  &.transform-to-7044A3 {
+    filter: brightness(0) saturate(100%) invert(32%) sepia(13%) saturate(4607%) hue-rotate(235deg) brightness(88%) contrast(87%);
+
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(32%) sepia(13%) saturate(4607%) hue-rotate(235deg) brightness(88%) contrast(87%);
+    }
+  }
+
+  &.transform-to-494356 {
+    filter: brightness(0) saturate(100%) invert(25%) sepia(11%) saturate(915%) hue-rotate(217deg) brightness(93%) contrast(87%);
+
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(25%) sepia(11%) saturate(915%) hue-rotate(217deg) brightness(93%) contrast(87%);
+    }
+  }
+
+  &.transform-to-F9B249 {
+    filter: brightness(0) saturate(100%) invert(73%) sepia(46%) saturate(737%) hue-rotate(336deg) brightness(103%) contrast(95%);
+
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(73%) sepia(46%) saturate(737%) hue-rotate(336deg) brightness(103%) contrast(95%);
+    }
+  }
+
+  &.transform-to-02A876 {
+    filter: brightness(0) saturate(100%) invert(59%) sepia(64%) saturate(4590%) hue-rotate(129deg) brightness(88%) contrast(98%);
+
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(59%) sepia(64%) saturate(4590%) hue-rotate(129deg) brightness(88%) contrast(98%);
+    }
+  }
+
+  &.transform-to-2674E8 {
+    filter: brightness(0) saturate(100%) invert(41%) sepia(81%) saturate(3505%) hue-rotate(204deg) brightness(94%) contrast(93%);
+
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(41%) sepia(81%) saturate(3505%) hue-rotate(204deg) brightness(94%) contrast(93%);
+    }
+  }
+
+  &.transform-to-F79200 {
+    filter: brightness(0) saturate(100%) invert(51%) sepia(31%) saturate(4053%) hue-rotate(13deg) brightness(111%) contrast(106%);
+
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(51%) sepia(31%) saturate(4053%) hue-rotate(13deg) brightness(111%) contrast(106%);
+    }
+  }
+
+  &.transform-to-C4C4C4 {
+    filter: brightness(0) saturate(100%) invert(86%) sepia(0%) saturate(252%) hue-rotate(143deg) brightness(95%) contrast(84%);
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(86%) sepia(0%) saturate(252%) hue-rotate(143deg) brightness(95%) contrast(84%);
+    }
+  }
+
+  &.transform-to-999999 {
+    filter: brightness(0) saturate(100%) invert(65%) sepia(0%) saturate(1%) hue-rotate(181deg) brightness(95%) contrast(83%);
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(65%) sepia(0%) saturate(1%) hue-rotate(181deg) brightness(95%) contrast(83%);
+    }
+  }
+  
+  &.transform-to-FFFFFF {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(86deg) brightness(104%) contrast(101%);
+    &_on-hover:hover {
+      filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(86deg) brightness(104%) contrast(101%);
+    }
+  }
+
+}
+
+// Transform black to a specific color. Supposed to be used for small icons.

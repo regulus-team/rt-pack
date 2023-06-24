@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 
 interface user {
@@ -38,6 +38,10 @@ export class RtIsVisibleElementComponent implements OnInit {
     {name: 'user20'},
   ];
 
+  constructor(private cd: ChangeDetectorRef) {
+
+  }
+
   isIntersecting($event: boolean, index: number) {
     this.consoleDict[index] = $event;
   }
@@ -52,6 +56,7 @@ export class RtIsVisibleElementComponent implements OnInit {
     fileReader.onload = (e) => {
       this.loadingReadme$.next(false);
       this.readme = fileReader.result as string;
+      this.cd.detectChanges();
     };
 
     const filePath = '/assets/rt-is-visible-element/README.md';

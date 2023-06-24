@@ -1,4 +1,4 @@
-import {Modify} from '../shared/types';
+import {Modify} from './types';
 
 export interface RtTableMovingModel {
   dynamicData?: RtTableMovingDataModel[];
@@ -28,4 +28,18 @@ export interface RtTableMovingHeaderModel {
 export interface RtTableMovingItemModel {
   value: any;
   isEditable?: boolean;
+}
+
+export interface RtTableMovingChangedData {
+  fullData: {
+    dynamicData?:  RtTableGroupedDataModel[];
+    staticData?:  RtTableGroupedDataModel[];
+  };
+  changedData: {
+    typeData: 'dynamic' | 'static';
+    typeChange: 'remove' | 'edit';
+    value?: any;
+    groupIndex: number;
+    itemIndex?: number;
+  };
 }

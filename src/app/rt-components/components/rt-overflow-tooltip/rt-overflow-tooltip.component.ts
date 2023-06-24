@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 
 @Component({
@@ -11,7 +11,8 @@ export class RtOverflowTooltipComponent implements OnInit {
   readme = '';
 
 
-
+constructor(private cd: ChangeDetectorRef) {
+}
   ngOnInit(): void {
     this.readMarkdownFile();
   }
@@ -22,6 +23,7 @@ export class RtOverflowTooltipComponent implements OnInit {
     fileReader.onload = (e) => {
       this.loadingReadme$.next(false);
       this.readme = fileReader.result as string;
+      this.cd.detectChanges();
     };
 
     const filePath = '/assets/rt-overflow-tooltip/README.md';

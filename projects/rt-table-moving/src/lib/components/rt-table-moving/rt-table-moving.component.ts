@@ -2,7 +2,12 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnIn
 import {FormControl} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {RtTableGroupedDataModel, RtTableMovingItemModel, RtTableMovingModel} from '../../symbols';
+import {
+  RtTableGroupedDataModel,
+  RtTableMovingChangedData,
+  RtTableMovingItemModel,
+  RtTableMovingModel,
+} from '../../symbols';
 
 
 @Component({
@@ -12,7 +17,7 @@ import {RtTableGroupedDataModel, RtTableMovingItemModel, RtTableMovingModel} fro
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RtTableMovingComponent implements OnInit, OnDestroy {
-  @Output() changedData = new EventEmitter<RtTableMovingModel>();
+  @Output() changedData: EventEmitter<RtTableMovingChangedData> = new EventEmitter<RtTableMovingChangedData>();
 
   public readonly singleItemInput = new FormControl();
   public itemOnEdit: number;
@@ -33,7 +38,11 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
 
   @Input() set dynamicItemsOnPage(value: number) {
-    this.itemsOnPage = value;
+    if (this.dynamicData.length < value) {
+      this.itemsOnPage = this.dynamicData.length;
+    } else {
+      this.itemsOnPage = value;
+    }
   }
 
   /** Number of classes that should be displayed on page (defines by window width). */
@@ -66,12 +75,12 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   }
 
   @Input({required: true}) set data(value: RtTableMovingModel) {
-    if (!value?.dynamicData) {
-      this.itemsOnPage = 0;
+    if (!value) {
+      return;
     }
 
-    if (value.dynamicData?.length < this.itemsOnPage || !this._itemsOnPage) {
-      this.itemsOnPage = value.dynamicData?.length || 0;
+    if (!value?.dynamicData) {
+      this.itemsOnPage = 0;
     }
 
 
@@ -91,7 +100,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
       this.staticItems = Object.values(staticData);
     }
 
-    if (value.dynamicData) {
+    if (value?.dynamicData) {
 
       const dynamicData: any = {};
       value.dynamicData.forEach(item => {
@@ -107,6 +116,10 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
 
       this.dynamicData = Object.values(dynamicData);
       this.maxCountVisibleDynamicColumns = this.dynamicData.length;
+
+      if (this.dynamicData?.length < this.itemsOnPage || !this._itemsOnPage) {
+        this.itemsOnPage = this.dynamicData?.length || 0;
+      }
     }
   }
 
@@ -118,12 +131,25 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
         )
         .subscribe(([input, itemId, groupIndex, groupType]) => {
           if (groupType === 'static') {
-            this.staticItems[itemId].data[groupIndex].value = input;
+            this.staticItems[groupIndex].data[itemId].value = input;
           } else {
-            this.dynamicData[itemId].data[groupIndex].value = input;
+            this.dynamicData[groupIndex].data[itemId].value = input;
           }
 
-          this.changedData.emit({staticData: this.staticItems, dynamicData: this.dynamicData});
+
+          this.changedData.emit({
+            fullData: {
+              staticData: this.staticItems,
+              dynamicData: this.dynamicData,
+            },
+            changedData: {
+              typeData: groupType,
+              typeChange: 'edit',
+              value: input,
+              groupIndex,
+              itemIndex: itemId,
+            },
+          });
         }),
     );
   }
@@ -178,6 +204,16 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
       this.dynamicData.splice(groupIndex, 1);
     }
 
-    this.changedData.emit({staticData: this.staticItems, dynamicData: this.dynamicData});
+    this.changedData.emit({
+      fullData: {
+        staticData: this.staticItems,
+        dynamicData: this.dynamicData,
+      },
+      changedData: {
+        typeData: groupType,
+        typeChange: 'remove',
+        groupIndex,
+      },
+    });
   }
 }

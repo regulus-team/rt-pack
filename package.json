@@ -34,9 +34,11 @@
     "rt-auto-focus": "^1.0.0",
     "rt-define-stroke-width": "^1.0.3",
     "rt-is-visible-element": "^1.0.0",
+    "rt-overflow-tooltip": "^1.0.1",
     "rt-query-params-router-link": "^1.0.5",
     "rt-skeleton": "^1.0.12",
     "rt-tab-carousel": "^1.0.19",
+    "rt-table-moving": "^1.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

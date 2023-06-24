@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 
 @Component({
@@ -10,6 +10,9 @@ export class RtQueryParamsRouterLinkComponent implements OnInit {
   loadingReadme$ = new BehaviorSubject<boolean>(true);
   readme = '';
 
+  constructor(private cd: ChangeDetectorRef) {
+  }
+
   ngOnInit(): void {
     this.readMarkdownFile();
   }
@@ -20,6 +23,7 @@ export class RtQueryParamsRouterLinkComponent implements OnInit {
     fileReader.onload = (e) => {
       this.loadingReadme$.next(false);
       this.readme = fileReader.result as string;
+      this.cd.detectChanges();
     };
 
     const filePath = '/assets/rt-query-params-router-link/README.md';

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 
 import {BehaviorSubject, interval} from 'rxjs';
 import {take} from 'rxjs/operators';
@@ -20,8 +20,8 @@ interface MockDataModel {
 })
 export class RtSkeletonComponent implements OnInit {
   loadingReadme$ = new BehaviorSubject<boolean>(true);
-
   readme = '';
+
   items$: BehaviorSubject<MockDataModel[]> = new BehaviorSubject<MockDataModel[]>([]);
   item$: BehaviorSubject<MockDataModel> = new BehaviorSubject<MockDataModel>(null);
   inProgress$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
@@ -44,6 +44,8 @@ export class RtSkeletonComponent implements OnInit {
     },
   ];
 
+  constructor(private cd: ChangeDetectorRef) {
+  }
 
   ngOnInit(): void {
     this.readMarkdownFile();
@@ -63,6 +65,7 @@ export class RtSkeletonComponent implements OnInit {
     fileReader.onload = (e) => {
       this.loadingReadme$.next(false);
       this.readme = fileReader.result as string;
+      this.cd.detectChanges();
     };
 
     const filePath = '/assets/rt-skeleton/README.md';

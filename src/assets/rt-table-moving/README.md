@@ -1,6 +1,55 @@
 ### RT_TABLE_MOVING
 
-If you want to reproduce the following table
+
+
+
+# Install
+
+```bash
+npm i rt-table-moving
+```
+
+```bash
+yarn add rt-table-moving
+```
+
+# Styles
+
+### Add color variables to your global styles.scss
+
+```css
+:root {
+  --primary-200: #41789b;
+  --primary-800: #25495b;
+  --text-border-light: #E5E5E5;
+  --text-background: #F7F7F7;
+}
+```
+
+### add config to your angular.json in assets section
+
+```json
+...
+"assets": [
+...
+{
+"glob": "**/*",
+"input": "node_modules/rt-table-moving/src/lib/assets/",
+"output": "/assets/rt-table-moving/"
+}
+]
+...
+```
+
+# About
+
+| name               | type   | interface                | description                   |
+|--------------------|--------|--------------------------|-------------------------------|
+| dynamicItemsOnPage | input  | number                   | Number of visible columns     |
+| data               | input  | RtTableMovingModel       |                               |
+| changedData        | output | RtTableMovingChangedData | If remove column or edit item |
+
+### If you want to reproduce the following table
 
 | Static [subTitle] | [x] Dynamic   |
 |-------------------|---------------|
@@ -8,30 +57,33 @@ If you want to reproduce the following table
 | S2                | D2            |
 | S3                | D3            |
 
-Then the data will be as follows
+### Then the data will be as follows
 
 ```Table data: ```
 
 ```ts
 {
   staticData: [
-    {header: {title: Static, subTitle: 'subTitle'}, data: 'S1'},
-    {header: {title: Static, subTitle: 'subTitle'}, data: 'S2'},
-    {header: {title: Static, subTitle: 'subTitle'}, data: 'S3'},
+    {header: {title: 'Static', subTitle: 'subTitle'}, data: 'S1'},
+    {header: {title: 'Static', subTitle: 'subTitle'}, data: 'S2'},
+    {header: {title: 'Static', subTitle: 'subTitle'}, data: 'S3'},
   ],
     dynamicData:
   [
-    {header: {title: 'Dynamic', isRemoveble: true}, data: 'D1', isEditable: true},
-    {header: {title: 'Dynamic', isRemoveble: true}, data: 'D2'},
-    {header: {title: 'Dynamic', isRemoveble: true}, data: 'D3'},
-  ],
+    {header: {title: 'Dynamic', isRemovable: true}, data: 'D1', isEditable: true},
+    {header: {title: 'Dynamic', isRemovable: true}, data: 'D2'},
+    {header: {title: 'Dynamic', isRemovable: true}, data: 'D3'},
+  ]
 }
 ;
 ```
 
+# Usage
+
 ```html
 
-<rt-table-moving [data]="tableData$ | async" (changedData)="changedItems($event)" [dynamicItemsOnPage]="3"></rt-table-moving>
+<rt-table-moving [data]="tableData$ | async" (changedData)="changedItems($event)"
+                 [dynamicItemsOnPage]="3"></rt-table-moving>
 ```
 
 ```ts

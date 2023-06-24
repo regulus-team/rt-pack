@@ -3,5 +3,8 @@
   "dest": "../../dist/rt-table-moving",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "assets": [
+    "src/lib/assets"
+  ]
 }

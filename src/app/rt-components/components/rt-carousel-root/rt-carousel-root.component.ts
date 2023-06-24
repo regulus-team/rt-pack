@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {DateTime} from 'luxon';
 import {RtCarouselService} from 'rt-tab-carousel';
 import {BehaviorSubject, combineLatest, Observable, Subscription} from 'rxjs';
@@ -72,7 +72,7 @@ export class RtCarouselRootComponent implements OnInit {
     {id: '25', date: DateTime.fromJSDate(new Date()).plus({days: 1599}).toJSDate()},
   ]);
 
-  constructor(public rtCarouselService: RtCarouselService) {
+  constructor(public rtCarouselService: RtCarouselService, private cd: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -144,6 +144,7 @@ export class RtCarouselRootComponent implements OnInit {
     fileReader.onload = (e) => {
       this.loadingReadme$.next(false);
       this.readme = fileReader.result as string;
+      this.cd.detectChanges();
     };
 
     const filePath = '/assets/rt-tab-carousel/README.md';

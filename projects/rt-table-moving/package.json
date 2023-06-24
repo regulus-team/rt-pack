@@ -1,10 +1,38 @@
 {
   "name": "rt-table-moving",
-  "version": "0.0.1",
+  "version": "1.0.2",
+  "scripts": {
+    "lib:build": "ng build rt-table-moving",
+    "lib:watch": "ng build rt-table-moving --watch",
+    "lib:publish": "npm run lib:build && cd ../../dist/rt-table-moving && npm pack && npm publish"
+  },
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "table",
+    "moving"
+  ],
+  "bugs": {
+    "url": "git+https://github.com/regulus-team/rt-pack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regulus-team/rt-pack.git"
+  },
   "peerDependencies": {
     "@angular/common": "^16.0.0",
-    "@angular/core": "^16.0.0"
+    "@angular/core": "^16.0.0",
+    "rt-auto-focus": "^1.0.1",
+    "rt-overflow-tooltip": "^1.0.1"
   },
+  "optionalDependencies": {
+    "rt-auto-focus": "^1.0.1",
+    "rt-overflow-tooltip": "^1.0.1"
+  },
+  "bundledDependencies": [
+    "rt-auto-focus",
+    "rt-overflow-tooltip"
+  ],
   "dependencies": {
     "tslib": "^2.3.0"
   },
