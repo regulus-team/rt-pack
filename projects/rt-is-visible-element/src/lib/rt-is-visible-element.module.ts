@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
-import {IsElementVisibleDirective} from './rt-is-visible-element.directive';
+import {IsVisibleElement} from './rt-is-visible-element.directive';
 
 @NgModule({
-  declarations: [IsElementVisibleDirective],
-  exports: [IsElementVisibleDirective],
+  declarations: [IsVisibleElement],
+  exports: [IsVisibleElement],
 })
 export class RtIsVisibleElementModule {}

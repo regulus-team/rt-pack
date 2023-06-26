@@ -2,9 +2,9 @@ import {Directive, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output} f
 import {debounceTime, Observable, Subscription} from 'rxjs';
 
 @Directive({
-  selector: '[rtIsElementVisible]',
+  selector: '[rtIsVisibleElement]',
 })
-export class IsElementVisibleDirective implements OnInit, OnDestroy {
+export class IsVisibleElement implements OnInit, OnDestroy {
   @Input() root: HTMLElement | null = null;
   @Input() rootMargin = '0px 0px 0px 0px';
   @Input() threshold = 0;

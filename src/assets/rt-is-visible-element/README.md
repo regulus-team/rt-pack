@@ -1,5 +1,8 @@
 ## RT IS VISIBLE ELEMENT
 
+- Version 1.0.2 Rename directive selector rtIsElementVisible to rtIsVisibleElement
+- Version 1.0.3 Edit readme
+
 # Install
 
 ```bash
@@ -18,7 +21,7 @@ yarn add rt-is-visible-element
     <div
       class="user-list__item"
       *ngFor="let user of users; let index=index"
-      rtIsElementVisible
+      rtIsVisibleElement
       [debounceTime]="100"
       [isContinuous]="true"
       (isIntersecting)="isIntersecting($event, index)"

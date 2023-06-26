@@ -3,7 +3,7 @@
     <div
       class="user-list__item"
       *ngFor="let user of users; let index=index"
-      rtIsElementVisible
+      rtIsVisibleElement
       [debounceTime]="100"
       [isContinuous]="true"
       (isIntersecting)="isIntersecting($event, index)"

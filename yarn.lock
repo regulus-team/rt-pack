@@ -6809,10 +6809,10 @@ rt-define-stroke-width@^1.0.1, rt-define-stroke-width@^1.0.3:
   dependencies:
     tslib "^2.3.0"
 
-rt-is-visible-element@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/rt-is-visible-element/-/rt-is-visible-element-1.0.1.tgz#21ab3fa9ab65e1ba208120bbbf6c5430d168d118"
-  integrity sha512-2AMrT9lSKOkwLmnlCqUYfT++oyJssLTKxVw9fq7lNRdePuvqJeXB7gjg1fWOH2EOVj7plNTHXvDdHDK0XWw/QA==
+rt-is-visible-element@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/rt-is-visible-element/-/rt-is-visible-element-1.0.3.tgz#40646879bde312b2465a8ad268e47c725aa3330d"
+  integrity sha512-i/AHx9fpcGXIPz1GhMTV1TVMbS/+bSpHjxGF+abIHwQ2HGckT609X1yhX4SF/mXIvFX7nklOYsRIP9Eko2bFDw==
   dependencies:
     tslib "^2.3.0"
 

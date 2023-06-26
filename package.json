@@ -33,7 +33,7 @@
     "prismjs": "^1.29.0",
     "rt-auto-focus": "^1.0.0",
     "rt-define-stroke-width": "^1.0.3",
-    "rt-is-visible-element": "^1.0.0",
+    "rt-is-visible-element": "^1.0.3",
     "rt-overflow-tooltip": "^1.0.1",
     "rt-query-params-router-link": "^1.0.5",
     "rt-skeleton": "^1.0.12",

@@ -9,10 +9,10 @@ rt-define-stroke-width@^1.0.1:
   dependencies:
     tslib "^2.3.0"
 
-rt-platform@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/rt-platform/-/rt-platform-0.0.3.tgz#6b6e0e1db1fa225695e212d41568e3a4d7946ef7"
-  integrity sha512-ySgL8RcPJaADjWhfdtyHoC+r5sDRgvJhLq+/nKZs1A79fDIZlyuFuILWYfD6apI322YJQESA6WKpQwRQ+q7EoQ==
+rt-platform@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/rt-platform/-/rt-platform-0.0.4.tgz#4d74cb8cee241826b1361f285fe636e2910d83b1"
+  integrity sha512-Cwi5prmujd65qrkNGxdwn33zvPSRB1WkKAfjQzhBZN/JhNxZNubwYvIQMlad/aJ9yEYrLgi+ErTi1r+SByyFIg==
   dependencies:
     tslib "^2.3.0"
 
