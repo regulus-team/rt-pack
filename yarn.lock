@@ -6856,10 +6856,10 @@ rt-tab-carousel@^1.0.19:
   dependencies:
     tslib "^2.3.0"
 
-rt-table-moving@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/rt-table-moving/-/rt-table-moving-1.0.6.tgz#e95a1291f8adac85907f3cab3320b546b4a047bf"
-  integrity sha512-GwgtSgtXDmoHLeQfkCFVbi/AHKOTTgE2rD+DsDFc+ingh7DzBZ5z3I8WhXQ4sHokOnrahBUm98PfczEYI1o08A==
+rt-table-moving@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/rt-table-moving/-/rt-table-moving-1.0.8.tgz#68f99ae6ea0499a75be9ca2fbe5bbc920af9171d"
+  integrity sha512-J8m1Pw5/Y3WMTgA3dCdB63N/0zcSNwYfKhoCirgrlrNFesYkOEywD7VC7XtZ3cYdT/pHLipAPAMtWi7dhGEt6w==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:

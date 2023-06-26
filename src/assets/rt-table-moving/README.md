@@ -4,6 +4,7 @@
 - Version 1.0.5 - Add endEdited output
 - Version 1.0.6 - Rename output from endEdited to endEditing
 - Version 1.0.7 - Remove basic color variables
+- Version 1.0.8 - Tweak cell styles for long text
 
 ### Install
 
