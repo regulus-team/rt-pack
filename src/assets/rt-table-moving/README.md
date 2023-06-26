@@ -5,6 +5,7 @@
 - Version 1.0.6 - Rename output from endEdited to endEditing
 - Version 1.0.7 - Remove basic color variables
 - Version 1.0.8 - Tweak cell styles for long text
+- Version 1.0.9 - Tweak cell styles. Change box-sizing to border-box
 
 ### Install
 

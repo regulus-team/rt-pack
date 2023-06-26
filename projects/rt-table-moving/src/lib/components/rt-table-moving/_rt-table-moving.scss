@@ -115,15 +115,15 @@
   line-height: 20px;
   color: var(--text-primary);
   flex: 1;
-
+  box-sizing: border-box;
 }
 
 .rt-table-moving__item-static_editable-border {
   padding: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: calc(100% - 20px);
-
+  height: 100%;
+  box-sizing: border-box;
   &:hover {
     padding: 8px;
     border: 2px solid var(--primary-200);
@@ -151,7 +151,7 @@
 
 .rt-table-moving__item-static_readonly {
   cursor: auto;
-  height: calc(100% - 20px);
+  height: 100%;
 
   &.rt-table-moving__item-static_editable-border:hover {
     padding: 10px;
