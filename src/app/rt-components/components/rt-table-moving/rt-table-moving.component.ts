@@ -5,20 +5,28 @@ import {RtTableMovingChangedData} from '../../../../../projects/rt-table-moving/
 @Component({
   selector: 'app-rt-table-moving',
   templateUrl: './rt-table-moving.component.html',
-  styleUrls: ['./rt-table-moving.component.scss']
+  styleUrls: ['./rt-table-moving.component.scss'],
 })
 export class RtTableMovingComponent implements OnInit {
   loadingReadme$ = new BehaviorSubject<boolean>(true);
   readme = '';
   tableData$ = of({
     staticData: [
-      {header: {title: 'Static', subTitle: 'items',  width: 300, isRemovable: true}, data: 'Static data 1', isEditable: true},
-      {header: {title: 'Static', }, data: 'Static data 1'},
-      {header: {title: 'Static',}, data: 'Static data 2'},
+      {
+        header: {title: 'Static', subTitle: 'items', width: 300, isRemovable: true},
+        data: 'Static data 1',
+        isEditable: true,
+      },
+      {header: {title: 'Static'}, data: 'Static data 1'},
+      {header: {title: 'Static'}, data: 'Static data 2'},
     ],
     dynamicData:
       [
-        {header: {title: 'Column 1'}, data: 'This is a very long text, to demonstrate rt-overflow-tooltip! You only need to move the cursor to see the text that does not fit in the cell.', isEditable: true},
+        {
+          header: {title: 'Column 1'},
+          data: 'This is a very long text, to demonstrate rt-overflow-tooltip! You only need to move the cursor to see the text that does not fit in the cell.',
+          isEditable: true,
+        },
         {header: {title: 'Column 1'}, data: 'Dynamic data 2'},
         {header: {title: 'Column 1'}, data: 'Dynamic data 3'},
 
@@ -29,12 +37,13 @@ export class RtTableMovingComponent implements OnInit {
         {header: {title: 'Column 3'}, data: 'Dynamic data 7'},
         {header: {title: 'Column 3'}, data: 'Dynamic data 8'},
         {header: {title: 'Column 3'}, data: 'Dynamic data 9'},
-      ]
-  })
+      ],
+  });
 
   constructor(private cd: ChangeDetectorRef) {
 
   }
+
   ngOnInit(): void {
     this.readMarkdownFile();
   }
@@ -60,6 +69,10 @@ export class RtTableMovingComponent implements OnInit {
   }
 
   changedItems($event: RtTableMovingChangedData) {
+    console.log($event);
+  }
 
+  endEdited($event: RtTableMovingChangedData) {
+    console.log($event);
   }
 }

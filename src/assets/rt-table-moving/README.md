@@ -1,9 +1,11 @@
-### RT_TABLE_MOVING
+# Rt table moving
+
+### About
+- Version 1.0.5 - Add endEdited output
+- Version 1.0.6 - Rename output from endEdited to endEditing
 
 
-
-
-# Install
+### Install
 
 ```bash
 npm i rt-table-moving
@@ -13,7 +15,7 @@ npm i rt-table-moving
 yarn add rt-table-moving
 ```
 
-# Styles
+### Styles
 
 ### Add color variables to your global styles.scss
 
@@ -48,6 +50,7 @@ yarn add rt-table-moving
 | dynamicItemsOnPage | input  | number                   | Number of visible columns     |
 | data               | input  | RtTableMovingModel       |                               |
 | changedData        | output | RtTableMovingChangedData | If remove column or edit item |
+| endEdited          | output | RtTableMovingChangedData | End edit item                 |
 
 ### If you want to reproduce the following table
 
@@ -82,8 +85,13 @@ yarn add rt-table-moving
 
 ```html
 
-<rt-table-moving [data]="tableData$ | async" (changedData)="changedItems($event)"
-                 [dynamicItemsOnPage]="3"></rt-table-moving>
+<rt-table-moving
+        [data]="tableData$ | async"
+        (changedData)="changedItems($event)"
+        (endEdited)="endEditing($event)"
+        [dynamicItemsOnPage]="3">
+  
+</rt-table-moving>
 ```
 
 ```ts
@@ -153,6 +161,11 @@ export class AppComponent implements OnInit {
   changedItems($event: RtTableMovingModel) {
     // this is the result of the table moving changes
   }
+
+  endEdited($event: RtTableMovingModel) {
+    // this is the result of the table moving changes
+  }
 }
 
 ```
+

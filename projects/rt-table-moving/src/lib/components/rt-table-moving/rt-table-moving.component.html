@@ -136,22 +136,23 @@
               </div>
             </div>
           </div>
-        </ng-container>
 
 
-        <ng-template #inputForEditStatic>
-          <div class="rt-table-moving__border-input-bottom">
+          <ng-template #inputForEditStatic>
+            <div class="rt-table-moving__border-input-bottom">
                         <textarea
                           rtAutofocus
                           class="rt-table-moving__single-input"
                           type="text"
                           [maxlength]="256"
                           [formControl]="singleItemInput"
-                          (blur)="markItemForEdit(null, 'static', null, null)"
-                        ></textarea>
-          </div>
-        </ng-template>
+                          (blur)="blurInput(item, 'static', itemIndex, groupIndex)"
+                        >
 
+                        </textarea>
+            </div>
+          </ng-template>
+        </ng-container>
 
       </div>
     </div>
@@ -187,21 +188,23 @@
                 </div>
               </div>
             </div>
-          </ng-container>
 
 
-          <ng-template #inputForEdit>
-            <div class="rt-table-moving__border-input-bottom">
+            <ng-template #inputForEdit>
+              <div class="rt-table-moving__border-input-bottom">
                         <textarea
                           rtAutofocus
                           class="rt-table-moving__single-input"
                           type="text"
                           [maxlength]="256"
                           [formControl]="singleItemInput"
-                          (blur)="markItemForEdit(null, 'dynamic', null, null)"
-                        ></textarea>
-            </div>
-          </ng-template>
+                          (blur)="blurInput(item, 'dynamic', itemIndex, groupIndex)"
+                        >
+
+                        </textarea>
+              </div>
+            </ng-template>
+          </ng-container>
         </ng-container>
 
 

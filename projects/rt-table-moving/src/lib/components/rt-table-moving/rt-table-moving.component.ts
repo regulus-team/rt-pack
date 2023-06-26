@@ -18,11 +18,12 @@ import {
 })
 export class RtTableMovingComponent implements OnInit, OnDestroy {
   @Output() changedData: EventEmitter<RtTableMovingChangedData> = new EventEmitter<RtTableMovingChangedData>();
+  @Output() endEditing: EventEmitter<RtTableMovingChangedData> = new EventEmitter<RtTableMovingChangedData>();
 
   public readonly singleItemInput = new FormControl();
   public itemOnEdit: number;
   public groupIndex: number;
-  public groupOnEdit: 'static' | 'dynamic';
+  public groupOnEdit: 'static' | 'dynamic' | 'endEdited';
   public maxCountVisibleDynamicColumns = 0;
 
   /** Currently displayed first class number in the table. */
@@ -185,8 +186,25 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
     this.updateClassesInView();
   }
 
+  public blurInput(data: RtTableMovingItemModel, group: 'static' | 'dynamic', itemIndex: number, groupIndex: number): void {
 
-  public markItemForEdit(data: RtTableMovingItemModel, group: 'static' | 'dynamic', itemIndex: number, groupIndex: number): void {
+    this.endEditing.emit({
+      fullData: {
+        staticData: this.staticItems,
+        dynamicData: this.dynamicData,
+      },
+      changedData: {
+        typeData: group,
+        typeChange: 'edit',
+        value: data.value,
+        groupIndex,
+        itemIndex: itemIndex,
+      },
+    });
+    this.markItemForEdit(null, group, null, null);
+  }
+
+  public markItemForEdit(data: RtTableMovingItemModel, group: 'static' | 'dynamic' | 'endEdited', itemIndex: number, groupIndex: number): void {
     if (data && !data?.isEditable) {
       return;
     }
