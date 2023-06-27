@@ -37,14 +37,19 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   public columnsNumberInView = [1, 2, 3, 4];
 
   private subscription = new Subscription();
+  private _dynamicItemsOnPage: number;
+
 
   @Input() set dynamicItemsOnPage(value: number) {
+    this._dynamicItemsOnPage = value;
+    this.maxCountVisibleDynamicColumns = this.dynamicData.length;
     if (this.dynamicData.length < value) {
       this.itemsOnPage = this.dynamicData.length;
     } else {
       this.itemsOnPage = value;
     }
   }
+
 
   /** Number of classes that should be displayed on page (defines by window width). */
   private _itemsOnPage;
@@ -76,6 +81,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   }
 
   @Input({required: true}) set data(value: RtTableMovingModel) {
+    this.itemsOnPage = this._itemsOnPage;
     if (!value) {
       return;
     }
@@ -233,5 +239,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
         groupIndex,
       },
     });
+
+    this.dynamicItemsOnPage = this._itemsOnPage;
   }
 }

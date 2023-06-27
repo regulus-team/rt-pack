@@ -27,10 +27,10 @@ export class RtTableMovingComponent implements OnInit {
           data: 'This is a very long text, to demonstrate rt-overflow-tooltip! You only need to move the cursor to see the text that does not fit in the cell.',
           isEditable: true,
         },
-        {header: {title: 'Column 1'}, data: 'Dynamic data 2'},
+        {header: {title: 'Column 1', isRemovable: true}, data: 'Dynamic data 2'},
         {header: {title: 'Column 1'}, data: 'Dynamic data 3'},
 
-        {header: {title: 'Column 2'}, data: 'Dynamic data 4'},
+        {header: {title: 'Column 2', isRemovable: true}, data: 'Dynamic data 4'},
         {header: {title: 'Column 2'}, data: 'Dynamic data 5'},
         {header: {title: 'Column 2'}, data: 'Dynamic data 6'},
 

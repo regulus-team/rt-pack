@@ -9,7 +9,8 @@
 - Version 1.0.10 - Tweak header styles. Fix position of the remove button
 - Version 1.0.11 - Update rt-overflow-tooltip to 1.0.3
 - Version 1.0.12 - Update rt-overflow-tooltip to 1.0.4
-- Version 1.0.12 - Update rt-overflow-tooltip to 1.0.5, Fix tooltip visibility
+- Version 1.0.13 - Update rt-overflow-tooltip to 1.0.5, Fix tooltip visibility
+- Version 1.0.14 - Fix updating dynamicItemsOnPage
 
 
 ### Install
