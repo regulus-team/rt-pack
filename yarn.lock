@@ -6816,20 +6816,10 @@ rt-is-visible-element@^1.0.3:
   dependencies:
     tslib "^2.3.0"
 
-rt-overflow-tooltip@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/rt-overflow-tooltip/-/rt-overflow-tooltip-1.0.3.tgz#e167d241400d6b7ce88a057f0582c2d2a6d43746"
-  integrity sha512-BJio3m9TTHXJ6sdlKbekcXiHfFtV8TUF79b+DAt0vfHLk4oBlIYPyu+VjPfaL+UtRK1s7vGLfSyUmiyF1R2fvg==
-  dependencies:
-    tslib "^2.3.0"
-  optionalDependencies:
-    rt-define-stroke-width "^1.0.1"
-    rt-platform "^0.0.4"
-
-rt-overflow-tooltip@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/rt-overflow-tooltip/-/rt-overflow-tooltip-1.0.4.tgz#1324f3a3eba5015934f1a075621e43b6724666dd"
-  integrity sha512-2xN/cf3xq2DRYUBLMnIfkeda3l3KtFhj92UP5l0ZfFv3pjVhvoJgQ38tkPdvVi5HuIfP+GlMjLNPsrOAYO+ExQ==
+rt-overflow-tooltip@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/rt-overflow-tooltip/-/rt-overflow-tooltip-1.0.5.tgz#fdeaca38ed3b5c384e01f50481724a01116a3c53"
+  integrity sha512-ddqabiB4xW4fy+kVk4xFb+ud0RaLWTsnzWVNHKrvp6t7FmIrHodOrWvNp/mJgS4I8mA5A8Jy+de9g+ajPiksTw==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
@@ -6873,15 +6863,15 @@ rt-tab-carousel@^1.0.19:
   dependencies:
     tslib "^2.3.0"
 
-rt-table-moving@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/rt-table-moving/-/rt-table-moving-1.0.12.tgz#0d5e4fa52202cb6b701a6079fac573b8ba5290ff"
-  integrity sha512-z0hiTIIxF9AKJrMpFxWilEZlmaW0RTEs4uO6GKTftaoe3fmn5wi7iGXRJZF5G86NxSVR+Kc3nSJJFXSMczOBww==
+rt-table-moving@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/rt-table-moving/-/rt-table-moving-1.0.13.tgz#eb0d80622a1f4916d2b85a70e91c24e53fc877ed"
+  integrity sha512-YpTUY/bMrI8MymB+BN1vO3Uxb3OpEAV7Bivzrw9U0oxdMCIsXPAxw6rlTO8o6bonuv+VWa02n6poeq33juJY6A==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
     rt-auto-focus "^1.0.1"
-    rt-overflow-tooltip "^1.0.4"
+    rt-overflow-tooltip "^1.0.5"
 
 run-async@^2.4.0:
   version "2.4.1"
