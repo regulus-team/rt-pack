@@ -123,13 +123,14 @@
         <ng-container *ngFor="let item of staticItem.data; let itemIndex=index">
           <div
             *ngIf="(itemOnEdit !== itemIndex || groupIndex !== staticGroupIndex) || (groupOnEdit !== 'static' || !groupOnEdit); else inputForEditStatic"
-            [rtOverflowTooltip]="item.value"
+
             class="rt-table-moving__item-group"
             [ngClass]="{'rt-table-moving__item-static_readonly': !item.isEditable}"
             (click)="markItemForEdit(item, 'static', itemIndex, staticGroupIndex)"
           >
             <div class="rt-table-moving__item rt-table-moving__item-dynamic rt-table-moving__item-static_editable">
               <div
+                [rtOverflowTooltip]="item.value"
                 [ngClass]="{
               'rt-table-moving__item-static_readonly': !item.isEditable
               }"
@@ -175,7 +176,7 @@
               <div
                 *ngIf="(itemOnEdit !== itemIndex || groupIndex !== extractedContent.index) || (groupOnEdit !== 'dynamic' || !groupOnEdit); else inputForEdit"
                 class="rt-table-moving__item-group"
-                [rtOverflowTooltip]="item.value"
+
                 (click)="markItemForEdit(item, 'dynamic', itemIndex, extractedContent.index)"
               >
                 <div class="rt-table-moving__item rt-table-moving__item-dynamic rt-table-moving__item-static_editable">
@@ -184,6 +185,7 @@
               'rt-table-moving__item-static_readonly': !item.isEditable,
                'rt-table-moving__odd-column': !odd,
               }"
+                    [rtOverflowTooltip]="item.value"
                     class="rt-table-moving__item-static_editable-border">
                     {{item.value}}
                   </div>

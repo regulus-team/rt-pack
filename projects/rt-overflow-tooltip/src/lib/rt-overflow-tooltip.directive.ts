@@ -112,7 +112,7 @@ export class RtOverflowTooltipDirective extends MatTooltip implements OnInit, On
     const area = parseFloat(this.borderLeft) + parseFloat(this.borderRight) + parseFloat(this.paddingLeft) + parseFloat(this.paddingRight);
 
     // Calculate the actual width of the host element.
-    const actualContentWidth = this.hostElement.getBoundingClientRect().width - 3 - area;
+    const actualContentWidth = this.hostElement.getBoundingClientRect().width - area;
 
     // Disable tooltip if the text content is not overflowing (all the content is on the page, so no need to show tooltip).
     this.disabled = calculatedContentWidth <= actualContentWidth;

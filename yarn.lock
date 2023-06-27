@@ -6826,6 +6826,16 @@ rt-overflow-tooltip@^1.0.3:
     rt-define-stroke-width "^1.0.1"
     rt-platform "^0.0.4"
 
+rt-overflow-tooltip@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/rt-overflow-tooltip/-/rt-overflow-tooltip-1.0.4.tgz#1324f3a3eba5015934f1a075621e43b6724666dd"
+  integrity sha512-2xN/cf3xq2DRYUBLMnIfkeda3l3KtFhj92UP5l0ZfFv3pjVhvoJgQ38tkPdvVi5HuIfP+GlMjLNPsrOAYO+ExQ==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    rt-define-stroke-width "^1.0.1"
+    rt-platform "^0.0.4"
+
 rt-platform@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/rt-platform/-/rt-platform-0.0.3.tgz#6b6e0e1db1fa225695e212d41568e3a4d7946ef7"
@@ -6863,15 +6873,15 @@ rt-tab-carousel@^1.0.19:
   dependencies:
     tslib "^2.3.0"
 
-rt-table-moving@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/rt-table-moving/-/rt-table-moving-1.0.11.tgz#5d0c5308859e655c4f9d4f242c816d85d8ae051e"
-  integrity sha512-m27nVv/4K0q31BDKJnXlq/rl+naSFOBFKamDQn92FNu8H8P4BJQmpHIcQe/ga6Hru7ausijcVy5i+cDK4YIOmg==
+rt-table-moving@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/rt-table-moving/-/rt-table-moving-1.0.12.tgz#0d5e4fa52202cb6b701a6079fac573b8ba5290ff"
+  integrity sha512-z0hiTIIxF9AKJrMpFxWilEZlmaW0RTEs4uO6GKTftaoe3fmn5wi7iGXRJZF5G86NxSVR+Kc3nSJJFXSMczOBww==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
     rt-auto-focus "^1.0.1"
-    rt-overflow-tooltip "^1.0.3"
+    rt-overflow-tooltip "^1.0.4"
 
 run-async@^2.4.0:
   version "2.4.1"
