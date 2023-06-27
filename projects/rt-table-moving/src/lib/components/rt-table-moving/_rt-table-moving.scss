@@ -345,6 +345,7 @@
   display: flex;
   width: 100%;
   flex: 1;
+  position: relative;
 }
 
 
@@ -353,9 +354,16 @@
   width: 100%;
   height: 40px;
   border-bottom: solid 1px var(--text-border-light);
+  position: relative;
 }
 
 .rt-table-moving__item-column {
   flex: 1;
   display: flex;
+}
+
+.rt-table-moving__validation-error {
+  position: absolute;
+  top: 12px;
+  right: 5px;
 }

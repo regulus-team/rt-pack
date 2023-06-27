@@ -3,6 +3,7 @@
     [data]="tableData$ | async" (changedData)="changedItems($event)"
     [dynamicItemsOnPage]="2"
     (endEdited)="endEdited($event)"
+    (isValid)="isValid($event)"
   >
 
   </rt-table-moving>

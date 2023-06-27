@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnIn
 import {FormControl} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {FADE_IN, FADE_OUT} from '../../animations';
 import {
   RtTableGroupedDataModel,
   RtTableMovingChangedData,
@@ -14,11 +15,14 @@ import {
   selector: 'rt-table-moving',
   templateUrl: './rt-table-moving.component.html',
   styleUrls: ['./rt-table-moving.component.scss'],
+  animations: [FADE_IN, FADE_OUT],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RtTableMovingComponent implements OnInit, OnDestroy {
   @Output() changedData: EventEmitter<RtTableMovingChangedData> = new EventEmitter<RtTableMovingChangedData>();
   @Output() endEditing: EventEmitter<RtTableMovingChangedData> = new EventEmitter<RtTableMovingChangedData>();
+  @Output() isValid: EventEmitter<boolean> = new EventEmitter<boolean>();
+
 
   public readonly singleItemInput = new FormControl();
   public itemOnEdit: number;
@@ -32,7 +36,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   /** Currently displayed last class number in the table. */
   public lastClassNumber = 4;
 
-  public staticItems: RtTableGroupedDataModel[] = [];
+  public staticData: RtTableGroupedDataModel[] = [];
   public dynamicData: RtTableGroupedDataModel[] = [];
   public columnsNumberInView = [1, 2, 3, 4];
 
@@ -81,7 +85,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   }
 
   @Input({required: true}) set data(value: RtTableMovingModel) {
-    this.itemsOnPage = this._itemsOnPage;
+    this.itemsOnPage = this._dynamicItemsOnPage;
     if (!value) {
       return;
     }
@@ -98,13 +102,26 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
         const data = item.data;
 
         if (staticData[header.title]) {
-          staticData[header.title].data.push({value: data, isEditable: item.isEditable});
+          staticData[header.title].data.push({
+            value: data,
+            isEditable: item.isEditable,
+            validators: item.validators,
+            errorMessages: item.errorMessages,
+          });
         } else {
-          staticData[header.title] = {header, data: [{value: data, isEditable: item.isEditable}]};
+          staticData[header.title] = {
+            header,
+            data: [{
+              value: data,
+              isEditable: item.isEditable,
+              validators: item.validators,
+              errorMessages: item.errorMessages,
+            }],
+          };
         }
       });
 
-      this.staticItems = Object.values(staticData);
+      this.staticData = Object.values(staticData);
     }
 
     if (value?.dynamicData) {
@@ -115,9 +132,22 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
         const data = item.data;
 
         if (dynamicData[header.title]) {
-          dynamicData[header.title].data.push({value: data, isEditable: item.isEditable});
+          dynamicData[header.title].data.push({
+            value: data,
+            isEditable: item.isEditable,
+            validators: item.validators,
+            errorMessages: item.errorMessages,
+          });
         } else {
-          dynamicData[header.title] = {header, data: [{value: data, isEditable: item.isEditable}]};
+          dynamicData[header.title] = {
+            header,
+            data: [{
+              value: data,
+              isEditable: item.isEditable,
+              validators: item.validators,
+              errorMessages: item.errorMessages,
+            }],
+          };
         }
       });
 
@@ -138,15 +168,28 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
         )
         .subscribe(([input, itemId, groupIndex, groupType]) => {
           if (groupType === 'static') {
-            this.staticItems[groupIndex].data[itemId].value = input;
+            this.staticData[groupIndex].data[itemId].value = input;
+            if (this.singleItemInput.errors) {
+              const errorName = Object.keys(this.singleItemInput.errors)[0];
+              this.staticData[groupIndex].data[itemId].currentValidationMessage = this.staticData[groupIndex].data[itemId].errorMessages[errorName];
+            } else {
+              this.staticData[groupIndex].data[itemId].currentValidationMessage = '';
+            }
           } else {
             this.dynamicData[groupIndex].data[itemId].value = input;
+            if (this.singleItemInput.errors) {
+              const errorName = Object.keys(this.singleItemInput.errors)[0];
+              this.dynamicData[groupIndex].data[itemId].currentValidationMessage = this.dynamicData[groupIndex].data[itemId].errorMessages[errorName];
+            } else {
+              this.dynamicData[groupIndex].data[itemId].currentValidationMessage = '';
+            }
+
           }
 
 
           this.changedData.emit({
             fullData: {
-              staticData: this.staticItems,
+              staticData: this.staticData,
               dynamicData: this.dynamicData,
             },
             changedData: {
@@ -196,7 +239,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
 
     this.endEditing.emit({
       fullData: {
-        staticData: this.staticItems,
+        staticData: this.staticData,
         dynamicData: this.dynamicData,
       },
       changedData: {
@@ -208,9 +251,12 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
       },
     });
     this.markItemForEdit(null, group, null, null);
+
+    this.isValid.next(this.isValidTable());
+
   }
 
-  public markItemForEdit(data: RtTableMovingItemModel, group: 'static' | 'dynamic' | 'endEdited', itemIndex: number, groupIndex: number): void {
+  public markItemForEdit(data: RtTableMovingItemModel, group: 'static' | 'dynamic', itemIndex: number, groupIndex: number): void {
     if (data && !data?.isEditable) {
       return;
     }
@@ -218,19 +264,31 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
     this.groupOnEdit = group;
     this.itemOnEdit = itemIndex;
     this.groupIndex = groupIndex;
+    this.singleItemInput.setValidators(data?.validators || []);
     this.singleItemInput.setValue(data?.value || '', {emitEvent: false});
+
+
+    if (this.singleItemInput.errors) {
+      const errorName = Object.keys(this.singleItemInput.errors)[0];
+
+      if (group === 'static') {
+        this.staticData[groupIndex].data[itemIndex].currentValidationMessage = this.staticData[groupIndex].data[itemIndex].errorMessages[errorName];
+      } else {
+        this.dynamicData[groupIndex].data[itemIndex].currentValidationMessage = this.dynamicData[groupIndex].data[itemIndex].errorMessages[errorName];
+      }
+    }
   }
 
   deleteColumn(groupType: 'dynamic' | 'static', groupIndex: number): void {
     if (groupType === 'static') {
-      this.staticItems.splice(groupIndex, 1);
+      this.staticData.splice(groupIndex, 1);
     } else {
       this.dynamicData.splice(groupIndex, 1);
     }
 
     this.changedData.emit({
       fullData: {
-        staticData: this.staticItems,
+        staticData: this.staticData,
         dynamicData: this.dynamicData,
       },
       changedData: {
@@ -240,6 +298,13 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
       },
     });
 
-    this.dynamicItemsOnPage = this._itemsOnPage;
+    this.dynamicItemsOnPage = this._dynamicItemsOnPage;
   }
+
+  private isValidTable(): boolean {
+    return this.staticData.every(group => group.data.every(item => !item.currentValidationMessage))
+      && this.dynamicData.every(group => group.data.every(item => !item.currentValidationMessage));
+  }
+
+
 }

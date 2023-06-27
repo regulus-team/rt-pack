@@ -1,6 +1,8 @@
 # Rt table moving
 
+
 ### About
+
 - Version 1.0.5 - Add endEdited output
 - Version 1.0.6 - Rename output from endEdited to endEditing
 - Version 1.0.7 - Remove basic color variables
@@ -11,7 +13,9 @@
 - Version 1.0.12 - Update rt-overflow-tooltip to 1.0.4
 - Version 1.0.13 - Update rt-overflow-tooltip to 1.0.5, Fix tooltip visibility
 - Version 1.0.14 - Fix updating dynamicItemsOnPage
-
+- Version 1.0.15 - Fix updating dynamicItemsOnPage
+- Version 1.0.16 - Fix updating dynamicItemsOnPage
+- Version 1.1.0 - Add validation
 
 ### Install
 
@@ -59,14 +63,15 @@ yarn add rt-table-moving
 | data               | input  | RtTableMovingModel       |                               |
 | changedData        | output | RtTableMovingChangedData | If remove column or edit item |
 | endEdited          | output | RtTableMovingChangedData | End edit item                 |
+| isValid            | output | boolean                  | Validation                    |
 
 ### If you want to reproduce the following table
 
-| Static [subTitle] | [x] Dynamic   |
-|-------------------|---------------|
-| S1                | D1 (editable) |
-| S2                | D2            |
-| S3                | D3            |
+| Static [subTitle] | [x] Dynamic             |
+|-------------------|-------------------------|
+| S1                | D1 (editable, required) |
+| S2                | D2                      |
+| S3                | D3                      |
 
 ### Then the data will be as follows
 
@@ -79,9 +84,14 @@ yarn add rt-table-moving
     {header: {title: 'Static', subTitle: 'subTitle'}, data: 'S2'},
     {header: {title: 'Static', subTitle: 'subTitle'}, data: 'S3'},
   ],
-    dynamicData:
+    dynamicData
+:
   [
-    {header: {title: 'Dynamic', isRemovable: true}, data: 'D1', isEditable: true},
+    {
+      header: {title: 'Dynamic', isRemovable: true}, data: 'D1',
+      isEditable: true,
+      validators: [Validators.required], errorMessages: {required: 'This field is required'},
+    },
     {header: {title: 'Dynamic', isRemovable: true}, data: 'D2'},
     {header: {title: 'Dynamic', isRemovable: true}, data: 'D3'},
   ]
@@ -94,11 +104,11 @@ yarn add rt-table-moving
 ```html
 
 <rt-table-moving
-        [data]="tableData$ | async"
-        (changedData)="changedItems($event)"
-        (endEdited)="endEditing($event)"
-        [dynamicItemsOnPage]="3">
-  
+  [data]="tableData$ | async"
+  (changedData)="changedItems($event)"
+  (endEdited)="endEditing($event)"
+  [dynamicItemsOnPage]="3">
+
 </rt-table-moving>
 ```
 

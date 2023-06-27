@@ -1,3 +1,4 @@
+import {ValidatorFn} from '@angular/forms';
 import {Modify} from './types';
 
 export interface RtTableMovingModel {
@@ -9,12 +10,21 @@ export interface RtTableMovingDataModel {
   header: RtTableMovingHeaderModel;
   data: any;
   isEditable?: boolean;
+  validators?: ValidatorFn[];
+  errorMessages?: { [name: string]: string };
 }
 
 
 export interface RtTableGroupedDataModel {
   header: RtTableMovingHeaderModel;
-  data: Modify<any, { value: any; isEditable?: boolean }[]>;
+  data: Modify<any, {
+    value: any;
+    isEditable?: boolean,
+    validators?: ValidatorFn[],
+    errorMessages?: { [name: string]: string };
+    currentValidationMessage?: string;
+  }[]>;
+
 }
 
 export interface RtTableMovingHeaderModel {
@@ -28,12 +38,14 @@ export interface RtTableMovingHeaderModel {
 export interface RtTableMovingItemModel {
   value: any;
   isEditable?: boolean;
+  validators?: ValidatorFn[];
+  errorMessages?: { [name: string]: string };
 }
 
 export interface RtTableMovingChangedData {
   fullData: {
-    dynamicData?:  RtTableGroupedDataModel[];
-    staticData?:  RtTableGroupedDataModel[];
+    dynamicData?: RtTableGroupedDataModel[];
+    staticData?: RtTableGroupedDataModel[];
   };
   changedData: {
     typeData: 'dynamic' | 'static';
@@ -43,3 +55,4 @@ export interface RtTableMovingChangedData {
     itemIndex?: number;
   };
 }
+
