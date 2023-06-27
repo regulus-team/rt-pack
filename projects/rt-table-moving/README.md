@@ -10,6 +10,7 @@
 - Version 1.0.9 - Tweak cell styles. Change box-sizing to border-box
 - Version 1.0.10 - Tweak header styles. Fix position of the remove button
 - Version 1.0.11 - Update rt-overflow-tooltip to 1.0.3
+- Version 1.0.12 - Update rt-overflow-tooltip to 1.0.4
 
 
 ### Install

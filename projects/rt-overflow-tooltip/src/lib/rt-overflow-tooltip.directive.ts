@@ -40,6 +40,10 @@ export class RtOverflowTooltipDirective extends MatTooltip implements OnInit, On
   protected fontString: CSSFont;
   /** Letter spacing CSS style rule applied to the host element. */
   protected letterSpacing: string;
+  protected paddingLeft: string;
+  protected paddingRight: string;
+  protected borderLeft: string;
+  protected borderRight: string;
   /** Component subscriptions. Will be unsubscribed on destroy. */
   private readonly subscription = new Subscription();
   /** Global window object. */
@@ -104,8 +108,11 @@ export class RtOverflowTooltipDirective extends MatTooltip implements OnInit, On
     const calculatedStringWidth = this.rtDefineStrokeWidth.getTextWidth(this.hostElement.innerText, this.fontString);
     const calculatedContentWidth = calculatedStringWidth + letterSpacingAmendment;
 
+
+    const area = parseFloat(this.borderLeft) + parseFloat(this.borderRight) + parseFloat(this.paddingLeft) + parseFloat(this.paddingRight);
+
     // Calculate the actual width of the host element.
-    const actualContentWidth = this.hostElement.getBoundingClientRect().width - 20;
+    const actualContentWidth = this.hostElement.getBoundingClientRect().width - 3 - area;
 
     // Disable tooltip if the text content is not overflowing (all the content is on the page, so no need to show tooltip).
     this.disabled = calculatedContentWidth <= actualContentWidth;
@@ -140,5 +147,9 @@ export class RtOverflowTooltipDirective extends MatTooltip implements OnInit, On
     this.computedStyle = this.window.getComputedStyle(this.hostElement);
     this.fontString = this.computedStyle.getPropertyValue('font');
     this.letterSpacing = this.computedStyle.getPropertyValue('letter-spacing');
+    this.paddingLeft = this.computedStyle.getPropertyValue('padding-left');
+    this.paddingRight = this.computedStyle.getPropertyValue('padding-right');
+    this.borderLeft = this.computedStyle.getPropertyValue('border-left');
+    this.borderRight = this.computedStyle.getPropertyValue('border-right');
   }
 }

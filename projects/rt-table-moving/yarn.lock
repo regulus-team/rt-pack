@@ -16,10 +16,10 @@ rt-define-stroke-width@^1.0.1:
   dependencies:
     tslib "^2.3.0"
 
-rt-overflow-tooltip@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/rt-overflow-tooltip/-/rt-overflow-tooltip-1.0.3.tgz#e167d241400d6b7ce88a057f0582c2d2a6d43746"
-  integrity sha512-BJio3m9TTHXJ6sdlKbekcXiHfFtV8TUF79b+DAt0vfHLk4oBlIYPyu+VjPfaL+UtRK1s7vGLfSyUmiyF1R2fvg==
+rt-overflow-tooltip@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/rt-overflow-tooltip/-/rt-overflow-tooltip-1.0.4.tgz#1324f3a3eba5015934f1a075621e43b6724666dd"
+  integrity sha512-2xN/cf3xq2DRYUBLMnIfkeda3l3KtFhj92UP5l0ZfFv3pjVhvoJgQ38tkPdvVi5HuIfP+GlMjLNPsrOAYO+ExQ==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
