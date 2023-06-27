@@ -84,14 +84,16 @@
                 ngSrc="/assets/rt-table-moving/delete.svg" width="14" height="18" alt="Edit">
             </div>
 
+            <div>
+              <div class="rt-table-moving__header-label"
+                   *ngIf="dynamicData[extractedHeader.index]?.header.title">{{dynamicData[extractedHeader.index]?.header.title}}</div>
+              <div class="rt-table-moving__header-label"
+                   *ngIf="dynamicData[extractedHeader.index]?.header.subTitle">{{dynamicData[extractedHeader.index]?.header.subTitle}}</div>
+            </div>
+
           </div>
 
-          <div>
-            <div class="rt-table-moving__header-label"
-                 *ngIf="dynamicData[extractedHeader.index]?.header.title">{{dynamicData[extractedHeader.index]?.header.title}}</div>
-            <div class="rt-table-moving__header-label"
-                 *ngIf="dynamicData[extractedHeader.index]?.header.subTitle">{{dynamicData[extractedHeader.index]?.header.subTitle}}</div>
-          </div>
+
         </ng-container>
       </div>
 
