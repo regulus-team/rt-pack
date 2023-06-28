@@ -58,10 +58,10 @@ export class RtForDirective<T, U extends NgIterable<T> = NgIterable<T>> extends 
       this.container.while$.subscribe((whileValue) => {
         if (whileValue) {
           super['ngForOf'] = null;
-          this.container.updateViewSkeleton();
         } else {
           super['ngForOf'] = this._items;
         }
+        this.container.updateViewSkeleton();
       }),
     );
   }
