@@ -95,6 +95,10 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
   applyDirectives(element: HTMLElement): void {
     this.renderer.setAttribute(element, 'rtSkeletonSegmentTemplate', '');
     element.querySelectorAll('[rtSkeletonPlaceholder]').forEach((placeholder) => {
+      const margin = placeholder.getAttribute('marginskeleton');
+      if(margin) {
+        this.renderer.setStyle(placeholder, 'margin', margin);
+      }
       this.renderer.setStyle(placeholder, 'position', 'relative');
     });
   }

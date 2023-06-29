@@ -12,6 +12,7 @@
 - Version 1.3.1 - Fix bug with marginSkeleton option for rtSkeletonPlaceholder directive 
 - Version 1.3.2 - Fix bug with marginSkeleton option for rtSkeletonPlaceholder directive 
 - Version 1.3.3 - Fix bug with marginSkeleton option for rtSkeletonPlaceholder directive 
+- Version 1.3.4 - Fix bug with marginSkeleton option for rtSkeletonPlaceholder directive 
 
 
 ## rtSkeletonPlaceholderContainer

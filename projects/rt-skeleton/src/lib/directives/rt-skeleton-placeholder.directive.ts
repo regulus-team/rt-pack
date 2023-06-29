@@ -12,7 +12,7 @@ export class RtSkeletonPlaceholderDirective implements OnInit {
   @Input() widthSkeleton = 'auto';
   @Input() heightSkeleton = 'auto';
   @Input() leftSkeleton = '0';
-  @Input() marginSkeleton;
+  @Input() marginSkeleton: string;
 
 
   constructor(
