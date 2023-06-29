@@ -1,14 +1,13 @@
 import {NgForOf, NgForOfContext} from '@angular/common';
 import {
   Directive,
-  Host,
   Input,
   IterableDiffers,
   NgIterable,
   OnDestroy,
   OnInit,
-  Optional,
-  TemplateRef, TrackByFunction,
+  TemplateRef,
+  TrackByFunction,
   ViewContainerRef,
 } from '@angular/core';
 import {Subscription} from 'rxjs';

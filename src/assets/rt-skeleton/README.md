@@ -1,5 +1,13 @@
 ## RT_SKELETON
 
+
+- Version 1.1.0 - Add rtSkeletonPlaceholderContainer directive
+- Version 1.1.1 - Fix export rtSkeletonPlaceholderContainer directive
+- Version 1.1.2 - Edit readme
+
+## rtSkeletonPlaceholderContainer
+``This directive sets the attribute for removing elements from DOM after loaded``
+
 ## rtSkeletonPlaceholder directive
 
 | Option                | Default | Type  | Description |
@@ -25,6 +33,7 @@
 ```
 
 ```css
+
 .rt-skeleton-segment {
 
   background: linear-gradient(0.85turn, rgba(39, 39, 39, 0.09), rgba(39, 39, 39, 0.03), rgba(39, 39, 39, 0.09));
@@ -129,5 +138,8 @@
   </div>
 </div>
 ```
+
+
+
 
 https://www.regulus.team/
