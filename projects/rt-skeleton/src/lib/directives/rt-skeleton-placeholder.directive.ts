@@ -12,7 +12,7 @@ export class RtSkeletonPlaceholderDirective implements OnInit {
   @Input() widthSkeleton = 'auto';
   @Input() heightSkeleton = 'auto';
   @Input() leftSkeleton = '0';
-  @Input() marginSkeleton = 'initial';
+  @Input() marginSkeleton;
 
 
   constructor(
@@ -29,7 +29,9 @@ export class RtSkeletonPlaceholderDirective implements OnInit {
     this.renderer.setStyle(this.el.nativeElement, 'position', 'relative');
     this.renderer.setStyle(this.el.nativeElement, 'width', this.widthSkeleton);
     this.renderer.setStyle(this.el.nativeElement, 'height', this.heightSkeleton);
-    this.renderer.setStyle(this.el.nativeElement, 'margin', this.marginSkeleton);
+    if (this.marginSkeleton) {
+      this.renderer.setStyle(this.el.nativeElement, 'margin', this.marginSkeleton);
+    }
 
     addPlaceholderForRtSkeleton(
       this.el.nativeElement,
@@ -59,6 +61,7 @@ export class RtSkeletonPlaceholderDirective implements OnInit {
     this.renderer.removeStyle(this.el.nativeElement, 'position');
     this.renderer.removeStyle(this.el.nativeElement, 'width');
     this.renderer.removeStyle(this.el.nativeElement, 'height');
+    this.renderer.removeStyle(this.el.nativeElement, 'margin');
     this.renderer.removeStyle(this.el.nativeElement, 'pointer-events');
   }
 
@@ -73,6 +76,11 @@ export class RtSkeletonPlaceholderDirective implements OnInit {
     this.renderer.setStyle(this.el.nativeElement, 'position', 'relative');
     this.renderer.setStyle(this.el.nativeElement, 'width', this.widthSkeleton);
     this.renderer.setStyle(this.el.nativeElement, 'height', this.heightSkeleton);
+
+    if (this.marginSkeleton) {
+      this.renderer.setStyle(this.el.nativeElement, 'margin', this.marginSkeleton);
+    }
+
 
   }
 
