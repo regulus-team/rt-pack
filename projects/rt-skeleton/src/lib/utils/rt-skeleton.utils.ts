@@ -1,7 +1,7 @@
 import {Renderer2} from '@angular/core';
 
 export const addPlaceholderForRtSkeleton = (
-  element: HTMLElement, renderer: Renderer2, radiusSegment: string, left: string, right: string, width: string, height: string,
+  element: HTMLElement, renderer: Renderer2, radiusSegment: string, left: string, margin: string, width: string, height: string,
 ): void => {
   const div = renderer.createElement('div');
   renderer.setStyle(div, 'position', 'absolute');
@@ -10,7 +10,7 @@ export const addPlaceholderForRtSkeleton = (
   renderer.setStyle(div, 'top', '0');
   renderer.setStyle(div, 'border-radius', radiusSegment);
   renderer.setStyle(div, 'left', left);
-  renderer.setStyle(div, 'right', right);
+  renderer.setStyle(div, 'margin', margin);
 
   renderer.addClass(div, 'rt-skeleton-segment');
 

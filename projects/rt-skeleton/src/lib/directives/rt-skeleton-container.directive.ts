@@ -46,13 +46,13 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
             const height = element.getAttribute('heightskeleton');
             const radius = element.getAttribute('radiusplaceholder');
             const left = element.getAttribute('leftskeleton');
-            const right = element.getAttribute('rightskeleton');
+            const margin = element.getAttribute('marginskeleton');
             addPlaceholderForRtSkeleton(
               element,
               this.renderer,
               radius || '5px',
               left || '0',
-              right || 'auto',
+              margin || 'auto',
               width || '100%',
               height || '100%'
             );
