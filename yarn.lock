@@ -6849,10 +6849,10 @@ rt-query-params-router-link@^1.0.5:
   optionalDependencies:
     rt-platform "^0.0.3"
 
-rt-skeleton@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/rt-skeleton/-/rt-skeleton-1.1.4.tgz#12c94d0ea62e616c1a77b820819d3624596cddb4"
-  integrity sha512-P/55XSMAHoZZE34nw5itOAmvJYXNdvIQSRcT98GjK5utKheNdh2LcAZE2s6JZiaMrRrEOxoG1HmoVZpq59BEKg==
+rt-skeleton@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/rt-skeleton/-/rt-skeleton-1.2.0.tgz#0df22b3864a5cd5bb0abf28b4bdb69c690838cc1"
+  integrity sha512-gRC4VH6v2Qis6Ee7tsBgAnIEmlxTlnX39LPBMx+ho9deFpwMN8oXTii8qh0brgjjwWcG3BmzOS+EOHpXx/Tp1w==
   dependencies:
     tslib "^2.3.0"
 

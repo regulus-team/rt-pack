@@ -7,6 +7,8 @@
 - Version 1.1.2 - Edit readme
 - Version 1.1.3 - Change removing elements on display none
 - Version 1.1.4 - Change display block on flex for rtSkeletonPlaceholderContainer
+- Version 1.2.0 - Add rightSkeleton option for rtSkeletonPlaceholder directive
+
 
 ## rtSkeletonPlaceholderContainer
 ``This directive sets the attribute for removing elements from DOM after loaded``

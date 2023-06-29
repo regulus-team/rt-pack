@@ -12,6 +12,7 @@ export class RtSkeletonPlaceholderDirective implements OnInit {
   @Input() widthSkeleton = 'auto';
   @Input() heightSkeleton = 'auto';
   @Input() leftSkeleton = '0';
+  @Input() rightSkeleton = 'auto';
 
 
   constructor(
@@ -34,6 +35,7 @@ export class RtSkeletonPlaceholderDirective implements OnInit {
       this.renderer,
       this.radiusPlaceholder,
       this.leftSkeleton,
+      this.rightSkeleton,
       this.widthSkeleton,
       this.heightSkeleton,
     );

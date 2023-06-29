@@ -46,7 +46,16 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
             const height = element.getAttribute('heightskeleton');
             const radius = element.getAttribute('radiusplaceholder');
             const left = element.getAttribute('leftskeleton');
-            addPlaceholderForRtSkeleton(element, this.renderer, radius || '5px', left || '0', width || '100%', height || '100%');
+            const right = element.getAttribute('rightskeleton');
+            addPlaceholderForRtSkeleton(
+              element,
+              this.renderer,
+              radius || '5px',
+              left || '0',
+              right || 'auto',
+              width || '100%',
+              height || '100%'
+            );
           });
 
         });
@@ -65,7 +74,7 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
 
       const containers = element.querySelectorAll('[rtSkeletonPlaceholderContainer]');
       containers.forEach((element: HTMLElement) => {
-        this.renderer.setStyle(element, 'display', 'flex')
+        this.renderer.setStyle(element, 'display', 'flex');
       });
     }
   }
@@ -74,7 +83,7 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
     if (this.skeletonTemplate) {
       const containers = this.el.nativeElement.querySelectorAll('[rtSkeletonPlaceholderContainer]');
       containers.forEach((element: HTMLElement) => {
-        this.renderer.setStyle(element, 'display', 'none')
+        this.renderer.setStyle(element, 'display', 'none');
       });
 
       const elements = this.el.nativeElement.querySelectorAll('[rtSkeletonSegmentTemplate]');
