@@ -36,7 +36,7 @@
     "rt-is-visible-element": "^1.0.3",
     "rt-overflow-tooltip": "^1.0.5",
     "rt-query-params-router-link": "^1.0.5",
-    "rt-skeleton": "^1.1.3",
+    "rt-skeleton": "^1.1.4",
     "rt-tab-carousel": "^1.0.19",
     "rt-table-moving": "^1.1.0",
     "rxjs": "~7.8.0",

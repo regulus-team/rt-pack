@@ -65,7 +65,7 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
 
       const containers = element.querySelectorAll('[rtSkeletonPlaceholderContainer]');
       containers.forEach((element: HTMLElement) => {
-        this.renderer.setStyle(element, 'display', 'block')
+        this.renderer.setStyle(element, 'display', 'flex')
       });
     }
   }
