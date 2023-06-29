@@ -29,13 +29,13 @@ export class RtSkeletonPlaceholderDirective implements OnInit {
     this.renderer.setStyle(this.el.nativeElement, 'position', 'relative');
     this.renderer.setStyle(this.el.nativeElement, 'width', this.widthSkeleton);
     this.renderer.setStyle(this.el.nativeElement, 'height', this.heightSkeleton);
+    this.renderer.setStyle(this.el.nativeElement, 'margin', this.marginSkeleton);
 
     addPlaceholderForRtSkeleton(
       this.el.nativeElement,
       this.renderer,
       this.radiusPlaceholder,
       this.leftSkeleton,
-      this.marginSkeleton,
       this.widthSkeleton,
       this.heightSkeleton,
     );
