@@ -4,12 +4,14 @@ import { RtSkeletonPlaceholderDirective } from './directives/rt-skeleton-placeho
 import { RtSkeletonContainerDirective } from './directives/rt-skeleton-container.directive';
 import { RtForDirective } from './directives/rt-for.directive';
 import {RtSkeletonService} from './services/rt-skeleton.service';
+import { RtSkeletonPlaceholderContainerDirective } from './directives/rt-skeleton-placeholder-container.directive';
 
 @NgModule({
   declarations: [
     RtSkeletonPlaceholderDirective,
     RtSkeletonContainerDirective,
     RtForDirective,
+    RtSkeletonPlaceholderContainerDirective,
   ],
   exports: [
     RtSkeletonPlaceholderDirective,

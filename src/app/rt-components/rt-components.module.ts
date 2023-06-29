@@ -5,9 +5,10 @@ import {MarkdownModule} from 'ngx-markdown';
 import {RtIsVisibleElementModule} from 'rt-is-visible-element';
 import {RtOverflowTooltipModule} from 'rt-overflow-tooltip';
 import {RtQueryParamsRouterLinkModule} from 'rt-query-params-router-link';
-import {RtSkeletonModule} from 'rt-skeleton';
+
 import {RtCarouselModule} from 'rt-tab-carousel';
 import {RtTableMovingModule} from 'rt-table-moving';
+import {RtSkeletonModule} from 'rt-skeleton';
 
 import {RtCarouselRootComponent} from './components/rt-carousel-root/rt-carousel-root.component';
 import {RtIsVisibleElementComponent} from './components/rt-is-visible-element/rt-is-visible-element.component';

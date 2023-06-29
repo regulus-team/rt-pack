@@ -2,6 +2,10 @@
 
 ![](/projects/rt-skeleton/rt-skeleton.gif)
 
+- Version 1.1.0 - Add rtSkeletonContainer directive
+
+## rtSkeletonContainer
+``This directive sets the attribute for removing elements from DOM after loaded``
 
 ## rtSkeletonPlaceholder directive
 
