@@ -62,6 +62,11 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
     for (const el of this.service.getContainersTemplates(this.uuid)) {
       const element = this.el.nativeElement;
       this.renderer.appendChild(element, el);
+
+      const containers = element.querySelectorAll('[rtSkeletonPlaceholderContainer]');
+      containers.forEach((element: HTMLElement) => {
+        this.renderer.setStyle(element, 'display', 'block')
+      });
     }
   }
 
@@ -69,7 +74,7 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
     if (this.skeletonTemplate) {
       const containers = this.el.nativeElement.querySelectorAll('[rtSkeletonPlaceholderContainer]');
       containers.forEach((element: HTMLElement) => {
-        element.remove();
+        this.renderer.setStyle(element, 'display', 'none')
       });
 
       const elements = this.el.nativeElement.querySelectorAll('[rtSkeletonSegmentTemplate]');

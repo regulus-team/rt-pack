@@ -4,6 +4,7 @@
 - Version 1.1.0 - Add rtSkeletonPlaceholderContainer directive
 - Version 1.1.1 - Fix export rtSkeletonPlaceholderContainer directive
 - Version 1.1.2 - Edit readme
+- Version 1.1.3 - Change removing elements on display none
 
 ## rtSkeletonPlaceholderContainer
 ``This directive sets the attribute for removing elements from DOM after loaded``
