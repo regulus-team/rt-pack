@@ -1,7 +1,28 @@
 ## RT QUERY PARAMS ROUTER LINK v1.0.0
 
+![](/projects/rt-query-params-router-link/rt-query-params-router-link.gif)
+
 - rtQueryParamsRouterLink - base path
 - classActiveLink - class for active link
+
+# Usages
+
+```ts
+@NgModule({
+...
+  imports: [
+  ...
+    RtQueryParamsRouterLinkModule,
+    RtPlatformModule.forRoot({
+      localBaseUrl: 'some_local_url',
+      serverBaseUrl: 'some_server_url',
+    }),
+  ],
+})
+export class AnyModule {
+}
+```
+
 
 ```html
 

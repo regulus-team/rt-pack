@@ -1,5 +1,9 @@
 # RT-TAB-CAROUSEL
 
+![](/projects/rt-tab-carousel/rt-carousel_1.gif)
+![](/projects/rt-tab-carousel/rt-carousel_2.gif)
+
+
 ## Install
 
 ```bash
@@ -11,6 +15,9 @@ or
 ```bash
 npm install rt-tab-carousel
 ```
+
+
+
 
 
 ``rtCarouselContainer``

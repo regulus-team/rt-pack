@@ -3,6 +3,8 @@
 - Version 1.0.2 Rename directive selector rtIsElementVisible to rtIsVisibleElement
 - Version 1.0.3 Edit readme
 
+![](/projects/rt-is-visible-element/rt-is-visible-element.gif)
+
 # Install
 
 ```bash

@@ -2,6 +2,7 @@
 RT Overflow Tooltip
 
 
+![](/projects/rt-overflow-tooltip/rt-overflow-tooltip.gif)
 
 Provides directive that shows tooltip when text is overflowed.
 

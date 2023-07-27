@@ -25,6 +25,9 @@
       "rt-define-stroke-width": [
         "dist/rt-define-stroke-width"
       ],
+      "rt-tab-carousel": [
+        "dist/rt-tab-carousel"
+      ],
       "rt-is-visible-element": [
         "dist/rt-is-visible-element"
       ],
