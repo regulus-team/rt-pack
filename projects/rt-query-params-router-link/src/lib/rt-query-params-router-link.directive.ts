@@ -104,6 +104,6 @@ export class RtQueryParamsRouterLinkDirective implements OnInit, OnDestroy {
       url = url.slice(0, url.length - 1);
     }
 
-    return url;
+    return url.replace(/ /g, '%20');
   }
 }
