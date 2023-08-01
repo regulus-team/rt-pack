@@ -4,7 +4,7 @@
 - Version 1.1.0 - Add rtSkeletonPlaceholderContainer directive
 - Version 1.1.1 - Fix export rtSkeletonPlaceholderContainer directive
 - Version 1.1.2 - Edit readme
-- Version 1.1.3 - Change removing elements on display none
+- Version 1.1.3 - Changed removing elements on display none
 - Version 1.1.4 - Change display block on flex for rtSkeletonPlaceholderContainer
 - Version 1.2.0 - Add rightSkeleton option for rtSkeletonPlaceholder directive
 - Version 1.3.0 - Changed rightSkeleton option on marginSkeleton for rtSkeletonPlaceholder directive
@@ -12,6 +12,8 @@
 - Version 1.3.2 - Fix bug with marginSkeleton option for rtSkeletonPlaceholder directive
 - Version 1.3.3 - Fix bug with marginSkeleton option for rtSkeletonPlaceholder directive
 - Version 1.3.4 - Fix bug with marginSkeleton option for rtSkeletonPlaceholder directive
+- Version 1.3.5 - Fix bug with marginSkeleton option for rtSkeletonPlaceholder directive
+- Version 1.3.6 - Optimization for rtSkeletonPlaceholder directive
 
 
 

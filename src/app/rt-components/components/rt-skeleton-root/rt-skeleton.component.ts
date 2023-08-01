@@ -52,7 +52,7 @@ export class RtSkeletonComponent implements OnInit {
     this.items$.next(this.items);
     this.item$.next(this.items[0]);
 
-    interval(2000).pipe(take(0)).subscribe(() => {
+    interval(1000).pipe(take(10)).subscribe(() => {
       this.inProgress$.next(!this.inProgress$.value);
       this.items$.next(this.items);
       this.item$.next(this.items[0]);

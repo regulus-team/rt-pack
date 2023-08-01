@@ -1,5 +1,6 @@
 import {Directive, ElementRef, Input, OnDestroy, OnInit, Renderer2, TemplateRef, ViewContainerRef} from '@angular/core';
-import {BehaviorSubject, Subscription} from 'rxjs';
+import {BehaviorSubject, distinctUntilChanged, filter, first, Subscription, switchMap} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 import {RtSkeletonService} from '../services/rt-skeleton.service';
 import {addPlaceholderForRtSkeleton} from '../utils/rt-skeleton.utils';
 
@@ -11,7 +12,10 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
   skeletonTemplate?: TemplateRef<any>;
   while$ = new BehaviorSubject<boolean>(true);
 
-  private updateViewSkeleton$ = new BehaviorSubject<void | null>(null);
+  public ngForTrigger$ = new BehaviorSubject<boolean>(false);
+  public updateViewSkeletonFromPlaceholder$ = new BehaviorSubject<void>(null);
+
+  private updateViewSkeleton$ = new BehaviorSubject<boolean>(false);
   private readonly subscription = new Subscription();
 
   constructor(private el: ElementRef, private renderer: Renderer2, private service: RtSkeletonService) {
@@ -27,7 +31,7 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
     this.while$.next(!!value);
 
     if (!this.skeletonTemplate) {
-      this.updateViewSkeleton$.next();
+      this.updateViewSkeleton$.next(!value);
     }
   }
 
@@ -52,7 +56,7 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
               radius || '5px',
               left || '0',
               width || '100%',
-              height || '100%'
+              height || '100%',
             );
           });
 
@@ -71,8 +75,8 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
       this.renderer.appendChild(element, el);
 
       const containers = element.querySelectorAll('[rtSkeletonPlaceholderContainer]');
-      containers.forEach((element: HTMLElement) => {
-        this.renderer.setStyle(element, 'display', 'flex');
+      containers.forEach((placeholder: HTMLElement) => {
+        this.renderer.setStyle(placeholder, 'display', 'flex');
       });
     }
   }
@@ -96,22 +100,31 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
     this.renderer.setAttribute(element, 'rtSkeletonSegmentTemplate', '');
     element.querySelectorAll('[rtSkeletonPlaceholder]').forEach((placeholder) => {
       const margin = placeholder.getAttribute('marginskeleton');
-      if(margin) {
+      if (margin) {
         this.renderer.setStyle(placeholder, 'margin', margin);
       }
       this.renderer.setStyle(placeholder, 'position', 'relative');
     });
   }
 
-  updateViewSkeleton(): void {
-    this.updateViewSkeleton$.next();
+  updateViewSkeleton(update: boolean): void {
+    this.updateViewSkeleton$.next(update);
   }
 
   ngOnInit(): void {
+
     this.subscription.add(
-      this.updateViewSkeleton$.subscribe(() => {
-        this._updateViewSkeleton();
-      }));
+      this.updateViewSkeletonFromPlaceholder$
+        .pipe(
+          debounceTime(0),
+          switchMap(() => this.updateViewSkeleton$.pipe(distinctUntilChanged()))
+        )
+
+        .subscribe((v) => {
+          this._updateViewSkeleton(v);
+        }),
+    );
+
   }
 
   ngOnDestroy(): void {
@@ -121,22 +134,19 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
   }
 
 
-  private _updateViewSkeleton(): void {
-    if (this.while$.value) {
-
-      this.service
-        .getPlaceholderDirectives(this.uuid)
-        .forEach((placeholder) => {
-          placeholder.showSkeleton();
-        });
+  private _updateViewSkeleton(update: boolean): void {
+    if (!update) {
+      for (const placeholder of this.service.getPlaceholderDirectives(this.uuid)) {
+        placeholder.showSkeleton();
+      }
       this.showTemplate();
     } else {
-
-      this.service.getPlaceholderDirectives(this.uuid).forEach((placeholder) => {
+      for (const placeholder of this.service.getPlaceholderDirectives(this.uuid)) {
         placeholder.hideSkeleton();
-      });
+      }
       this.hideTemplate();
     }
+    this.ngForTrigger$.next(update);
   }
 
 
