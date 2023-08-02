@@ -1,5 +1,7 @@
 # Rt table moving
 
+![](/projects/rt-table-moving/rt-table-moving.gif)
+![](/projects/rt-table-moving/rt-table-moving-validation.png)
 
 ### About
 
