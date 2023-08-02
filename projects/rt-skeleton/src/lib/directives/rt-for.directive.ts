@@ -10,7 +10,8 @@ import {
   TrackByFunction,
   ViewContainerRef,
 } from '@angular/core';
-import {Subscription} from 'rxjs';
+import {distinctUntilChanged, Subscription, switchMap, tap} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 import {RtSkeletonContainerDirective} from './rt-skeleton-container.directive';
 
 @Directive({
@@ -54,13 +55,19 @@ export class RtForDirective<T, U extends NgIterable<T> = NgIterable<T>> extends 
     }
 
     this.subscription.add(
-      this.container.while$.subscribe((whileValue) => {
-        if (whileValue) {
+      this.container.while$
+        .pipe(
+          tap((whileValue) =>  this.container.updateViewSkeleton(!whileValue)),
+          switchMap(() => this.container.ngForTrigger$),
+          distinctUntilChanged(),
+          )
+        .subscribe((show) => {
+        if (!show) {
           super['ngForOf'] = null;
         } else {
           super['ngForOf'] = this._items;
         }
-        this.container.updateViewSkeleton();
+
       }),
     );
   }

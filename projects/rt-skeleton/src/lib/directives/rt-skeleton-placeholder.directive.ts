@@ -29,6 +29,9 @@ export class RtSkeletonPlaceholderDirective implements OnInit {
     this.renderer.setStyle(this.el.nativeElement, 'position', 'relative');
     this.renderer.setStyle(this.el.nativeElement, 'width', this.widthSkeleton);
     this.renderer.setStyle(this.el.nativeElement, 'height', this.heightSkeleton);
+    this.renderer.setStyle(this.el.nativeElement, 'visibility', 'hidden');
+
+
     if (this.marginSkeleton) {
       this.renderer.setStyle(this.el.nativeElement, 'margin', this.marginSkeleton);
     }
@@ -42,7 +45,8 @@ export class RtSkeletonPlaceholderDirective implements OnInit {
       this.heightSkeleton,
     );
 
-    this.container.updateViewSkeleton();
+    this.container.updateViewSkeletonFromPlaceholder$.next();
+
   }
 
   hideSkeleton(): void {

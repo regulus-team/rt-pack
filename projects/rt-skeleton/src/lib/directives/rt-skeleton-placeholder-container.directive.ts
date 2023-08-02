@@ -1,10 +1,8 @@
-import {Directive, ElementRef} from '@angular/core';
+import {Directive} from '@angular/core';
 
 @Directive({
-  selector: '[rtSkeletonPlaceholderContainer]'
+  selector: '[rtSkeletonPlaceholderContainer]',
 })
 export class RtSkeletonPlaceholderContainerDirective {
-
-  constructor(private el: ElementRef) { }
 
 }

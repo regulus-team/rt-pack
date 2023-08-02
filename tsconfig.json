@@ -42,6 +42,9 @@
       ],
       "rt-table-moving": [
         "dist/rt-table-moving"
+      ],
+      "rt-skeleton": [
+        "dist/rt-skeleton"
       ]
     },
     "resolveJsonModule": true,
