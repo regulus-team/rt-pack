@@ -35,10 +35,10 @@ Use for a ready-made container in which all the items lie
 
 ``rtCarouselTab``
 
-| Option           | Default        | Type  | Description                                                                                                            |
-|------------------|----------------|-------|------------------------------------------------------------------------------------------------------------------------|
-| **disabledTab**  | false          | Input |                                                                                                                        |
-| **uuidCarousel** | null *required | Input | This is a required property that indicates ownership and creates relationships between controls, containers, and items |
+| Option           | Default        | Type  | Description                                                                                                                                                                                                                                                                                                                                                                |
+|------------------|----------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **disabledTab**  | false          | Input |                                                                                                                                                                                                                                                                                                                                                                            |
+| **uuidCarousel** | null *required | Input | This is a required property that indicates ownership and creates relationships between controls, containers, and items. Please, take note, that applying the same UUID to the different carousels will cause a specific behavior: the service will treat them as the same item that will cause arrows to appear on every navigation no matter the real content visibility  |
 
 ``rtCarouselNextButton``
 ``rtCarouselPreviousButton``
