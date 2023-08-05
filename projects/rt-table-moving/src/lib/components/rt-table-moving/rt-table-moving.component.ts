@@ -7,10 +7,10 @@ import {
     RtTableGroupedDataModel,
     RtTableMovingChangedData,
     RtTableMovingItemModel,
-    RtTableMovingModel,
+    RtTableMovingModel, RtTableSelectedData,
 } from '../../symbols';
 
-type groupType = 'static' | 'dynamic';
+
 
 @Component({
     selector: 'rt-table-moving',
@@ -23,12 +23,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
     @Output() changedData: EventEmitter<RtTableMovingChangedData> = new EventEmitter<RtTableMovingChangedData>();
     @Output() endEditing: EventEmitter<RtTableMovingChangedData> = new EventEmitter<RtTableMovingChangedData>();
     @Output() isValid: EventEmitter<boolean> = new EventEmitter<boolean>();
-    @Output() isClick: EventEmitter<{
-        group: groupType,
-        itemIndex: number,
-        groupIndex: number,
-        data: RtTableMovingItemModel
-    }> = new EventEmitter();
+    @Output() isClick: EventEmitter<RtTableSelectedData> = new EventEmitter();
 
 
     public readonly singleItemInput = new FormControl();

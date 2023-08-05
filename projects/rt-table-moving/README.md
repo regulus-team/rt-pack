@@ -19,6 +19,7 @@
 - Version 1.0.16 - Fix updating dynamicItemsOnPage
 - Version 1.1.0 - Add validation
 - Version 1.2.0 - Add isClick output
+- Version 1.2.1 - Add interface for isClick output
 
 ### Install
 

@@ -56,3 +56,11 @@ export interface RtTableMovingChangedData {
   };
 }
 
+export type groupType = 'static' | 'dynamic';
+
+export interface RtTableSelectedData {
+  group: groupType,
+  itemIndex: number,
+  groupIndex: number,
+  data: RtTableMovingItemModel
+}
