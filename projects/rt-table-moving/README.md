@@ -20,7 +20,7 @@
 - Version 1.1.0 - Add validation
 - Version 1.2.0 - Add isClick output
 - Version 1.2.1 - Add interface for isClick output
-- Version 1.2.2 - Add hideControls input
+- Version 1.2.3 - Fix hiddeControls input
 
 ### Install
 
