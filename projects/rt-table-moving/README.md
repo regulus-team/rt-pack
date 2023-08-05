@@ -18,6 +18,7 @@
 - Version 1.0.15 - Fix updating dynamicItemsOnPage
 - Version 1.0.16 - Fix updating dynamicItemsOnPage
 - Version 1.1.0 - Add validation
+- Version 1.2.0 - Add isClick output
 
 ### Install
 
@@ -35,10 +36,10 @@ yarn add rt-table-moving
 
 ```css
 :root {
-  --primary-200: #41789b;
-  --primary-800: #25495b;
-  --text-border-light: #E5E5E5;
-  --text-background: #F7F7F7;
+    --primary-200: #41789b;
+    --primary-800: #25495b;
+    --text-border-light: #E5E5E5;
+    --text-background: #F7F7F7;
 }
 ```
 
@@ -66,6 +67,7 @@ yarn add rt-table-moving
 | changedData        | output | RtTableMovingChangedData | If remove column or edit item |
 | endEdited          | output | RtTableMovingChangedData | End edit item                 |
 | isValid            | output | boolean                  | Validation                    |
+| isClick            | output |                          |                               |
 
 ### If you want to reproduce the following table
 
@@ -81,22 +83,22 @@ yarn add rt-table-moving
 
 ```ts
 {
-  staticData: [
-    {header: {title: 'Static', subTitle: 'subTitle'}, data: 'S1'},
-    {header: {title: 'Static', subTitle: 'subTitle'}, data: 'S2'},
-    {header: {title: 'Static', subTitle: 'subTitle'}, data: 'S3'},
-  ],
-    dynamicData
+    staticData: [
+        {header: {title: 'Static', subTitle: 'subTitle'}, data: 'S1'},
+        {header: {title: 'Static', subTitle: 'subTitle'}, data: 'S2'},
+        {header: {title: 'Static', subTitle: 'subTitle'}, data: 'S3'},
+    ],
+        dynamicData
 :
-  [
-    {
-      header: {title: 'Dynamic', isRemovable: true}, data: 'D1',
-      isEditable: true,
-      validators: [Validators.required], errorMessages: {required: 'This field is required'},
-    },
-    {header: {title: 'Dynamic', isRemovable: true}, data: 'D2'},
-    {header: {title: 'Dynamic', isRemovable: true}, data: 'D3'},
-  ]
+    [
+        {
+            header: {title: 'Dynamic', isRemovable: true}, data: 'D1',
+            isEditable: true,
+            validators: [Validators.required], errorMessages: {required: 'This field is required'},
+        },
+        {header: {title: 'Dynamic', isRemovable: true}, data: 'D2'},
+        {header: {title: 'Dynamic', isRemovable: true}, data: 'D3'},
+    ]
 }
 ;
 ```
@@ -106,10 +108,10 @@ yarn add rt-table-moving
 ```html
 
 <rt-table-moving
-  [data]="tableData$ | async"
-  (changedData)="changedItems($event)"
-  (endEdited)="endEditing($event)"
-  [dynamicItemsOnPage]="3">
+        [data]="tableData$ | async"
+        (changedData)="changedItems($event)"
+        (endEdited)="endEditing($event)"
+        [dynamicItemsOnPage]="3">
 
 </rt-table-moving>
 ```
@@ -119,72 +121,72 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Observable, of} from 'rxjs';
 
 @Component({
-  selector: 'app-component',
-  templateUrl: './app-component.html',
-  styleUrls: ['./app-component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-component',
+    templateUrl: './app-component.html',
+    styleUrls: ['./app-component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
 
-  tableData$: Observable<RtTableMovingModel>;
+    tableData$: Observable<RtTableMovingModel>;
 
-  ngOnInit(): void {
+    ngOnInit(): void {
 
-    this.tableData$ = of({
-      staticData: [
-        {
-          header: {
-            title: 'Static', width: 350, isRemovable: true,
-            subTitle: 'SubTitle',
-          },
-          data: 'S1',
-          isEditable: true,
+        this.tableData$ = of({
+            staticData: [
+                {
+                    header: {
+                        title: 'Static', width: 350, isRemovable: true,
+                        subTitle: 'SubTitle',
+                    },
+                    data: 'S1',
+                    isEditable: true,
 
-        },
-        {
-          header: {
-            title: 'Static', width: 350,
-          },
-          data: 'S2',
-        },
-        {
-          header: {
-            title: 'Static 2', width: 350,
-          },
-          data: 'S3',
-        },
-        {
-          header: {
-            title: 'Static 2', width: 350,
-          },
-          data: 'S4',
-        },
-      ],
+                },
+                {
+                    header: {
+                        title: 'Static', width: 350,
+                    },
+                    data: 'S2',
+                },
+                {
+                    header: {
+                        title: 'Static 2', width: 350,
+                    },
+                    data: 'S3',
+                },
+                {
+                    header: {
+                        title: 'Static 2', width: 350,
+                    },
+                    data: 'S4',
+                },
+            ],
 
-      dynamicData: [
+            dynamicData: [
 
-        {header: {title: 'Dynamic 1'}, data: 'D1', isEditable: true},
-        {header: {title: 'Dynamic 1'}, data: 'D2'},
-        {header: {title: 'Dynamic 1'}, data: 'D3'},
-        {header: {title: 'Dynamic 1'}, data: 'D4'},
-        {header: {title: 'Dynamic 2'}, data: 'D5'},
-        {header: {title: 'Dynamic 3'}, data: 'D6'},
-        {header: {title: 'Dynamic 4'}, data: 'D7'},
+                {header: {title: 'Dynamic 1'}, data: 'D1', isEditable: true},
+                {header: {title: 'Dynamic 1'}, data: 'D2'},
+                {header: {title: 'Dynamic 1'}, data: 'D3'},
+                {header: {title: 'Dynamic 1'}, data: 'D4'},
+                {header: {title: 'Dynamic 2'}, data: 'D5'},
+                {header: {title: 'Dynamic 3'}, data: 'D6'},
+                {header: {title: 'Dynamic 4'}, data: 'D7'},
 
-      ],
-    });
-
-
-  }
+            ],
+        });
 
 
-  changedItems($event: RtTableMovingModel) {
-    // this is the result of the table moving changes
-  }
+    }
 
-  endEdited($event: RtTableMovingModel) {
-    // this is the result of the table moving changes
-  }
+
+    changedItems($event: RtTableMovingModel) {
+        // this is the result of the table moving changes
+    }
+
+    endEdited($event: RtTableMovingModel) {
+        // this is the result of the table moving changes
+    }
 }
 
 ```
