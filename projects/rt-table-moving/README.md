@@ -20,6 +20,7 @@
 - Version 1.1.0 - Add validation
 - Version 1.2.0 - Add isClick output
 - Version 1.2.1 - Add interface for isClick output
+- Version 1.2.2 - Add hideControls input
 
 ### Install
 
@@ -63,6 +64,7 @@ yarn add rt-table-moving
 
 | name               | type   | interface                | description                   |
 |--------------------|--------|--------------------------|-------------------------------|
+| hideControls       | input  | boolean                  |                               |
 | dynamicItemsOnPage | input  | number                   | Number of visible columns     |
 | data               | input  | RtTableMovingModel       |                               |
 | changedData        | output | RtTableMovingChangedData | If remove column or edit item |

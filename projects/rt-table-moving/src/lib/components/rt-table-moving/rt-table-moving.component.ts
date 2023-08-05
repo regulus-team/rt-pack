@@ -24,6 +24,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
     @Output() endEditing: EventEmitter<RtTableMovingChangedData> = new EventEmitter<RtTableMovingChangedData>();
     @Output() isValid: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() isClick: EventEmitter<RtTableSelectedData> = new EventEmitter();
+    @Output() hideControls: boolean = false;
 
 
     public readonly singleItemInput = new FormControl();

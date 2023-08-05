@@ -2,7 +2,7 @@
 
 
   <!--  CONTROLS -->
-  <div class="rt-table-moving__controls">
+  <div class="rt-table-moving__controls" *ngIf="!hideControls">
     <div>
       <span class="rt-table-moving__controls-range">{{firstClassNumber}}-{{lastClassNumber}}</span> /
       <span>{{maxCountVisibleDynamicColumns}}</span>
