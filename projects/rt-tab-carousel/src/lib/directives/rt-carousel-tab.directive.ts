@@ -1,6 +1,6 @@
 import {
   ChangeDetectorRef,
-  Directive,
+  Directive, DoCheck,
   ElementRef,
   HostListener,
   Input,
@@ -53,6 +53,7 @@ export class RtCarouselTabDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.service.deleteTab(this.uuidCarousel, this.el);
     this.subscription.unsubscribe();
   }
 }
