@@ -44,6 +44,7 @@ export class RtSkeletonContainerDirective implements OnInit, OnDestroy {
         template.rootNodes.forEach((node) => {
           this.applyDirectives(node);
           node.querySelectorAll('[rtSkeletonPlaceholder]').forEach((element: HTMLElement) => {
+            this.renderer.setStyle(element, 'pointer-events', 'none');
 
             // Take the attributes from the template
             const width = element.getAttribute('widthskeleton');

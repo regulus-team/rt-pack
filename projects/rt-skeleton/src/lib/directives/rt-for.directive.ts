@@ -57,7 +57,7 @@ export class RtForDirective<T, U extends NgIterable<T> = NgIterable<T>> extends 
     this.subscription.add(
       this.container.while$
         .pipe(
-          tap((whileValue) =>  this.container.updateViewSkeleton(!whileValue)),
+          tap((whileValue: boolean) =>  this.container.updateViewSkeleton(!whileValue)),
           switchMap(() => this.container.ngForTrigger$),
           distinctUntilChanged(),
           )
