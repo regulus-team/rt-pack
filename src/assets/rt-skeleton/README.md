@@ -15,6 +15,7 @@
 - Version 1.3.4 - Fix bug with marginSkeleton option for rtSkeletonPlaceholder directive 
 - Version 1.3.5 - Fix bug with marginSkeleton option for rtSkeletonPlaceholder directive 
 - Version 1.3.6 - Optimization for rtSkeletonPlaceholder directive 
+- Version 1.3.7 - Set pointer-events none for rtSkeletonPlaceholder directive 
 
 
 ## rtSkeletonPlaceholderContainer

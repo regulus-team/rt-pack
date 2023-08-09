@@ -31,7 +31,6 @@ export class AnyModule {
             class="rt-query-params-router-link__link"
             classActiveLink="rt-query-params-router-link__link_active"
             rtQueryParamsRouterLink
-            link="/components/rt-query-params-router-link"
             [linkQueryParams]="{param: 'param-1'}">
         /components/rt-query-params-router-link?param=param-1
     </div>
@@ -40,7 +39,6 @@ export class AnyModule {
             class="rt-query-params-router-link__link"
             classActiveLink="rt-query-params-router-link__link_active"
             rtQueryParamsRouterLink
-            link="/components/rt-query-params-router-link"
             [linkQueryParams]="{param: 'param-2'}">
         /components/rt-query-params-router-link?param=param-2
     </div>
@@ -49,7 +47,6 @@ export class AnyModule {
             class="rt-query-params-router-link__link"
             classActiveLink="rt-query-params-router-link__link_active"
             rtQueryParamsRouterLink
-            link="/components/rt-query-params-router-link"
             [linkQueryParams]="{param: 'param-3'}">
         /components/rt-query-params-router-link?param=param-3
     </div>

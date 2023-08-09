@@ -8,7 +8,6 @@ import {filter} from 'rxjs/operators';
   selector: '[rtQueryParamsRouterLink]',
 })
 export class RtQueryParamsRouterLinkDirective implements OnInit, OnDestroy {
-  @Input() link: string | string[];
   @Input() linkQueryParams: any;
   @Input() linkQueryParamsHandling: QueryParamsHandling = 'merge';
   @Input() linkIsActive = true;
@@ -40,7 +39,7 @@ export class RtQueryParamsRouterLinkDirective implements OnInit, OnDestroy {
       $event.stopPropagation();
       this.window.open(this.getStringifyUrl(), '_blank');
     } else {
-      this.router.navigate(this.getLinkList(), {
+      this.router.navigate([], {
         queryParams: this.linkQueryParams,
         queryParamsHandling: this.linkQueryParamsHandling,
       });
@@ -48,39 +47,23 @@ export class RtQueryParamsRouterLinkDirective implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (this.router.url === this.getStringifyUrl()) {
-      this.currentLink = true;
-      this.renderer.addClass(this.el.nativeElement, this.classActiveLink);
+    this.subscription.add(this.activatedRoute.queryParams.subscribe((params) => {
+      if (this.checkKeyValuesPresence(this.linkQueryParams, params)) {
+        this.currentLink = true;
+        this.renderer.addClass(this.el.nativeElement, this.classActiveLink);
+      } else {
+        this.currentLink = false;
+        this.renderer.removeClass(this.el.nativeElement, this.classActiveLink);
+      }
+    }));
 
-    } else {
-      this.currentLink = false;
-      this.renderer.removeClass(this.el.nativeElement, this.classActiveLink);
-    }
-
-    this.subscription.add(
-      this.router.events.pipe(filter((route): route is NavigationEnd => route instanceof NavigationEnd)).subscribe(v => {
-        if (v.url === this.getStringifyUrl()) {
-          this.currentLink = true;
-          this.renderer.addClass(this.el.nativeElement, this.classActiveLink);
-        } else {
-          this.currentLink = false;
-          this.renderer.removeClass(this.el.nativeElement, this.classActiveLink);
-        }
-      }),
-    );
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  private getLinkList(): string[] {
-    if (!Array.isArray(this.link)) {
-      return [this.link];
-    }
 
-    return this.link;
-  }
 
   private getStringifyUrl(): string {
     const oldQueryParams = this.activatedRoute.snapshot.queryParams;
@@ -88,7 +71,7 @@ export class RtQueryParamsRouterLinkDirective implements OnInit, OnDestroy {
       ...oldQueryParams,
       ...this.linkQueryParams,
     };
-    let url: string = this.getLinkList().join('/');
+    let url = '';
     if (mergedQueryParams) {
       url += '?';
 
@@ -105,5 +88,20 @@ export class RtQueryParamsRouterLinkDirective implements OnInit, OnDestroy {
     }
 
     return url.replace(/ /g, '%20');
+  }
+
+
+  private checkKeyValuesPresence(obj1: any, obj2: any): boolean {
+    for (const key in obj1) {
+      if (Object.prototype.hasOwnProperty.call(obj1, key)) {
+        const value1 = obj1[key].toString();
+        const value2 = obj2[key]?.toString();
+
+        if (value2 === undefined || value1 !== value2) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 }

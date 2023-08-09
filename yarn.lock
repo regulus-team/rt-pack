@@ -7615,10 +7615,10 @@ rt-platform@^0.0.4:
   dependencies:
     tslib "^2.3.0"
 
-rt-query-params-router-link@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/rt-query-params-router-link/-/rt-query-params-router-link-1.0.6.tgz#56b5b4d492ac17e3a8813b4ff5ff7221da3f6a47"
-  integrity sha512-yzy4syD0pRv47Bai7EwXwW+1f/1OdQTLn9Y7P8NWG8L6SdM9mOzJUp7zP1RhbXp7SoO9DJyJ0Yhtte9Heuu3Lw==
+rt-query-params-router-link@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/rt-query-params-router-link/-/rt-query-params-router-link-2.0.0.tgz#336c282ef77c328c42046a94ac3f9f5cd85ed169"
+  integrity sha512-UZrewfFhUOTRIdQk4NXxKijBpvam7T1KsBpZwFG4FONXdItRNHgRfdFfUNzMAU2zO+DtZ7Gmz/q/ZP7w0Hwupg==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
