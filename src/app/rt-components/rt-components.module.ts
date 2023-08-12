@@ -10,101 +10,85 @@ import {RtCarouselModule} from 'rt-tab-carousel';
 import {RtTableMovingModule} from 'rt-table-moving';
 import {RtSkeletonModule} from 'rt-skeleton';
 
-import {RtCarouselRootComponent} from './components/rt-carousel-root/rt-carousel-root.component';
-import {RtIsVisibleElementComponent} from './components/rt-is-visible-element/rt-is-visible-element.component';
-import {RtOverflowTooltipComponent} from './components/rt-overflow-tooltip/rt-overflow-tooltip.component';
-import {
-  RtQueryParamsRouterLinkComponent,
-} from './components/rt-query-params-router-link/rt-query-params-router-link.component';
-import {RtSkeletonComponent} from './components/rt-skeleton-root/rt-skeleton.component';
 import {SideBarComponent} from './components/side-bar/side-bar.component';
 import {RtComponentsRootComponent} from './containers/rt-components-root/rt-components-root.component';
-import { RtPlatformComponent } from './components/rt-platform/rt-platform.component';
-import { RtAutofocusComponent } from './components/rt-autofocus/rt-autofocus.component';
-import { RtDefineStrokeWidthComponent } from './components/rt-define-stroke-width/rt-define-stroke-width.component';
-import { RtTableMovingComponent } from './components/rt-table-moving/rt-table-moving.component';
+import {RtPlatformComponent} from './components/rt-platform/rt-platform.component';
+import {RtDefineStrokeWidthComponent} from './components/rt-define-stroke-width/rt-define-stroke-width.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: RtComponentsRootComponent,
-    children: [
-      {
-        path: 'rt-skeleton',
-        component: RtSkeletonComponent,
-      },
-      {
-        path: 'rt-tab-carousel',
-        component: RtCarouselRootComponent,
-      },
-      {
-        path: 'rt-query-params-router-link',
-        component: RtQueryParamsRouterLinkComponent,
-      },
-      {
-        path: 'rt-is-visible-element',
-        component: RtIsVisibleElementComponent,
-      },
-      {
-        path: 'rt-overflow-tooltip',
-        component: RtOverflowTooltipComponent,
-      },
-      {
-        path: 'rt-platform',
-        component: RtPlatformComponent,
-      },
-      {
-        path: 'rt-auto-focus',
-        component: RtAutofocusComponent,
-      },
-      {
-        path: 'rt-define-stroke-width',
-        component: RtDefineStrokeWidthComponent,
-      },
-      {
-        path: 'rt-table-moving',
-        component: RtTableMovingComponent,
-      },
-      {
+    {
+        path: '',
+        component: RtComponentsRootComponent,
+        children: [
+            {
+                path: 'rt-skeleton',
+                loadChildren: () => import('../rt-skeleton-demo/rt-skeleton-demo.module').then(m => m.RtSkeletonDemoModule),
+            },
+            {
+                path: 'rt-tab-carousel',
+                loadChildren: () => import('../rt-tab-carousel-demo/rt-tab-carousel-demo.module').then(m => m.RtTabCarouselDemoModule),
+            },
+            {
+                path: 'rt-query-params-router-link',
+                loadChildren: () => import('../rt-query-params-router-link-demo/rt-query-params-router-link-demo.module').then(m => m.RtQueryParamsRouterLinkDemoModule),
+            },
+            {
+                path: 'rt-is-visible-element',
+                loadChildren: () => import('../rt-is-visible-element-demo/rt-is-visible-element-demo.module').then(m => m.RtIsVisibleElementDemoModule),
+            },
+            {
+                path: 'rt-overflow-tooltip',
+                loadChildren: () => import('../rt-overflow-tooltip-demo/rt-overflow-tooltip-demo.module').then(m => m.RtOverflowTooltipDemoModule),
+            },
+            {
+                path: 'rt-platform',
+                component: RtPlatformComponent,
+            },
+            {
+                path: 'rt-auto-focus',
+                loadChildren: () => import('../rt-autofocus-demo/rt-autofocus-demo.module').then(m => m.RtAutofocusDemoModule),
+            },
+            {
+                path: 'rt-define-stroke-width',
+                component: RtDefineStrokeWidthComponent,
+            },
+            {
+                path: 'rt-table-moving',
+                loadChildren: () => import('../rt-table-moving/rt-table-moving-demo.module').then(m => m.RtTableMovingDemoModule),
+            },
+            {
+                path: '**',
+                redirectTo: '',
+            },
+        ],
+
+    },
+    {
         path: '**',
         redirectTo: '',
-      },
-    ],
-
-  },
-  {
-    path: '**',
-    redirectTo: '',
-  },
+    },
 
 ];
 
 @NgModule({
-  declarations: [
-    RtSkeletonComponent,
-    RtCarouselRootComponent,
-    SideBarComponent,
-    RtComponentsRootComponent,
-    RtQueryParamsRouterLinkComponent,
-    RtIsVisibleElementComponent,
-    RtOverflowTooltipComponent,
-    RtPlatformComponent,
-    RtAutofocusComponent,
-    RtDefineStrokeWidthComponent,
-    RtTableMovingComponent,
-  ],
-  imports: [
-    RouterModule.forChild(routes),
-    CommonModule,
-    RtSkeletonModule,
-    MarkdownModule,
-    RtCarouselModule,
-    RtIsVisibleElementModule,
-    RtQueryParamsRouterLinkModule,
-    NgOptimizedImage,
-    RtOverflowTooltipModule,
-    RtTableMovingModule
-  ],
+    declarations: [
+        SideBarComponent,
+        RtComponentsRootComponent,
+        RtPlatformComponent,
+        RtDefineStrokeWidthComponent,
+    ],
+    imports: [
+        RouterModule.forChild(routes),
+        CommonModule,
+        RtSkeletonModule,
+        MarkdownModule,
+        RtCarouselModule,
+        RtIsVisibleElementModule,
+        RtQueryParamsRouterLinkModule,
+        NgOptimizedImage,
+        RtOverflowTooltipModule,
+        RtTableMovingModule,
+    ],
 
 })
 export class RtComponentsModule {
