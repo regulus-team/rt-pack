@@ -46,6 +46,9 @@
       ],
       "rt-skeleton": [
         "dist/rt-skeleton"
+      ],
+      "rt-virtual-scroll": [
+        "dist/rt-virtual-scroll"
       ]
     },
     "resolveJsonModule": true,

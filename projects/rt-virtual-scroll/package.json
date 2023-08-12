@@ -1,0 +1,34 @@
+{
+  "name": "rt-virtual-scroll",
+  "version": "1.0.0",
+  "scripts": {
+    "lib:build": "ng build rt-virtual-scroll",
+    "lib:watch": "ng build rt-virtual-scroll --watch",
+    "lib:publish": "npm run lib:build && cd ../../dist/rt-virtual-scroll && npm pack && npm publish"
+  },
+  "license": "MIT",
+  "keywords": [
+    "scroll",
+    "virtual",
+    "ngFor"
+  ],
+  "bugs": {
+    "url": "git+https://github.com/regulus-team/rt-pack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regulus-team/rt-pack.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0"
+  },
+  "optionalDependencies": {
+  },
+  "bundledDependencies": [
+  ],
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
