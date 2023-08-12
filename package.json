@@ -58,7 +58,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "ng-packagr": "^16.0.0",
-    "typescript": "~5.0.2",
-    "plop": "^3.1.2"
+    "plop": "^3.1.2",
+    "typescript": "~5.0.2"
   }
 }
