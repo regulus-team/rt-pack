@@ -1,0 +1,122 @@
+<ng-container *ngIf="navigationItems$ | async as navigationItems">
+    <div class="date-picker">
+        <div class="date-picker__group">
+
+            <div class="date-picker__label">
+                <div class="date-picker-title">
+                </div>
+                <div class="date-picker-year">
+                    <div class="date-picker-month-caption-fixed">
+                        {{dateLastMonth$ | async}}
+                    </div>
+
+                    <img class="filter-black-transform transform-to-777777"
+                         ngSrc="/assets/icons/calendar.svg" alt=""
+                         width="16" height="16">
+
+                    <span class="date-picker-year__label">{{currentYear$ | async}}</span>
+
+                </div>
+            </div>
+        </div>
+        <div class="date-picker-select">
+            <rt-tab-carousel-previous-button uuidCarousel="dates-carousel"></rt-tab-carousel-previous-button>
+            <div
+                    class="date-picker-available-dates-content"
+                    rtCarouselContainer
+                    #dateNav
+                    [activeClass]="'date-picker-day-view__active'"
+                    [uuidCarousel]="'dates-carousel'"
+                    [scrollStep]="2"
+            >
+                <ng-container
+                        *ngFor="let navItem of navigationItems; let first = first; let index=index; trackBy: trackById"
+                >
+                    <ng-container *ngIf="navItem.type === 'caption'; else dayView">
+                        <div
+                                class="date-picker-month-caption"
+                                rtCarouselTab
+                                [uuidCarousel]="'dates-carousel'"
+                                [disabledTab]="true"
+                        >
+                            {{navItem.date.toLocaleString('en', {month: 'short'})}}
+                        </div>
+                    </ng-container>
+
+                    <ng-template #dayView>
+                        <div
+                                rtCarouselTab
+                                [uuidCarousel]="'dates-carousel'"
+                                class="date-picker-day-view"
+                                [routerLink]=""
+                        >
+
+                            <div class="date-picker-day-name">
+                                {{navItem.date.toLocaleString('en', {weekday: 'short'})}}
+                            </div>
+
+                            <div class="date-picker-day-number">
+                                {{navItem.date.toLocaleString('default', {day: '2-digit'})}}
+                            </div>
+
+                            <div class="date-picker-point"></div>
+                        </div>
+                    </ng-template>
+
+
+                </ng-container>
+
+            </div>
+
+            <rt-tab-carousel-next-button uuidCarousel="dates-carousel"></rt-tab-carousel-next-button>
+
+
+        </div>
+    </div>
+
+
+    <div class="services-info">
+
+        <div>
+            <button (click)="addTab()">add tab</button>
+        </div>
+
+        <div class="control-group">
+            <span>set step scroll: </span>
+            <input value="2" (change)="setScrollStep($event.target.value)" class="services-info__value"/>
+        </div>
+
+        <div class="control-group">
+            <span>lastVisibleIndex left side: </span>
+            <span class="services-info__value">{{rtCarouselService.lastVisibleIndex('dates-carousel') | async}}</span>
+        </div>
+
+        <div class="control-group">
+            <span>lastVisibleIndex right side: </span>
+            <span class="services-info__value">{{rtCarouselService.lastVisibleIndexEnd('dates-carousel') | async}}</span>
+        </div>
+
+        <div class="control-group">
+            <span>Selected tab: </span>
+            <span class="services-info__value"
+                  *ngIf="(rtCarouselService.selectedTab('dates-carousel') | async) as index">{{index}}</span>
+        </div>
+
+        <div class="control-group">
+            <span>is visible first tab: </span>
+            <span class="services-info__value">{{rtCarouselService.isFirstTabVisible('dates-carousel') | async}}</span>
+        </div>
+
+        <div class="control-group">
+            <span>is visible last tab: </span>
+            <span class="services-info__value">{{rtCarouselService.isLastTabVisible('dates-carousel') | async}}</span>
+        </div>
+
+        <div class="control-group">
+            <span>amount tabs: </span>
+            <span class="services-info__value">{{rtCarouselService.amountTabs('dates-carousel') | async}}</span>
+        </div>
+    </div>
+
+    <markdown mermaid clipboard [data]="readme"></markdown>
+</ng-container>

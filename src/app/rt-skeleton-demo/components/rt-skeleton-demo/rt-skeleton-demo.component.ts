@@ -13,12 +13,12 @@ interface MockDataModel {
 }
 
 @Component({
-  selector: 'rt-skeleton',
-  templateUrl: './rt-skeleton.component.html',
-  styleUrls: ['./rt-skeleton.component.scss'],
+  selector: 'app-rt-skeleton-demo',
+  templateUrl: './rt-skeleton-demo.component.html',
+  styleUrls: ['./rt-skeleton-demo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RtSkeletonComponent implements OnInit {
+export class RtSkeletonDemoComponent implements OnInit {
   loadingReadme$ = new BehaviorSubject<boolean>(true);
   readme = '';
 
@@ -71,12 +71,12 @@ export class RtSkeletonComponent implements OnInit {
     const filePath = '/assets/rt-skeleton/README.md';
 
     fetch(filePath)
-      .then(response => response.text())
-      .then(text => {
-        const blob = new Blob([text], {type: 'text/plain'});
+        .then(response => response.text())
+        .then(text => {
+          const blob = new Blob([text], {type: 'text/plain'});
 
-        fileReader.readAsText(blob);
-      });
+          fileReader.readAsText(blob);
+        });
   }
 
 }
