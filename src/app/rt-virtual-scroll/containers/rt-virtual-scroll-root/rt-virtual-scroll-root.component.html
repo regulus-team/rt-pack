@@ -1,1 +1,3 @@
-<p>rt-virtual-scroll-root works!</p>
+<cdk-virtual-scroll-viewport itemSize="20" class="example-viewport">
+    <div *cdkVirtualFor="let item of ds" class="example-item">{{item || 'Loading...'}}</div>
+</cdk-virtual-scroll-viewport>
