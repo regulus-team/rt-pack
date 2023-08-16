@@ -19,8 +19,8 @@ export interface RtTableGroupedDataModel {
   header: RtTableMovingHeaderModel;
   data: Modify<any, {
     value: any;
-    isEditable?: boolean,
-    validators?: ValidatorFn[],
+    isEditable?: boolean;
+    validators?: ValidatorFn[];
     errorMessages?: { [name: string]: string };
     currentValidationMessage?: string;
   }[]>;
@@ -59,8 +59,8 @@ export interface RtTableMovingChangedData {
 export type groupType = 'static' | 'dynamic';
 
 export interface RtTableSelectedData {
-  group: groupType,
-  itemIndex: number,
-  groupIndex: number,
-  data: RtTableMovingItemModel
+  group: groupType;
+  itemIndex: number;
+  groupIndex: number;
+  data: RtTableMovingItemModel;
 }

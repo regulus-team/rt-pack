@@ -22,6 +22,7 @@
 - Version 1.2.1 - Add interface for isClick output
 - Version 1.2.3 - Fix hideControls input
 - Version 1.2.4 - Add trackBy to ngFor
+- Version 1.2.5 - Optimization
 
 ### Install
 
