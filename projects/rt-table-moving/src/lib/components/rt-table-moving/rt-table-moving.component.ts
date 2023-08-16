@@ -7,9 +7,9 @@ import {
     RtTableGroupedDataModel,
     RtTableMovingChangedData,
     RtTableMovingItemModel,
-    RtTableMovingModel, RtTableSelectedData,
+    RtTableMovingModel,
+    RtTableSelectedData,
 } from '../../symbols';
-
 
 
 @Component({
@@ -161,6 +161,14 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
                 this.itemsOnPage = this.dynamicData?.length || 0;
             }
         }
+    }
+
+    trackByFn(index: number, item: any): number {
+        return index;
+    }
+
+    trackByItemFn(index: number, item: any): string {
+        return JSON.stringify(item);
     }
 
     ngOnInit(): void {

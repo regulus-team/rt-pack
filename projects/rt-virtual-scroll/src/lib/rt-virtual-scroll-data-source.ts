@@ -26,8 +26,6 @@ export class RtVirtualScrollDataSource<T> extends DataSource<T | undefined> {
         super();
         this._pageSize = pageSize;
         this._length = length;
-
-
     }
 
 
