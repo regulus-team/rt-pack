@@ -39,7 +39,7 @@
     "rt-overflow-tooltip": "^1.0.5",
     "rt-query-params-router-link": "^2.0.0",
     "rt-skeleton": "^1.3.7",
-    "rt-tab-carousel": "^1.1.0",
+    "rt-tab-carousel": "^1.1.1",
     "rt-table-moving": "^1.2.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

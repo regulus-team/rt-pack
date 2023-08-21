@@ -46,31 +46,13 @@ export class RtTabCarouselComponent implements OnInit {
     public currentYear$: BehaviorSubject<number> = new BehaviorSubject<number>(null);
     public navigationItems$: Observable<DateNavigationInfo[]>;
     private readonly subscription = new Subscription();
-    private availableDates$: BehaviorSubject<LikeAvailableClasses[]> = new BehaviorSubject([
-        {id: '3', date: DateTime.fromJSDate(new Date()).plus({days: 365}).toJSDate()},
-        {id: '4', date: DateTime.fromJSDate(new Date()).plus({days: 400}).toJSDate()},
-        {id: '5', date: DateTime.fromJSDate(new Date()).plus({days: 430}).toJSDate()},
-        {id: '6', date: DateTime.fromJSDate(new Date()).plus({days: 550}).toJSDate()},
-        {id: '7', date: DateTime.fromJSDate(new Date()).plus({days: 700}).toJSDate()},
-        {id: '8', date: DateTime.fromJSDate(new Date()).plus({days: 740}).toJSDate()},
-        {id: '9', date: DateTime.fromJSDate(new Date()).plus({days: 800}).toJSDate()},
-        {id: '10', date: DateTime.fromJSDate(new Date()).plus({days: 900}).toJSDate()},
-        {id: '11', date: DateTime.fromJSDate(new Date()).plus({days: 930}).toJSDate()},
-        {id: '12', date: DateTime.fromJSDate(new Date()).plus({days: 1000}).toJSDate()},
-        {id: '13', date: DateTime.fromJSDate(new Date()).plus({days: 1010}).toJSDate()},
-        {id: '14', date: DateTime.fromJSDate(new Date()).plus({days: 1100}).toJSDate()},
-        {id: '15', date: DateTime.fromJSDate(new Date()).plus({days: 1120}).toJSDate()},
-        {id: '16', date: DateTime.fromJSDate(new Date()).plus({days: 1130}).toJSDate()},
-        {id: '17', date: DateTime.fromJSDate(new Date()).plus({days: 1200}).toJSDate()},
-        {id: '18', date: DateTime.fromJSDate(new Date()).plus({days: 1300}).toJSDate()},
-        {id: '19', date: DateTime.fromJSDate(new Date()).plus({days: 1340}).toJSDate()},
-        {id: '20', date: DateTime.fromJSDate(new Date()).plus({days: 1350}).toJSDate()},
-        {id: '21', date: DateTime.fromJSDate(new Date()).plus({days: 1400}).toJSDate()},
-        {id: '22', date: DateTime.fromJSDate(new Date()).plus({days: 1450}).toJSDate()},
-        {id: '23', date: DateTime.fromJSDate(new Date()).plus({days: 1500}).toJSDate()},
-        {id: '24', date: DateTime.fromJSDate(new Date()).plus({days: 1553}).toJSDate()},
-        {id: '25', date: DateTime.fromJSDate(new Date()).plus({days: 1599}).toJSDate()},
-    ]);
+
+    private availableDates$: BehaviorSubject<LikeAvailableClasses[]> = new BehaviorSubject(
+        Array.from({length: 350}).map((_, i) => (
+            {
+                id: i.toString(),
+                date: DateTime.fromJSDate(new Date()).plus({days: i}).toJSDate()}))
+    );
 
     constructor(public rtCarouselService: RtCarouselService, private cd: ChangeDetectorRef) {
     }
