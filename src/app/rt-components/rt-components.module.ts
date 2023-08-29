@@ -50,7 +50,7 @@ const routes: Routes = [
             },
             {
                 path: 'rt-virtual-scroll',
-                loadChildren: () => import('../rt-virtual-scroll/rt-virtual-scroll.module').then(m => m.RtVirtualScrollModule),
+                loadChildren: () => import('../rt-virtual-scroll/rt-virtual-scroll-demo.module').then(m => m.RtVirtualScrollDemoModule),
             },
             {
                 path: '**',

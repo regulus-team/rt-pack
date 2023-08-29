@@ -8183,10 +8183,10 @@ rt-table-moving@^1.2.5:
     rt-auto-focus "^1.0.1"
     rt-overflow-tooltip "^1.0.5"
 
-rt-virtual-scroll@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/rt-virtual-scroll/-/rt-virtual-scroll-1.0.0.tgz#d6de5e7c54be0f9902c7a258c4ad1efdd98a6c73"
-  integrity sha512-ZUaN+pPK9Q0/acB36t0Weq91WwhiqRHyKqNFZy2v2iViLkjRHyM6ZdPwbhsGwIgI21griaXIATBCUqqkhpq66w==
+rt-virtual-scroll@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/rt-virtual-scroll/-/rt-virtual-scroll-1.0.1.tgz#ebc182369b1afb8fda147f71506b1705000c595d"
+  integrity sha512-ar7Jgzauy09pflunttrY9ffInXIR8lY3vsNrV5zv/bTtZ4sK5jRkdeu1LPqumIRmEcz/18NAYT6UKmyPZoFsgw==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:

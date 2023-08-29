@@ -6,6 +6,9 @@ import {CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport} fr
 import {RtVirtualScrollService} from './rt-virtual-scroll.service';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MarkdownModule} from 'ngx-markdown';
+import {
+    RtVirtualScrollModule
+} from '../../../projects/rt-virtual-scroll/src/lib/rt-virtual-scroll/rt-virtual-scroll.module';
 
 
 const routes: Routes = [
@@ -23,13 +26,11 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        CdkVirtualScrollViewport,
-        CdkVirtualForOf,
-        CdkFixedSizeVirtualScroll,
-        MatProgressSpinnerModule,
         MarkdownModule,
+        RtVirtualScrollModule,
+        MatProgressSpinnerModule,
     ],
     providers: [RtVirtualScrollService],
 })
-export class RtVirtualScrollModule {
+export class RtVirtualScrollDemoModule {
 }
