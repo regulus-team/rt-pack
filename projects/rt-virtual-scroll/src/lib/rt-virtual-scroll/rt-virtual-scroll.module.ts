@@ -1,10 +1,23 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+    declarations: [],
+    imports: [
+        CommonModule,
+        CdkVirtualScrollViewport,
+        CdkFixedSizeVirtualScroll,
+        CdkVirtualForOf,
+        HttpClientModule,
+    ],
+    exports: [
+        CdkVirtualScrollViewport,
+        CdkFixedSizeVirtualScroll,
+        CdkVirtualForOf,
+    ],
+    providers: [CdkVirtualScrollViewport],
 })
-export class RtVirtualScrollModule { }
+export class RtVirtualScrollModule {
+}

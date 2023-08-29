@@ -1,24 +1,49 @@
 # RtVirtualScroll
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+![](/projects/rt-virtual-scroll/rtVirtualScroll.gif)
 
-## Code scaffolding
+```html
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+    <div *cdkVirtualFor="let item of ds" class="example-item">
+        <div class="item" *ngIf="item; else loading">
+            {{item.breed}}
+        </div>
+        <ng-template #loading>
+            <div class="loading-shim">
+                <mat-progress-spinner mode="indeterminate" diameter="15"></mat-progress-spinner>
+            </div>
+        </ng-template>
+    </div>
+</cdk-virtual-scroll-viewport>
+```
 
-Run `ng generate component component-name --project rt-virtual-scroll` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project rt-virtual-scroll`.
-> Note: Don't forget to add `--project rt-virtual-scroll` or else it will be added to the default project in your `angular.json` file. 
+```ts
+import {Component, OnInit} from '@angular/core';
+import {
+    RtVirtualScrollDataSource,
+} from '../../../../../projects/rt-virtual-scroll/src/lib/rt-virtual-scroll-data-source';
+import {Breed, BreedList} from '../../symbols';
+import {HttpClient} from '@angular/common/http';
 
-## Build
+@Component({
+    selector: 'app-rt-virtual-scroll-root',
+    templateUrl: './rt-virtual-scroll-root.component.html',
+    styleUrls: ['./rt-virtual-scroll-root.component.scss'],
+})
+export class RtVirtualScrollRootComponent implements OnInit {
 
-Run `ng build rt-virtual-scroll` to build the project. The build artifacts will be stored in the `dist/` directory.
+    ds: RtVirtualScrollDataSource<Breed, BreedList>;
 
-## Publishing
+    constructor(private http: HttpClient) {
+    }
 
-After building your library with `ng build rt-virtual-scroll`, go to the dist folder `cd dist/rt-virtual-scroll` and run `npm publish`.
+    ngOnInit(): void {
+        this.ds = new RtVirtualScrollDataSource<Breed, BreedList>(this.http, 25);
+        this.ds.setApi('https://catfact.ninja/breeds')
+            .isRemoveEmptyParams()
+            .setDefaultKeys('data', 'total', 'page')
+            .load();
+    }
+}
+```
 
-## Running unit tests
-
-Run `ng test rt-virtual-scroll` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

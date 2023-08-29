@@ -8183,6 +8183,15 @@ rt-table-moving@^1.2.5:
     rt-auto-focus "^1.0.1"
     rt-overflow-tooltip "^1.0.5"
 
+rt-virtual-scroll@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rt-virtual-scroll/-/rt-virtual-scroll-1.0.0.tgz#d6de5e7c54be0f9902c7a258c4ad1efdd98a6c73"
+  integrity sha512-ZUaN+pPK9Q0/acB36t0Weq91WwhiqRHyKqNFZy2v2iViLkjRHyM6ZdPwbhsGwIgI21griaXIATBCUqqkhpq66w==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    "@angular/material" "~16.1.1"
+
 run-async@^2.4.0:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/run-async/-/run-async-2.4.1.tgz#8440eccf99ea3e70bd409d49aab88e10c189a455"

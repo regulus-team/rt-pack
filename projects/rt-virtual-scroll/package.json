@@ -1,6 +1,6 @@
 {
   "name": "rt-virtual-scroll",
-  "version": "0.0.1-beta",
+  "version": "1.0.0",
   "scripts": {
     "lib:build": "ng build rt-virtual-scroll",
     "lib:watch": "ng build rt-virtual-scroll --watch",
@@ -21,11 +21,14 @@
   },
   "peerDependencies": {
     "@angular/common": "^16.0.0",
-    "@angular/core": "^16.0.0"
+    "@angular/core": "^16.0.0",
+    "@angular/material": "~16.1.1"
   },
   "optionalDependencies": {
+    "@angular/material": "~16.1.1"
   },
   "bundledDependencies": [
+    "@angular/material"
   ],
   "dependencies": {
     "tslib": "^2.3.0"

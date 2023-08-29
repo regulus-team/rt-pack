@@ -1,12 +1,17 @@
-<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
-    <div *cdkVirtualFor="let item of ds" class="example-item">
-        <div class="item" *ngIf="item; else loading">
-            {{item.breed}}
-        </div>
-        <ng-template #loading>
-            <div class="loading-shim">
-                <mat-progress-spinner mode="indeterminate" diameter="15"></mat-progress-spinner>
+<div class="rt-virtual-scroll">
+    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+        <div *cdkVirtualFor="let item of ds" class="example-item">
+            <div class="item" *ngIf="item; else loading">
+                {{item.breed}}
             </div>
-        </ng-template>
-    </div>
-</cdk-virtual-scroll-viewport>
+            <ng-template #loading>
+                <div class="loading-shim">
+                    <mat-progress-spinner mode="indeterminate" diameter="15"></mat-progress-spinner>
+                </div>
+            </ng-template>
+        </div>
+    </cdk-virtual-scroll-viewport>
+
+
+    <markdown mermaid clipboard [data]="readme"></markdown>
+</div>
