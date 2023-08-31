@@ -59,13 +59,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   private _data: RtTableMovingModel;
 
   @Input({required: true}) set data(value: RtTableMovingModel) {
-    if (
-      this._data?.staticData.length === value?.staticData.length &&
-      this._data?.dynamicData.length === value?.dynamicData.length &&
-      (this._data?.staticData.length > 0 && this._data?.dynamicData.length > 0)
-    ) {
-      return;
-    }
+
     this._data = value;
 
     this.itemsOnPage = this._dynamicItemsOnPage;

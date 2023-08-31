@@ -23,6 +23,7 @@
 - Version 1.2.3 - Fix hideControls input
 - Version 1.2.4 - Add trackBy to ngFor
 - Version 1.2.5 - Optimization
+- Version 1.2.6 - Fix bug related with update date
 
 ### Install
 
