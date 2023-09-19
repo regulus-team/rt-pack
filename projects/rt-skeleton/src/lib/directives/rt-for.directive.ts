@@ -11,7 +11,6 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import {distinctUntilChanged, Subscription, switchMap, tap} from 'rxjs';
-import {debounceTime} from 'rxjs/operators';
 import {RtSkeletonContainerDirective} from './rt-skeleton-container.directive';
 
 @Directive({

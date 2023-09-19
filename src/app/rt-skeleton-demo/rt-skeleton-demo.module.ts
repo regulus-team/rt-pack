@@ -4,7 +4,7 @@ import {RtSkeletonRootComponent} from './containers/rt-skeleton-root/rt-skeleton
 import {RtSkeletonDemoComponent} from './components/rt-skeleton-demo/rt-skeleton-demo.component';
 import {RouterModule, Routes} from '@angular/router';
 import {MarkdownModule} from 'ngx-markdown';
-import {RtSkeletonModule} from '../../../projects/rt-skeleton/src/lib/rt-skeleton.module';
+import {RtSkeletonModule} from 'rt-skeleton';
 
 const routes: Routes = [
     {
