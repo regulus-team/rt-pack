@@ -17,6 +17,7 @@
 - Version 1.3.6 - Optimization for rtSkeletonPlaceholder directive 
 - Version 1.3.7 - Set pointer-events none for rtSkeletonPlaceholder directive 
 - Version 1.4.0 - Add rtSkeletonIf directive 
+- Version 1.4.1 - Fix a bug related to remapping in rtSkeletonIf directive 
 
 
 ## rtSkeletonPlaceholderContainer
@@ -77,7 +78,7 @@
 
 ## Use for single item
 
-- Note that we are creating a ```*ngIf="{item: item$ | async} as data"``` object instead of the usual ```*ngIf="item$ | async"```
+- Note that we are creating a ```*rtSkeletonIf="item$ | async as data"``` object instead of the usual ```*ngIf="item$ | async"```
 
 ```html
 

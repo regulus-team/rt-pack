@@ -55,9 +55,9 @@ export class RtSkeletonDemoComponent implements OnInit {
             this.inProgress$.next(!this.inProgress$.value);
             this.items$.next(this.items);
 
-            if(this.item$.value){
-             this.item$.next(null);
-            }else {
+            if (this.item$.value) {
+                this.item$.next(null);
+            } else {
                 this.item$.next(this.items[0]);
             }
         });

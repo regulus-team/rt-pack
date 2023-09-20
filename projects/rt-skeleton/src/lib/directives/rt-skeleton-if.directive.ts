@@ -42,11 +42,10 @@ export class RtSkeletonIfDirective<T = unknown> implements OnInit, OnDestroy {
         }
 
         this.subscriptionTrigger = this.container.ngForTrigger$.pipe(distinctUntilChanged()).subscribe((show) => {
-            this.viewContainer.clear();
             if (!!condition) {
-
                 this._updateView(show);
             } else if (show) {
+                this.viewContainer.clear();
                 if (this._elseTemplateRef) {
 
                     for (const placeholder of this.container.service.getPlaceholderDirectives(this.container.uuid)) {
