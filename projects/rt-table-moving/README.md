@@ -25,6 +25,7 @@
 - Version 1.2.5 - Optimization
 - Version 1.2.6 - Fix bug related with update date
 - Version 1.3.1 - Add autoHideControls input
+- Version 1.3.2 - Rebuild
 
 ### Install
 

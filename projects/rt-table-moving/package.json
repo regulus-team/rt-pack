@@ -1,6 +1,6 @@
 {
   "name": "rt-table-moving",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "scripts": {
     "lib:build": "ng build rt-table-moving",
     "lib:watch": "ng build rt-table-moving --watch",
