@@ -26,6 +26,10 @@
 - Version 1.2.6 - Fix bug related with update date
 - Version 1.3.1 - Add autoHideControls input
 - Version 1.3.2 - Rebuild
+- Version 1.3.3 - Add detect condition for autoHideControls after change data
+- Version 1.3.4 - Change condition for autoHideControls after change data
+- Version 1.3.5 - Change condition for autoHideControls after change data
+- Version 1.3.6 - Set autoHideControls to true by default
 
 ### Install
 

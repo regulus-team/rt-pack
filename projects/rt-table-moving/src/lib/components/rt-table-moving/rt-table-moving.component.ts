@@ -25,7 +25,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
     @Output() isValid: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() isClick: EventEmitter<RtTableSelectedData> = new EventEmitter();
     @Input() hideControls = false;
-    @Input() autoHideControls = false;
+    @Input() autoHideControls = true;
 
 
     public readonly singleItemInput = new FormControl();
@@ -60,7 +60,6 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
     private _data: RtTableMovingModel;
 
     @Input({required: true}) set data(value: RtTableMovingModel) {
-
         this._data = value;
 
         this.itemsOnPage = this._dynamicItemsOnPage;
@@ -136,6 +135,8 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
                 this.itemsOnPage = this.dynamicData?.length || 0;
             }
         }
+
+
     }
 
     /** Number of classes that should be displayed on page (defines by window width). */
@@ -173,7 +174,9 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
 
 
     ngOnInit(): void {
-
+        if (this.autoHideControls) {
+            this.hideControls = true;
+        }
         this.subscription.add(
             this.singleItemInput.valueChanges
                 .pipe(
@@ -233,7 +236,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
         );
 
         if (this.autoHideControls && this.firstClassNumber === 1) {
-            this.hideControls = this.lastClassNumber === this.maxCountVisibleDynamicColumns;
+            this.hideControls = this.lastClassNumber >= this.maxCountVisibleDynamicColumns;
         }
     }
 
