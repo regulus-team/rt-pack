@@ -1,6 +1,6 @@
 {
   "name": "rt-overflow-tooltip",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "scripts": {
     "lib:build": "ng build rt-overflow-tooltip",
     "lib:watch": "ng build rt-overflow-tooltip --watch",

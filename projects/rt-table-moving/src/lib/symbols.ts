@@ -12,6 +12,7 @@ export interface RtTableMovingDataModel {
   isEditable?: boolean;
   validators?: ValidatorFn[];
   errorMessages?: { [name: string]: string };
+  whiteSpace?: 'nowrap' | 'pre';
 }
 
 
@@ -23,6 +24,7 @@ export interface RtTableGroupedDataModel {
     validators?: ValidatorFn[];
     errorMessages?: { [name: string]: string };
     currentValidationMessage?: string;
+    whiteSpace: 'nowrap' | 'pre';
   }[]>;
 
 }

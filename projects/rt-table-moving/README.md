@@ -30,6 +30,11 @@
 - Version 1.3.4 - Change condition for autoHideControls after change data
 - Version 1.3.5 - Change condition for autoHideControls after change data
 - Version 1.3.6 - Set autoHideControls to true by default
+- Version 1.4.0 - Add whiteSpace for table data interface
+- Version 1.4.1 - Tweak whiteSpace styles
+- Version 1.4.2 - Set whiteSpace to nowrap by default
+- Version 1.4.3 - Tweak rt-overflow-tooltip directive
+- Version 1.4.4 - Tweak htmlParser
 
 ### Install
 
@@ -73,6 +78,7 @@ yarn add rt-table-moving
 
 | name               | type   | interface                | description                   |
 |--------------------|--------|--------------------------|-------------------------------|
+| autoHideControls   | input  | boolean                  |                               |
 | hideControls       | input  | boolean                  |                               |
 | dynamicItemsOnPage | input  | number                   | Number of visible columns     |
 | data               | input  | RtTableMovingModel       |                               |

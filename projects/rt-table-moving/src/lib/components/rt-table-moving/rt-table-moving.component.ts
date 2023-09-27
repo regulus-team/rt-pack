@@ -84,6 +84,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
                         isEditable: item.isEditable,
                         validators: item.validators,
                         errorMessages: item.errorMessages,
+                        whiteSpace: item.whiteSpace || 'nowrap',
                     });
                 } else {
                     staticData[header.title] = {
@@ -93,6 +94,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
                             isEditable: item.isEditable,
                             validators: item.validators,
                             errorMessages: item.errorMessages,
+                            whiteSpace: item.whiteSpace || 'nowrap',
                         }],
                     };
                 }
@@ -114,6 +116,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
                         isEditable: item.isEditable,
                         validators: item.validators,
                         errorMessages: item.errorMessages,
+                        whiteSpace: item.whiteSpace || 'nowrap',
                     });
                 } else {
                     dynamicData[header.title] = {
@@ -123,6 +126,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
                             isEditable: item.isEditable,
                             validators: item.validators,
                             errorMessages: item.errorMessages,
+                            whiteSpace: item.whiteSpace || 'nowrap',
                         }],
                     };
                 }

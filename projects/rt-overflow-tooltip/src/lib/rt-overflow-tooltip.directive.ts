@@ -30,6 +30,8 @@ import {Observable, Subscription} from 'rxjs';
 export class RtOverflowTooltipDirective extends MatTooltip implements OnInit, OnDestroy {
   /** The message to be displayed in the tooltip if the element has not enough space. */
   @Input() rtOverflowTooltip: string;
+
+  @Input() rtOverflowDisable = false;
   /** Host element of the directive. */
   protected hostElement: HTMLElement;
   /** Text content of the host element. */
@@ -115,7 +117,7 @@ export class RtOverflowTooltipDirective extends MatTooltip implements OnInit, On
     const actualContentWidth = this.hostElement.getBoundingClientRect().width - area;
 
     // Disable tooltip if the text content is not overflowing (all the content is on the page, so no need to show tooltip).
-    this.disabled = calculatedContentWidth <= actualContentWidth;
+    this.disabled = calculatedContentWidth <= actualContentWidth || this.rtOverflowDisable;
 
   }
 
