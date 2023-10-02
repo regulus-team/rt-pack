@@ -4,9 +4,19 @@ RT Overflow Tooltip
 
 ![](/projects/rt-overflow-tooltip/rt-overflow-tooltip.gif)
 
+## Install
+```bash
+npm i rt-overflow-tooltip
+```
+
+```bash
+yarn add rt-overflow-tooltip
+```
+
+
 Provides directive that shows tooltip when text is overflowed.
 
-# Usage
+## Usage
 
 Add `RtOverflowTooltipModule` in imports into your `module:
 

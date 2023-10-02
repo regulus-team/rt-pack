@@ -3,7 +3,7 @@
 ![](/projects/rt-table-moving/rt-table-moving.gif)
 ![](/projects/rt-table-moving/rt-table-moving-validation.png)
 
-### About
+## About
 
 - Version 1.0.5 - Add endEdited output
 - Version 1.0.6 - Rename output from endEdited to endEditing
@@ -36,7 +36,7 @@
 - Version 1.4.3 - Tweak rt-overflow-tooltip directive
 - Version 1.4.4 - Tweak htmlParser
 
-### Install
+## Install
 
 ```bash
 npm i rt-table-moving
@@ -45,6 +45,8 @@ npm i rt-table-moving
 ```bash
 yarn add rt-table-moving
 ```
+
+## Usages
 
 ### Styles
 
@@ -74,7 +76,6 @@ yarn add rt-table-moving
 ...
 ```
 
-# About
 
 | name               | type   | interface                | description                   |
 |--------------------|--------|--------------------------|-------------------------------|
@@ -121,7 +122,7 @@ yarn add rt-table-moving
 ;
 ```
 
-# Usage
+## For example
 
 ```html
 

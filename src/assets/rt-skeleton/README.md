@@ -16,7 +16,20 @@
 - Version 1.3.5 - Fix bug with marginSkeleton option for rtSkeletonPlaceholder directive 
 - Version 1.3.6 - Optimization for rtSkeletonPlaceholder directive 
 - Version 1.3.7 - Set pointer-events none for rtSkeletonPlaceholder directive 
+- Version 1.4.0 - Add rtSkeletonIf directive 
+- Version 1.4.1 - Fix a bug related to remapping in rtSkeletonIf directive 
 
+## Install
+
+```bash
+npm i rt-skeleton
+```
+
+```bash
+yarn add rt-skeleton
+```
+
+## Usage
 
 ## rtSkeletonPlaceholderContainer
 ``This directive sets the attribute for removing elements from DOM after loaded``
@@ -76,39 +89,45 @@
 
 ## Use for single item
 
-- Note that we are creating a ```*ngIf="{item: item$ | async} as data"``` object instead of the usual ```*ngIf="item$ | async"```
+- Note that we are creating a ```*rtSkeletonIf="item$ | async as data"``` object instead of the usual ```*ngIf="item$ | async"```
 
 ```html
 
-<div
-  class="rt-skeleton__item"
-  rtSkeletonContainer
-  [while]="inProgress$ | async"
-  *ngIf="{item: item$ | async} as data"
->
+<div rtSkeletonContainer [while]="inProgress$ | async">
+    <div
+            *rtSkeletonIf="item$ | async as data; else emptyList"
+            class="rt-skeleton__item"
+    >
+        <div
+                class="item__avatar"
+                rtSkeletonPlaceholder
+                radiusPlaceholder="50%"
+                widthSkeleton="50px"
+                heightSkeleton="50px"
+        >
+            <img class="item__avatar" src="/assets/icons/avatar_1.png" alt="">
+        </div>
 
-  <div
-    class="item__avatar"
-    rtSkeletonPlaceholder
-    radiusPlaceholder="50%"
-    widthSkeleton="50px"
-    heightSkeleton="50px"
-  >
-    <img class="item__avatar" src="/assets/images/profile/avatar-list/avatar_1.png" alt="">
-  </div>
+        <div class="item-group"><span>Name: </span>
+            <div rtSkeletonPlaceholder widthSkeleton="150px"
+                 class="item__value">{{data.name.first_name}}
+            </div>
+        </div>
+        <div class="item-group"><span>Age: </span>
+            <div rtSkeletonPlaceholder widthSkeleton="150px" class="item__value">{{data.age}}</div>
+        </div>
+        <div class="item-group"><span>address: </span>
+            <div rtSkeletonPlaceholder widthSkeleton="150px" class="item__value">{{data.address}}</div>
+        </div>
 
-  <div class="item-group"><span>Name: </span>
-    <div rtSkeletonPlaceholder widthSkeleton="150px" class="item__value">{{data.item.name.first_name}}</div>
-  </div>
-  <div class="item-group"><span>Age: </span>
-    <div rtSkeletonPlaceholder widthSkeleton="150px" class="item__value">{{data.item.age}}</div>
-  </div>
-  <div class="item-group"><span>address: </span>
-    <div rtSkeletonPlaceholder widthSkeleton="150px" class="item__value">{{data.item.address}}</div>
-  </div>
-  <div class="item-group"><span>phone: </span>
-    <div rtSkeletonPlaceholder widthSkeleton="150px" class="item__value">{{data.item.phone}}</div>
-  </div>
+        <div class="item-group"><span>phone: </span>
+            <div rtSkeletonPlaceholder widthSkeleton="150px" class="item__value">{{data.phone}}</div>
+        </div>
+
+
+    </div>
+    <ng-template #emptyList>The list is empty</ng-template>
+</div>
 ```
 
 ## Use for list

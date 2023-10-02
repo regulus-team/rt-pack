@@ -16,7 +16,7 @@ or
 npm install rt-tab-carousel
 ```
 
-
+## Usages
 
 
 

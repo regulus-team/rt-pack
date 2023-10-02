@@ -1,5 +1,7 @@
 ### rt-auto-focus
 
+
+## Install
 ```bash
 npm i rt-auto-focus
 ```
@@ -10,7 +12,7 @@ yarn add rt-auto-focus
 
 - The directive is intended for automatic input focus
 
-### Use directive
+## Usages
 
 ```html
 <input type="text" rtAutoFocus>

@@ -5,7 +5,7 @@
 
 ![](/projects/rt-is-visible-element/rt-is-visible-element.gif)
 
-# Install
+## Install
 
 ```bash
 npm i rt-is-visible-element
@@ -15,7 +15,7 @@ npm i rt-is-visible-element
 yarn add rt-is-visible-element
 ```
 
-# Usage
+## Usage
 ```html
 
 <div class="rt-is-visible-element">

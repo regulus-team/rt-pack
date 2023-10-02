@@ -19,6 +19,17 @@
 - Version 1.4.0 - Add rtSkeletonIf directive 
 - Version 1.4.1 - Fix a bug related to remapping in rtSkeletonIf directive 
 
+## Install
+
+```bash
+npm i rt-skeleton
+```
+
+```bash
+yarn add rt-skeleton
+```
+
+## Usage
 
 ## rtSkeletonPlaceholderContainer
 ``This directive sets the attribute for removing elements from DOM after loaded``

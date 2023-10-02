@@ -2,6 +2,19 @@
 
 ![](/projects/rt-virtual-scroll/rtVirtualScroll.gif)
 
+# Install
+
+```bash
+npm i rt-virtual-scroll
+```
+
+```bash
+yarn add rt-virtual-scroll
+```
+
+# Usages
+```ts
+
 ```html
 <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
     <div *cdkVirtualFor="let item of ds" class="example-item">

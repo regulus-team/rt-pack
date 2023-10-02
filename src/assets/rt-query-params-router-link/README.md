@@ -5,7 +5,17 @@
 - rtQueryParamsRouterLink - base path
 - classActiveLink - class for active link
 
-# Usages
+## Install
+```bash
+npm i rt-query-params-router-link
+```
+
+```bash
+yarn add rt-query-params-router-link
+```
+
+
+## Usages
 
 ```ts
 @NgModule({

@@ -14,7 +14,6 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-
     "lib": [
       "es2022",
       "dom"
@@ -28,6 +27,9 @@
       ],
       "rt-tab-carousel": [
         "dist/rt-tab-carousel"
+      ],
+      "rt-multiple-switch": [
+        "dist/rt-multiple-switch"
       ],
       "rt-is-visible-element": [
         "dist/rt-is-visible-element"
@@ -60,7 +62,7 @@
     "strictInjectionParameters": true
   },
   "include": [
-    "src",
+    "src/**/*.ts",
     "node_modules/cypress"
   ],
   "exclude": [

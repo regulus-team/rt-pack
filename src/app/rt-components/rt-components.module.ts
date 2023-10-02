@@ -6,6 +6,14 @@ import {SideBarComponent} from './components/side-bar/side-bar.component';
 import {RtComponentsRootComponent} from './containers/rt-components-root/rt-components-root.component';
 import {RtPlatformComponent} from './components/rt-platform/rt-platform.component';
 import {RtDefineStrokeWidthComponent} from './components/rt-define-stroke-width/rt-define-stroke-width.component';
+import {RtMultipleSwitchComponent} from '../rt-multiple-switch/rt-multiple-switch.component';
+import {RtAutofocusComponent} from '../rt-autofocus/rt-autofocus.component';
+import {RtIsVisibleElementComponent} from '../rt-is-visible-element/rt-is-visible-element.component';
+import {RtOverflowTooltipComponent} from '../rt-overflow-tooltip/rt-overflow-tooltip.component';
+import {RtQueryParamsRouterLinkComponent} from '../rt-query-params-router-link/rt-query-params-router-link.component';
+import {RtTabCarouselComponent} from '../rt-tab-carousel/rt-tab-carousel.component';
+import {RtTableMovingComponent} from '../rt-table-moving/rt-table-moving.component';
+import {RtVirtualScrollComponent} from '../rt-virtual-scroll/rt-virtual-scroll.component';
 
 const routes: Routes = [
     {
@@ -18,19 +26,19 @@ const routes: Routes = [
             },
             {
                 path: 'rt-tab-carousel',
-                loadChildren: () => import('../rt-tab-carousel-demo/rt-tab-carousel-demo.module').then(m => m.RtTabCarouselDemoModule),
+                component: RtTabCarouselComponent,
             },
             {
                 path: 'rt-query-params-router-link',
-                loadChildren: () => import('../rt-query-params-router-link-demo/rt-query-params-router-link-demo.module').then(m => m.RtQueryParamsRouterLinkDemoModule),
+                component: RtQueryParamsRouterLinkComponent,
             },
             {
                 path: 'rt-is-visible-element',
-                loadChildren: () => import('../rt-is-visible-element-demo/rt-is-visible-element-demo.module').then(m => m.RtIsVisibleElementDemoModule),
+                component: RtIsVisibleElementComponent,
             },
             {
                 path: 'rt-overflow-tooltip',
-                loadChildren: () => import('../rt-overflow-tooltip-demo/rt-overflow-tooltip-demo.module').then(m => m.RtOverflowTooltipDemoModule),
+                component: RtOverflowTooltipComponent,
             },
             {
                 path: 'rt-platform',
@@ -38,7 +46,7 @@ const routes: Routes = [
             },
             {
                 path: 'rt-auto-focus',
-                loadChildren: () => import('../rt-autofocus-demo/rt-autofocus-demo.module').then(m => m.RtAutofocusDemoModule),
+                component: RtAutofocusComponent,
             },
             {
                 path: 'rt-define-stroke-width',
@@ -46,11 +54,15 @@ const routes: Routes = [
             },
             {
                 path: 'rt-table-moving',
-                loadChildren: () => import('../rt-table-moving/rt-table-moving-demo.module').then(m => m.RtTableMovingDemoModule),
+                component: RtTableMovingComponent,
             },
             {
                 path: 'rt-virtual-scroll',
-                loadChildren: () => import('../rt-virtual-scroll/rt-virtual-scroll-demo.module').then(m => m.RtVirtualScrollDemoModule),
+                component: RtVirtualScrollComponent,
+            },
+            {
+                path: 'rt-multiple-switch',
+                component: RtMultipleSwitchComponent,
             },
             {
                 path: '**',

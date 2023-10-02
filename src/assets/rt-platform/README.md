@@ -4,8 +4,18 @@ Module provide service that:
 * may return base url depends on data provided in configs;
 * may check if current environment is browser or server;
 
+## Install
 
-# Usage
+```bash
+npm i rt-platform
+```
+
+```bash
+yarn add rt-platform
+```
+
+
+## Usage
 
 Import `RtPlatformModule` into your module and provide configs (see `RtPlatformConfig` interface for more details):
 

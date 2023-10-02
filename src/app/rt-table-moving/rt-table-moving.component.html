@@ -1,0 +1,13 @@
+<div class="rt-table-moving">
+    <rt-table-moving
+            [data]="tableData$ | async" (changedData)="changedItems($event)"
+            [dynamicItemsOnPage]="2"
+            (endEditing)="endEdited($event)"
+            (isValid)="isValid($event)"
+    >
+
+    </rt-table-moving>
+
+
+    <markdown mermaid clipboard [data]="readme"></markdown>
+</div>

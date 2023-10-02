@@ -3,7 +3,7 @@ RT Define Stroke Width
 
 Provides service that might calculate stroke width with specific CSS rules applied.
 
-# Install
+## Install
 ```bash
 npm i rt-define-stroke-width
 ```
@@ -12,7 +12,7 @@ npm i rt-define-stroke-width
 yarn add rt-define-stroke-width
 ```
 
-# Usage
+## Usage
 
 Add `RtDefineStrokeWidthModule` in imports into your `module`:
 
