@@ -11,4 +11,4 @@
 | **rt-auto-focus**               |                                                                            | [Docs](https://github.com/regulus-team/rt-pack/tree/main/projects/rt-auto-focus#readme)               |
 | **rt-define-stroke-width**      |                                                                            | [Docs](https://github.com/regulus-team/rt-pack/tree/main/projects/rt-define-stroke-width#readme)      |
 | **rt-table-moving**             | ![](/projects/rt-table-moving/rt-table-moving.gif)                         | [Docs](https://github.com/regulus-team/rt-pack/tree/main/projects/rt-table-moving#readme)             |
-| **rt-multiple-switch**          | ![](/projects/rt-table-moving/rt-table-moving.gif)                         | [Docs](https://github.com/regulus-team/rt-pack/tree/main/projects/rt-multiple-switch#readme)          |
+| **rt-multiple-switch**          |                                                                            | [Docs](https://github.com/regulus-team/rt-pack/tree/main/projects/rt-multiple-switch#readme)          |
