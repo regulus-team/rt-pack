@@ -130,7 +130,7 @@
                     >
                         <div class="rt-table-moving__item rt-table-moving__item-dynamic rt-table-moving__item-static_editable">
                             <div
-                                    [rtOverflowTooltip]="item.value"
+                                    [rtOverflowTooltip]="item.tooltip || item.value"
                                     [rtOverflowDisable]="item.whiteSpace !== 'nowrap'"
                                     [ngClass]="{
               'rt-table-moving__item-static_readonly': !item.isEditable
@@ -201,7 +201,7 @@
                                                            'rt-table-moving__odd-column': !odd,
                                                           }"
                                             [ngStyle]="{'white-space': item.whiteSpace}"
-                                            [rtOverflowTooltip]="item.value"
+                                            [rtOverflowTooltip]="item.tooltip || item.value"
                                             [rtOverflowDisable]="item.whiteSpace !== 'nowrap'"
                                             class="rt-table-moving__item-static_editable-border" [innerHTML]="item.value"
                                     >
