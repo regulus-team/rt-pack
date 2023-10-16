@@ -186,7 +186,7 @@
                 <ng-container *ngIf="{index: firstClassNumber + indexItem - 1} as extractedContent">
 
                     <ng-container
-                            *ngFor="let item of dynamicData[extractedContent.index]?.data; let itemIndex=index; trackBy: trackByFn">
+                            *ngFor="let item of dynamicData[extractedContent.index]?.data; let itemIndex=index; trackBy: itemOnEdit === undefined ? null :trackByFn">
 
                         <div class="rt-table-moving__item-column">
                             <div
