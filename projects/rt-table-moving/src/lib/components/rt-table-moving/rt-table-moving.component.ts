@@ -193,7 +193,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   }
 
   trackByFn(index: number, item: RtTableGroupedDataModel['data']): string {
-    return `${index}-${item.value}`;
+    return `${index}-${this.lastClassNumber}`;
   }
 
   ngOnInit(): void {
@@ -279,6 +279,8 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   }
 
   public blurInput(data: RtTableMovingItemModel, group: 'static' | 'dynamic', itemIndex: number, groupIndex: number): void {
+    this.markItemForEdit(null, group, null, null);
+
     this.endEditing.emit({
       fullData: {
         staticData: this.staticData,
@@ -292,7 +294,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
         itemIndex,
       },
     });
-    this.markItemForEdit(null, group, null, null);
+
 
     this.isValid.next(this.isValidTable());
 
