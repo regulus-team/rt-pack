@@ -1,7 +1,27 @@
 import {CollectionViewer, DataSource, ListRange} from '@angular/cdk/collections';
 import {HttpClient} from '@angular/common/http';
+import {ChangeDetectorRef} from '@angular/core';
 import {BehaviorSubject, combineLatest, mergeMap, Observable, of, Subscription} from 'rxjs';
 import {distinctUntilChanged, filter, map, startWith, tap} from 'rxjs/operators';
+
+/**
+ * Progress statuses for any async operations, like loading, calculations, etc.
+ * May be used to display load state without creating a lot of variables.
+ */
+export enum PROGRESS_STATUSES {
+  /** Display that process were not started yet. */
+  NOT_INITIALIZED = 'not_initialized',
+
+  /** Display that process started, but not finished yet. */
+  IN_PROGRESS = 'in_progress',
+
+  /** Display that process started, and finished successfully. */
+  SUCCEED = 'finished',
+
+  /** Display that process started, but were interrupted by unexpected error. */
+  INTERRUPTED = 'interrupted',
+}
+
 
 export class RtVirtualScrollDataSource<ListType, ResponseType = any> extends DataSource<ListType | undefined> {
 
@@ -29,10 +49,16 @@ export class RtVirtualScrollDataSource<ListType, ResponseType = any> extends Dat
   private _params: any;
   private _isRemoveEmptyParams = false;
 
-  constructor(private http: HttpClient, pageSize: number, length = 0) {
+  constructor(private http: HttpClient, private cd: ChangeDetectorRef, pageSize: number, length = 0) {
     super();
     this._pageSize = pageSize;
     this._length = length;
+  }
+
+  private _progressStatus: PROGRESS_STATUSES = PROGRESS_STATUSES.NOT_INITIALIZED;
+
+  get progressStatus(): PROGRESS_STATUSES {
+    return this._progressStatus;
   }
 
   private _length = 100;
@@ -40,7 +66,6 @@ export class RtVirtualScrollDataSource<ListType, ResponseType = any> extends Dat
   get length(): number {
     return this._length;
   }
-
 
   connect(collectionViewer: CollectionViewer): Observable<(ListType | undefined)[]> {
     this._subscription.add(
@@ -133,6 +158,8 @@ export class RtVirtualScrollDataSource<ListType, ResponseType = any> extends Dat
               {params: this._isRemoveEmptyParams ? this.removeEmptyParams(this._params) : this._params},
             );
 
+            this._progressStatus = PROGRESS_STATUSES.IN_PROGRESS;
+            this.cd.detectChanges();
             return combineLatest([
                 this.request.pipe(map(data => ({
                   data: data[this.defaultKeys.data],
@@ -145,21 +172,25 @@ export class RtVirtualScrollDataSource<ListType, ResponseType = any> extends Dat
 
           filter(([data]) => !!data),
         )
-        .subscribe(([data, range]) => {
-            this._length = data.total;
+        .subscribe({
+            next: ([data, range]) => {
+              this._length = data.total;
+              this._progressStatus = PROGRESS_STATUSES.SUCCEED;
+              if (this.isDefaultLength) {
+                this._cachedData = Array.from<ListType>({length: this._length});
+                this.isDefaultLength = false;
+              }
 
-            if (this.isDefaultLength) {
-              this._cachedData = Array.from<ListType>({length: this._length});
-              this.isDefaultLength = false;
-            }
+              this._cachedData.splice(
+                range.page * this._pageSize,
+                this._pageSize,
+                ...data.data,
+              );
 
-            this._cachedData.splice(
-              range.page * this._pageSize,
-              this._pageSize,
-              ...data.data,
-            );
-
-            this._dataStream.next(this._cachedData);
+              this._dataStream.next(this._cachedData);
+              this.cd.detectChanges();
+            },
+            error: () => this._progressStatus = PROGRESS_STATUSES.INTERRUPTED,
           },
         ),
     );
