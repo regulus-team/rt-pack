@@ -37,6 +37,8 @@
 - Version 1.4.4 - Tweak htmlParser
 - Version 1.4.5 - Add tooltip field
 - Version 1.4.6 - Add input for matTooltipClass
+- Version 1.4.7 - Tweak trackBy
+- Version 1.4.8 - Tweak trackBy
 
 ## Install
 
