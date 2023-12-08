@@ -34,6 +34,9 @@
       "rt-is-visible-element": [
         "dist/rt-is-visible-element"
       ],
+      "rt-pin-navigation": [
+        "dist/rt-pin-navigation"
+      ],
       "rt-overflow-tooltip": [
         "dist/rt-overflow-tooltip"
       ],

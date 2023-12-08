@@ -8146,6 +8146,15 @@ rt-overflow-tooltip@^1.0.6:
     rt-define-stroke-width "^1.0.1"
     rt-platform "^0.0.4"
 
+rt-pin-navigation@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/rt-pin-navigation/-/rt-pin-navigation-1.0.1.tgz#7508eb28b63900d2bc1147a728f8342af6fe5c1f"
+  integrity sha512-xJW6t7v7xylgn4e74Qhw1Kz0pkfNokFbRcDHlgteHXY6rowE5wral/4EyQCFPSL5xU10QoE+NBiONOrY5kL0SQ==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    rt-platform "^0.0.4"
+
 rt-platform@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/rt-platform/-/rt-platform-0.0.3.tgz#6b6e0e1db1fa225695e212d41568e3a4d7946ef7"

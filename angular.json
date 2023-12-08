@@ -487,6 +487,39 @@
           }
         }
       }
+    },
+    "rt-pin-navigation": {
+      "projectType": "library",
+      "root": "projects/rt-pin-navigation",
+      "sourceRoot": "projects/rt-pin-navigation/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rt-pin-navigation/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rt-pin-navigation/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rt-pin-navigation/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/rt-pin-navigation/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }

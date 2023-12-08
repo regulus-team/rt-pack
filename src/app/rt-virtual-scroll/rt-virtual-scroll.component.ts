@@ -1,13 +1,12 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
-import {MarkdownModule} from 'ngx-markdown';
-import {MatLegacyProgressSpinnerModule} from '@angular/material/legacy-progress-spinner';
+import {CommonModule} from '@angular/common';
+import {HttpClient} from '@angular/common/http';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MarkdownModule} from 'ngx-markdown';
 import {BehaviorSubject} from 'rxjs';
 import {RtVirtualScrollDataSource} from '../../../projects/rt-virtual-scroll/src/lib/rt-virtual-scroll-data-source';
 import {Breed, BreedList} from './symbols';
-import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-rt-virtual-scroll',
@@ -17,7 +16,7 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./rt-virtual-scroll.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RtVirtualScrollComponent  implements OnInit {
+export class RtVirtualScrollComponent implements OnInit {
 
   loadingReadme$ = new BehaviorSubject<boolean>(true);
   readme = '';
@@ -29,11 +28,11 @@ export class RtVirtualScrollComponent  implements OnInit {
   ngOnInit(): void {
     this.readMarkdownFile();
 
-    this.ds = new RtVirtualScrollDataSource<Breed, BreedList>(this.http, 25);
+    this.ds = new RtVirtualScrollDataSource<Breed, BreedList>(this.http, this.cd, 25);
     this.ds.setApi('https://catfact.ninja/breeds')
-        .isRemoveEmptyParams()
-        .setDefaultKeys('data', 'total', 'page')
-        .load();
+      .isRemoveEmptyParams()
+      .setDefaultKeys('data', 'total', 'page')
+      .load();
   }
 
 
@@ -49,12 +48,12 @@ export class RtVirtualScrollComponent  implements OnInit {
     const filePath = '/assets/rt-virtual-scroll/README.md';
 
     fetch(filePath)
-        .then(response => response.text())
-        .then(text => {
-          const blob = new Blob([text], {type: 'text/plain'});
+      .then(response => response.text())
+      .then(text => {
+        const blob = new Blob([text], {type: 'text/plain'});
 
-          fileReader.readAsText(blob);
-        });
+        fileReader.readAsText(blob);
+      });
   }
 }
 

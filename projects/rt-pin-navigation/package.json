@@ -1,0 +1,31 @@
+{
+  "name": "rt-pin-navigation",
+  "version": "1.0.2",
+  "scripts": {
+    "lib:build": "ng build rt-pin-navigation",
+    "lib:watch": "ng build rt-pin-navigation --watch",
+    "lib:publish": "npm run lib:build && cd ../../dist/rt-pin-navigation && npm pack && npm publish"
+  },
+  "license": "MIT",
+  "keywords": [
+    "navigation",
+    "pin",
+    "fixed"
+  ],
+  "peerDependencies": {
+    "@angular/common": "<=17",
+    "@angular/core": "<17",
+    "@angular/material": "<=17",
+    "rt-platform": "^0.0.4"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "optionalDependencies": {
+    "rt-platform": "^0.0.4"
+  },
+  "bundledDependencies": [
+    "rt-platform"
+  ],
+  "sideEffects": false
+}

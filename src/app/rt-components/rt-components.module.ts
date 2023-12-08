@@ -2,6 +2,7 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {MarkdownModule} from 'ngx-markdown';
+import {RtPinNavigationComponent} from '../rt-pin-navigation/rt-pin-navigation.component';
 import {SideBarComponent} from './components/side-bar/side-bar.component';
 import {RtComponentsRootComponent} from './containers/rt-components-root/rt-components-root.component';
 import {RtPlatformComponent} from './components/rt-platform/rt-platform.component';
@@ -64,6 +65,10 @@ const routes: Routes = [
                 path: 'rt-multiple-switch',
                 component: RtMultipleSwitchComponent,
             },
+          {
+            path: 'rt-pin-navigation',
+            component: RtPinNavigationComponent,
+          },
             {
                 path: '**',
                 redirectTo: '',
