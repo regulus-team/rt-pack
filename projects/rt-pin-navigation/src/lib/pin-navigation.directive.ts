@@ -1,15 +1,24 @@
 import {AfterViewInit, Directive, ElementRef, Inject, OnDestroy, Renderer2} from '@angular/core';
-import {WINDOW} from 'rt-platform';
+import {factoryFn, WINDOW, WindowService} from 'rt-platform';
 import {fromEvent, Subscription} from 'rxjs';
 
 @Directive({
   selector: '[rtPinNavigation]',
+  providers: [
+    {
+      provide: WINDOW,
+      useFactory: factoryFn,
+      deps: [WindowService],
+    },
+    WindowService,
+  ],
   standalone: true,
 })
 export class RtPinNavigationDirective implements OnDestroy, AfterViewInit {
 
   private subscription: Subscription | null = null;
   private originalPosition: string;
+  private originalZIndex: string;
 
   constructor(
     private el: ElementRef,
@@ -20,6 +29,7 @@ export class RtPinNavigationDirective implements OnDestroy, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.originalPosition = getComputedStyle(this.el.nativeElement).position;
+    this.originalZIndex = getComputedStyle(this.el.nativeElement).zIndex;
     this.subscription = this.createAndObserve();
   }
 
@@ -46,11 +56,13 @@ export class RtPinNavigationDirective implements OnDestroy, AfterViewInit {
   }
 
   private makeElementSticky(position: number): void {
+    this.renderer.setStyle(this.el.nativeElement, 'z-index', '1000');
     this.renderer.setStyle(this.el.nativeElement, 'position', 'relative');
     this.renderer.setStyle(this.el.nativeElement, 'top', `${position * -1}px`);
   }
 
   private resetElementStyle(): void {
     this.renderer.setStyle(this.el.nativeElement, 'position', this.originalPosition);
+    this.renderer.setStyle(this.el.nativeElement, 'z-index', this.originalZIndex);
   }
 }
