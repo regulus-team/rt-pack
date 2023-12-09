@@ -10,7 +10,6 @@ export class RtPinNavigationDirective implements OnDestroy, AfterViewInit {
 
   private subscription: Subscription | null = null;
   private originalPosition: string;
-  private originalZIndex: string;
 
   constructor(
     private el: ElementRef,
@@ -21,7 +20,6 @@ export class RtPinNavigationDirective implements OnDestroy, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.originalPosition = getComputedStyle(this.el.nativeElement).position;
-    this.originalZIndex = getComputedStyle(this.el.nativeElement).zIndex;
     this.subscription = this.createAndObserve();
   }
 
@@ -35,27 +33,24 @@ export class RtPinNavigationDirective implements OnDestroy, AfterViewInit {
       .subscribe(() => {
         this.resetElementStyle();
         const position = this.el.nativeElement.getBoundingClientRect();
-        this.handleIntersection(position.top > 0);
+        this.handleIntersection(position.top > 0, position.top);
       });
   }
 
-  private handleIntersection(isVisible: boolean): void {
+  private handleIntersection(isVisible: boolean, position: number): void {
     if (!isVisible) {
-      this.makeElementSticky();
+      this.makeElementSticky(position);
     } else {
       this.resetElementStyle();
     }
   }
 
-  private makeElementSticky(): void {
-    this.renderer.setStyle(this.el.nativeElement, 'z-index', '1000');
-    this.renderer.setStyle(this.el.nativeElement, 'position', 'fixed');
-    this.renderer.setStyle(this.el.nativeElement, 'top', '0');
-    this.renderer.setStyle(this.el.nativeElement, 'width', '100%');
+  private makeElementSticky(position: number): void {
+    this.renderer.setStyle(this.el.nativeElement, 'position', 'relative');
+    this.renderer.setStyle(this.el.nativeElement, 'top', `${position * -1}px`);
   }
 
   private resetElementStyle(): void {
-    this.renderer.setStyle(this.el.nativeElement, 'z-index', this.originalZIndex);
     this.renderer.setStyle(this.el.nativeElement, 'position', this.originalPosition);
   }
 }
