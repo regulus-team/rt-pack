@@ -37,7 +37,7 @@
     "rt-define-stroke-width": "^1.0.3",
     "rt-is-visible-element": "^1.0.3",
     "rt-overflow-tooltip": "^1.0.5",
-    "rt-pin-navigation": "^1.0.4",
+    "rt-pin-navigation": "^1.0.9",
     "rt-query-params-router-link": "^2.0.0",
     "rt-skeleton": "^1.4.1",
     "rt-tab-carousel": "^1.1.1",

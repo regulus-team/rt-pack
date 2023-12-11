@@ -15,6 +15,7 @@ export class RtPinNavigationDirective implements AfterViewInit {
   ngAfterViewInit(): void {
     this.renderer.setStyle(this.el.nativeElement, 'position', 'sticky');
     this.renderer.setStyle(this.el.nativeElement, 'top', '0');
+    this.renderer.setStyle(this.el.nativeElement, 'z-index', '1000');
   }
 
 }
