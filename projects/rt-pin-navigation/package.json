@@ -1,6 +1,6 @@
 {
   "name": "rt-pin-navigation",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "scripts": {
     "lib:build": "ng build rt-pin-navigation",
     "lib:watch": "ng build rt-pin-navigation --watch",
@@ -22,17 +22,10 @@
   "peerDependencies": {
     "@angular/common": "<=17",
     "@angular/core": "<17",
-    "@angular/material": "<=17",
-    "rt-platform": "^0.0.4"
+    "@angular/material": "<=17"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "optionalDependencies": {
-    "rt-platform": "^0.0.4"
-  },
-  "bundledDependencies": [
-    "rt-platform"
-  ],
   "sideEffects": false
 }
