@@ -31,6 +31,11 @@ interface RequiredAction {
 })
 export class RtMultipleSwitchDirective implements DoCheck {
   /**
+   * Defines whether the warnings about the missing templates should be disabled.
+   */
+  @Input() rtMultipleSwitchDisableWarnings = false;
+
+  /**
    * Stores the list of properties to be matched against the switch cases.
    * Safe value (always array of strings).
    */
@@ -134,7 +139,7 @@ export class RtMultipleSwitchDirective implements DoCheck {
     );
 
     // Notify developer if some templates are not provided.
-    if (templateNotProvided.length && isDevMode()) {
+    if (templateNotProvided.length && isDevMode() && !this.rtMultipleSwitchDisableWarnings) {
       console.warn(
         `The templates for the provided keys: [${templateNotProvided.join(', ')}] are not available.` +
           `They will be skipped. Check whether the related [rtMultipleSwitchCase] directives are provided.`,
