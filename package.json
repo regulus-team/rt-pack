@@ -31,6 +31,7 @@
     "luxon": "^3.3.0",
     "marked": "4",
     "mermaid": "^10.2.3",
+    "ngx-device-detector": "^7.0.0",
     "ngx-markdown": "^16.0.0",
     "prismjs": "^1.29.0",
     "rt-auto-focus": "^1.0.0",

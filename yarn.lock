@@ -7027,6 +7027,13 @@ ng-packagr@^16.0.0:
   optionalDependencies:
     esbuild "^0.17.0"
 
+ngx-device-detector@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-device-detector/-/ngx-device-detector-7.0.0.tgz#321b50c97d9c7bf73016d15ee4d74c8036c2276b"
+  integrity sha512-6IQZLlB31wQecbFr/5YyBfoj9zXgLz/2UHHrslgBnWIzbgdnjfEYSiwqXiJlBC9wIxMvM/BLEIQlxnl3MseQ5g==
+  dependencies:
+    tslib "^2.0.0"
+
 ngx-markdown@^16.0.0:
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-16.0.0.tgz#83e0bcaaf86511f496be39a187f04bdcb5179b1c"
