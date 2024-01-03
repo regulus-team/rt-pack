@@ -8183,10 +8183,10 @@ rt-query-params-router-link@^2.0.0:
   optionalDependencies:
     rt-platform "^0.0.3"
 
-rt-skeleton@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/rt-skeleton/-/rt-skeleton-1.4.1.tgz#f8731560ad3c2b4307956114bce9041f2c46dbda"
-  integrity sha512-gMFweZHfHy2IXF+ZrsM30kxUuocvnMu/wkErNvs00HB2hmy6czOTy0iXQAWpGtjuuDyBgSOlY0AD0lhV8k4VLw==
+rt-skeleton@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/rt-skeleton/-/rt-skeleton-1.4.2.tgz#b5433082befdc9aa073ad3ada771063737cf5ef7"
+  integrity sha512-CR+c90zeSR4bY+aVPpMowzQScxUbD1Cd9GLeXLE8T3VIe99toLHwOsPVJHAX2X3/cUg0tncs864nRjl+x/BWoA==
   dependencies:
     tslib "^2.3.0"
 

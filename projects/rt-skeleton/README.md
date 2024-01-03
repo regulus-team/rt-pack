@@ -18,6 +18,7 @@
 - Version 1.3.7 - Set pointer-events none for rtSkeletonPlaceholder directive 
 - Version 1.4.0 - Add rtSkeletonIf directive 
 - Version 1.4.1 - Fix a bug related to remapping in rtSkeletonIf directive 
+- Version 1.4.2 - Fix bug related visibility for rtSkeletonIf directive (Added detectChanges)
 
 ## Install
 
