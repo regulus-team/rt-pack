@@ -45,8 +45,8 @@ export class RtTableMovingComponent implements OnInit {
           {header: {title: 'Column 1'}, data: 'Dynamic data 3'},
 
           {header: {title: 'Column 2', isRemovable: true}, data: 'Dynamic data 4'},
-          {header: {title: 'Column 2ew'}, data: 'Dynamic data 5'},
-          {header: {title: 'Column 2'}, data: 'Dynamic data 6'},
+          {header: {title: 'Column 2'}, data: 'Dynamic data 5'},
+          {header: {title: 'Column 2'}, data: 'Dynamic data 6', cursor: 'pointer'},
 
           {header: {title: 'Column 3'}, data: 'Dynamic data 7'},
           {header: {title: 'Column 3'}, data: 'Dynamic data 8'},

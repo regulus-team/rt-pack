@@ -137,6 +137,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
             validators: item.validators,
             errorMessages: item.errorMessages,
             whiteSpace: item.whiteSpace || 'nowrap',
+            cursor: item.cursor || item.isEditable ? 'pointer' : 'auto',
             tooltip: item.tooltip,
           });
         } else {
@@ -148,6 +149,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
               validators: item.validators,
               errorMessages: item.errorMessages,
               whiteSpace: item.whiteSpace || 'nowrap',
+              cursor: item.cursor || item.isEditable ? 'pointer' : 'auto',
               tooltip: item.tooltip,
             }],
           };
