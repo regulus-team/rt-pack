@@ -136,7 +136,7 @@
                                     [ngClass]="{
               'rt-table-moving__item-static_readonly': !item.isEditable
               }"
-                                    [ngStyle]="{'white-space': item.whiteSpace}"
+                                    [ngStyle]="{'white-space': item.whiteSpace, 'cursor': item.cursor}"
                                     class="rt-table-moving__item-static_editable-border"
                                     [innerHTML]="item.value"
                             >
@@ -201,7 +201,7 @@
                                                           'rt-table-moving__item-static_readonly': !item.isEditable,
                                                            'rt-table-moving__odd-column': !odd,
                                                           }"
-                                            [ngStyle]="{'white-space': item.whiteSpace}"
+                                            [ngStyle]="{'white-space': item.whiteSpace, 'cursor': item.cursor}"
                                             [matTooltipClass]="matTooltipClass"
                                             [rtOverflowTooltip]="item.tooltip || item.value"
                                             [rtOverflowDisable]="item.whiteSpace !== 'nowrap'"
@@ -246,8 +246,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 
 

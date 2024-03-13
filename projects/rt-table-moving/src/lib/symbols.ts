@@ -13,6 +13,7 @@ export interface RtTableMovingDataModel {
   validators?: ValidatorFn[];
   errorMessages?: { [name: string]: string };
   whiteSpace?: 'nowrap' | 'pre';
+  cursor?: string;
   tooltip?: string;
 }
 
@@ -26,6 +27,7 @@ export interface RtTableGroupedDataModel {
     errorMessages?: { [name: string]: string };
     currentValidationMessage?: string;
     whiteSpace: 'nowrap' | 'pre';
+    cursor?: string;
     tooltip?: string;
   }[]>;
 
