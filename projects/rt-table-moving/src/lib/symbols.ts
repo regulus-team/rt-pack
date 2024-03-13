@@ -13,7 +13,7 @@ export interface RtTableMovingDataModel {
   validators?: ValidatorFn[];
   errorMessages?: { [name: string]: string };
   whiteSpace?: 'nowrap' | 'pre';
-  cursor?: string;
+  isClickable?: boolean;
   tooltip?: string;
 }
 
@@ -27,7 +27,7 @@ export interface RtTableGroupedDataModel {
     errorMessages?: { [name: string]: string };
     currentValidationMessage?: string;
     whiteSpace: 'nowrap' | 'pre';
-    cursor?: string;
+    isClickable?: boolean;
     tooltip?: string;
   }[]>;
 
@@ -44,6 +44,7 @@ export interface RtTableMovingHeaderModel {
 export interface RtTableMovingItemModel {
   value: any;
   isEditable?: boolean;
+  isClickable?: boolean;
   validators?: ValidatorFn[];
   errorMessages?: { [name: string]: string };
 }

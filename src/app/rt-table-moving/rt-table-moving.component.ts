@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MarkdownModule} from 'ngx-markdown';
-import {RtTableMovingModule} from 'rt-table-moving';
-import {BehaviorSubject, of} from 'rxjs';
+import {MarkdownModule}                             from 'ngx-markdown';
+import { RtTableMovingModule, RtTableSelectedData } from 'rt-table-moving';
+import {BehaviorSubject, of}                        from 'rxjs';
 import {RtTableMovingChangedData, RtTableMovingModel} from '../../../projects/rt-table-moving/src/lib/symbols';
 import {Validators} from '@angular/forms';
 
@@ -46,7 +46,7 @@ export class RtTableMovingComponent implements OnInit {
 
           {header: {title: 'Column 2', isRemovable: true}, data: 'Dynamic data 4'},
           {header: {title: 'Column 2'}, data: 'Dynamic data 5'},
-          {header: {title: 'Column 2'}, data: 'Dynamic data 6', cursor: 'pointer'},
+          {header: {title: 'Column 2'}, data: 'Dynamic data 6', isClickable: true},
 
           {header: {title: 'Column 3'}, data: 'Dynamic data 7'},
           {header: {title: 'Column 3'}, data: 'Dynamic data 8'},
@@ -91,6 +91,10 @@ export class RtTableMovingComponent implements OnInit {
   }
 
   isValid($event: boolean) {
+    console.log($event);
+  }
+
+  public isClick($event: RtTableSelectedData) {
     console.log($event);
   }
 }

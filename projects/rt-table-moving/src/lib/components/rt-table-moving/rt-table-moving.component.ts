@@ -1,15 +1,15 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {Subscription} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {FADE_IN, FADE_OUT} from '../../animations';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { FormControl }                                                                        from '@angular/forms';
+import { Subscription }                                                                       from 'rxjs';
+import { map }                                                                                from 'rxjs/operators';
+import { FADE_IN, FADE_OUT }                                                                  from '../../animations';
 import {
   RtTableGroupedDataModel,
   RtTableMovingChangedData,
   RtTableMovingItemModel,
   RtTableMovingModel,
   RtTableSelectedData,
-} from '../../symbols';
+}                                                                                             from '../../symbols';
 
 
 @Component({
@@ -101,7 +101,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
             validators: item.validators,
             errorMessages: item.errorMessages,
             whiteSpace: item.whiteSpace || 'nowrap',
-            cursor: item.cursor || item.isEditable ? 'pointer' : 'auto',
+            isClickable: item.isClickable || item.isEditable,
             tooltip: item.tooltip,
           });
         } else {
@@ -113,7 +113,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
               validators: item.validators,
               errorMessages: item.errorMessages,
               whiteSpace: item.whiteSpace || 'nowrap',
-              cursor: item.cursor || item.isEditable ? 'pointer' : 'auto',
+              isClickable: item.isClickable || item.isEditable,
               tooltip: item.tooltip,
             }],
           };
@@ -137,7 +137,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
             validators: item.validators,
             errorMessages: item.errorMessages,
             whiteSpace: item.whiteSpace || 'nowrap',
-            cursor: item.cursor || item.isEditable ? 'pointer' : 'auto',
+            isClickable: item.isClickable || item.isEditable,
             tooltip: item.tooltip,
           });
         } else {
@@ -149,7 +149,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
               validators: item.validators,
               errorMessages: item.errorMessages,
               whiteSpace: item.whiteSpace || 'nowrap',
-              cursor: item.cursor || item.isEditable ? 'pointer' : 'auto',
+              isClickable: item.isClickable || item.isEditable,
               tooltip: item.tooltip,
             }],
           };
@@ -203,48 +203,48 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription.add(
       this.singleItemInput.valueChanges
-        .pipe(
-          map(form => [form, this.itemOnEdit, this.groupIndex, this.groupOnEdit]),
-        )
-        .subscribe(([input, itemId, groupIndex, groupType]) => {
-          if (groupType === 'static') {
-            this.staticData[groupIndex].data[itemId].value = input;
-            if (this.singleItemInput.errors) {
-              const errorName = Object.keys(this.singleItemInput.errors)[0];
-              this.staticData[groupIndex]
-                .data[itemId].currentValidationMessage = this.staticData[groupIndex].data[itemId].errorMessages[errorName];
+          .pipe(
+            map(form => [form, this.itemOnEdit, this.groupIndex, this.groupOnEdit]),
+          )
+          .subscribe(([input, itemId, groupIndex, groupType]) => {
+            if (groupType === 'static') {
+              this.staticData[groupIndex].data[itemId].value = input;
+              if (this.singleItemInput.errors) {
+                const errorName = Object.keys(this.singleItemInput.errors)[0];
+                this.staticData[groupIndex]
+                  .data[itemId].currentValidationMessage = this.staticData[groupIndex].data[itemId].errorMessages[errorName];
+              } else {
+                this.staticData[groupIndex]
+                  .data[itemId].currentValidationMessage = '';
+              }
             } else {
-              this.staticData[groupIndex]
-                .data[itemId].currentValidationMessage = '';
-            }
-          } else {
-            this.dynamicData[groupIndex].data[itemId].value = input;
-            if (this.singleItemInput.errors) {
-              const errorName = Object.keys(this.singleItemInput.errors)[0];
-              this.dynamicData[groupIndex]
-                .data[itemId].currentValidationMessage = this.dynamicData[groupIndex].data[itemId].errorMessages[errorName];
-            } else {
-              this.dynamicData[groupIndex]
-                .data[itemId].currentValidationMessage = '';
+              this.dynamicData[groupIndex].data[itemId].value = input;
+              if (this.singleItemInput.errors) {
+                const errorName = Object.keys(this.singleItemInput.errors)[0];
+                this.dynamicData[groupIndex]
+                  .data[itemId].currentValidationMessage = this.dynamicData[groupIndex].data[itemId].errorMessages[errorName];
+              } else {
+                this.dynamicData[groupIndex]
+                  .data[itemId].currentValidationMessage = '';
+              }
+
             }
 
-          }
 
-
-          this.changedData.emit({
-            fullData: {
-              staticData: this.staticData,
-              dynamicData: this.dynamicData,
-            },
-            changedData: {
-              typeData: groupType,
-              typeChange: 'edit',
-              value: input,
-              groupIndex,
-              itemIndex: itemId,
-            },
-          });
-        }),
+            this.changedData.emit({
+              fullData: {
+                staticData: this.staticData,
+                dynamicData: this.dynamicData,
+              },
+              changedData: {
+                typeData: groupType,
+                typeChange: 'edit',
+                value: input,
+                groupIndex,
+                itemIndex: itemId,
+              },
+            });
+          }),
     );
   }
 
@@ -305,7 +305,11 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   }
 
   public markItemForEdit(data: RtTableMovingItemModel, group: 'static' | 'dynamic', itemIndex: number, groupIndex: number): void {
+    if (!data?.isClickable) {
+      return;
+    }
     this.isClick.emit({group, itemIndex, groupIndex, data});
+
     if (data && !data?.isEditable) {
       return;
     }
