@@ -40,7 +40,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
 
   @Input() hideControls = false;
   @Input() matTooltipClass = [];
-  @Input() syncHeightColumns = false;
+  @Input() isSyncHeightColumns = false;
 
   @ViewChildren('dynamicColumns') dynamicColumns: QueryList<ElementRef>;
   @ViewChildren('staticColumns') staticColumns: QueryList<ElementRef>;
@@ -266,52 +266,54 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   public ngAfterViewInit() {
+    this.syncHeightColumns();
+  }
+
+  syncHeightColumns(): void {
     const tempHeights: number[][] = [];
-
-    this.staticColumns.forEach((item) => {
-      const itemIndex = +item.nativeElement.attributes.itemIndex.value;
-      if (!tempHeights?.[itemIndex]) {
-        tempHeights[itemIndex] = [];
-      }
-      tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
-    });
-
-
-    this.dynamicColumns.forEach((item) => {
-      const itemIndex = +item.nativeElement.attributes.itemIndex.value;
-      if (!tempHeights?.[itemIndex]) {
-        tempHeights[itemIndex] = [];
-      }
-      tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
-    });
-
-
-    let maxNumbers: number[] = [];
-    let maxColumnIndexes: number[] = [];
-
-    for (let j = 0; j < tempHeights[0].length; j++) {
-      let maxNumber = Number.MIN_VALUE;
-      let maxRowIndex = -1;
-
-      for (let i = 0; i < tempHeights.length; i++) {
-        if (tempHeights[i][j] > maxNumber) {
-          maxNumber = tempHeights[i][j];
-          maxRowIndex = i;
+    if (this.isSyncHeightColumns) {
+      this.staticColumns.forEach((item) => {
+        const itemIndex = +item.nativeElement.attributes.itemIndex.value;
+        if (!tempHeights?.[itemIndex]) {
+          tempHeights[itemIndex] = [];
         }
+        tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
+      });
+
+
+      this.dynamicColumns.forEach((item) => {
+        const itemIndex = +item.nativeElement.attributes.itemIndex.value;
+        if (!tempHeights?.[itemIndex]) {
+          tempHeights[itemIndex] = [];
+        }
+        tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
+      });
+
+
+      let maxNumbers: number[] = [];
+      let maxColumnIndexes: number[] = [];
+
+      for (let j = 0; j < tempHeights[0].length; j++) {
+        let maxNumber = Number.MIN_VALUE;
+        let maxRowIndex = -1;
+
+        for (let i = 0; i < tempHeights.length; i++) {
+          if (tempHeights[i][j] > maxNumber) {
+            maxNumber = tempHeights[i][j];
+            maxRowIndex = i;
+          }
+        }
+
+        maxNumbers.push(maxNumber);
+        maxColumnIndexes.push(maxRowIndex);
       }
 
-      maxNumbers.push(maxNumber);
-      maxColumnIndexes.push(maxRowIndex);
+      for (let k = 0; k < maxNumbers.length; k++) {
+        this.heightColumns[maxColumnIndexes[k]] = maxNumbers[k];
+      }
+
+      this.cd.detectChanges();
     }
-
-    for (let k = 0; k < maxNumbers.length; k++) {
-      this.heightColumns[maxColumnIndexes[k]] = maxNumbers[k];
-    }
-
-    console.log(this.heightColumns);
-    this.cd.detectChanges();
-
-
   }
 
   ngOnDestroy(): void {

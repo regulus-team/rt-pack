@@ -2,7 +2,7 @@
     <rt-table-moving
             [data]="tableData$ | async" (changedData)="changedItems($event)"
             [dynamicItemsOnPage]="2"
-            [syncHeightColumns]="true"
+            [isSyncHeightColumns]="true"
             (endEditing)="endEdited($event)"
             (isValid)="isValid($event)"
             (isClick)="isClick($event)"

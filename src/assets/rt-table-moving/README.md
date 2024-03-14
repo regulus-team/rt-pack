@@ -82,17 +82,17 @@ yarn add rt-table-moving
 ...
 ```
 
-| name               | type   | interface                | description                   |
-|--------------------|--------|--------------------------|-------------------------------|
-| autoHideControls   | input  | boolean                  |                               |
-| hideControls       | input  | boolean                  |                               |
-| dynamicItemsOnPage | input  | number                   | Number of visible columns     |
-| data               | input  | RtTableMovingModel       |                               |
-| syncHeightColumns  | input  | boolean                  |                               |
-| changedData        | output | RtTableMovingChangedData | If remove column or edit item |
-| endEdited          | output | RtTableMovingChangedData | End edit item                 |
-| isValid            | output | boolean                  | Validation                    |
-| isClick            | output |                          |                               |
+| name                | type   | interface                | description                   |
+|---------------------|--------|--------------------------|-------------------------------|
+| autoHideControls    | input  | boolean                  |                               |
+| hideControls        | input  | boolean                  |                               |
+| dynamicItemsOnPage  | input  | number                   | Number of visible columns     |
+| data                | input  | RtTableMovingModel       |                               |
+| isSyncHeightColumns | input  | boolean                  |                               |
+| changedData         | output | RtTableMovingChangedData | If remove column or edit item |
+| endEdited           | output | RtTableMovingChangedData | End edit item                 |
+| isValid             | output | boolean                  | Validation                    |
+| isClick             | output |                          |                               |
 
 ### If you want to reproduce the following table
 
