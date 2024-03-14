@@ -11,18 +11,18 @@ import {
   Output,
   QueryList,
   ViewChildren,
-}                            from '@angular/core';
-import { FormControl }       from '@angular/forms';
-import { Subscription }      from 'rxjs';
-import { map }               from 'rxjs/operators';
-import { FADE_IN, FADE_OUT } from '../../animations';
+}                                                 from '@angular/core';
+import { FormControl }                            from '@angular/forms';
+import { combineLatest, startWith, Subscription } from 'rxjs';
+import { map }                                    from 'rxjs/operators';
+import { FADE_IN, FADE_OUT }                      from '../../animations';
 import {
   RtTableGroupedDataModel,
   RtTableMovingChangedData,
   RtTableMovingItemModel,
   RtTableMovingModel,
   RtTableSelectedData,
-}                            from '../../symbols';
+}                                                 from '../../symbols';
 
 
 @Component({
@@ -181,7 +181,6 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
       }
     }
 
-
   }
 
   /** Number of classes that should be displayed on page (defines by window width). */
@@ -194,7 +193,6 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
 
   /** Calculate number of classes that should be displayed on page. */
   set itemsOnPage(itemsNum: number) {
-
     this._itemsOnPage = itemsNum;
     // Current first item number could be kept as it won't exceed the limit.
     if (this.firstClassNumber + itemsNum - 1 < this.maxCountVisibleDynamicColumns) {
@@ -272,48 +270,57 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
   syncHeightColumns(): void {
     const tempHeights: number[][] = [];
     if (this.isSyncHeightColumns) {
-      this.staticColumns.forEach((item) => {
-        const itemIndex = +item.nativeElement.attributes.itemIndex.value;
-        if (!tempHeights?.[itemIndex]) {
-          tempHeights[itemIndex] = [];
-        }
-        tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
-      });
 
 
-      this.dynamicColumns.forEach((item) => {
-        const itemIndex = +item.nativeElement.attributes.itemIndex.value;
-        if (!tempHeights?.[itemIndex]) {
-          tempHeights[itemIndex] = [];
-        }
-        tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
-      });
+      this.subscription.add(
+        combineLatest([this.dynamicColumns.changes, this.staticColumns.changes])
+          .pipe(startWith([this.dynamicColumns, this.staticColumns]))
+          .subscribe(([dynamicItems, staticItems]) => {
+            staticItems.forEach((item) => {
+              const itemIndex = +item.nativeElement.attributes.itemIndex.value;
+              if (!tempHeights?.[itemIndex]) {
+                tempHeights[itemIndex] = [];
+              }
+              tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
+            });
 
+            dynamicItems.forEach((item) => {
+              const itemIndex = +item.nativeElement.attributes.itemIndex.value;
+              if (!tempHeights?.[itemIndex]) {
+                tempHeights[itemIndex] = [];
+              }
+              tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
+            });
 
-      let maxNumbers: number[] = [];
-      let maxColumnIndexes: number[] = [];
+            let maxNumbers: number[] = [];
+            let maxColumnIndexes: number[] = [];
 
-      if (tempHeights[0]) {
-        for (let j = 0; j < tempHeights[0].length; j++) {
-          let maxNumber = Number.MIN_VALUE;
-          let maxRowIndex = -1;
+            if (tempHeights[0]) {
+              for (let j = 0; j < tempHeights[0].length; j++) {
+                let maxNumber = Number.MIN_VALUE;
+                let maxRowIndex = -1;
 
-          for (let i = 0; i < tempHeights.length; i++) {
-            if (tempHeights[i][j] > maxNumber) {
-              maxNumber = tempHeights[i][j];
-              maxRowIndex = i;
+                for (let i = 0; i < tempHeights.length; i++) {
+                  if (tempHeights[i][j] > maxNumber) {
+                    maxNumber = tempHeights[i][j];
+                    maxRowIndex = i;
+                  }
+                }
+
+                maxNumbers.push(maxNumber);
+                maxColumnIndexes.push(maxRowIndex);
+              }
             }
-          }
+            for (let k = 0; k < maxNumbers.length; k++) {
+              this.heightColumns[maxColumnIndexes[k]] = maxNumbers[k];
+            }
+            this.cd.detectChanges();
 
-          maxNumbers.push(maxNumber);
-          maxColumnIndexes.push(maxRowIndex);
-        }
-      }
-      for (let k = 0; k < maxNumbers.length; k++) {
-        this.heightColumns[maxColumnIndexes[k]] = maxNumbers[k];
-      }
 
-      this.cd.detectChanges();
+          }),
+      );
+
+
     }
   }
 
