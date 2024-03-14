@@ -145,7 +145,7 @@
                 [ngStyle]="{
                 'white-space': item.whiteSpace,
                  'cursor': item?.isClickable ? 'pointer' : 'auto',
-                 'height': isSyncHeightColumns ? heightColumns[itemIndex] + 'px' : 'auto'
+                 'height': isSyncHeightColumns ? heightColumns[itemIndex] + 'px' : '100%'
                  }"
                 class="rt-table-moving__item-static_editable-border"
                 [innerHTML]="item.value"
@@ -163,7 +163,7 @@
           <ng-template #inputForEditStatic>
             <div
               class="rt-table-moving__border-input-bottom"
-              [ngStyle]="{'height': isSyncHeightColumns ? heightColumns[itemIndex] + 'px' : 'auto'}"
+              [ngStyle]="{'height': isSyncHeightColumns ? heightColumns[itemIndex] + 'px' : 'revert-layer'}"
             >
                         <textarea
                           rtAutofocus
@@ -216,7 +216,7 @@
                     [ngStyle]="{
                     'white-space': item.whiteSpace,
                      'cursor': item?.isClickable ? 'pointer' : 'auto',
-                     'height': isSyncHeightColumns ? heightColumns[itemIndex] + 'px' : 'auto'
+                     'height': isSyncHeightColumns ? heightColumns[itemIndex] + 'px' : '100%'
                      }"
                     [matTooltipClass]="matTooltipClass"
                     [rtOverflowTooltip]="item.tooltip || item.value"
@@ -238,7 +238,7 @@
             <ng-template #inputForEdit>
               <div
                 class="rt-table-moving__border-input-bottom"
-                [ngStyle]="{'height': isSyncHeightColumns ? heightColumns[itemIndex] + 'px' : 'auto'}"
+                [ngStyle]="{'height': isSyncHeightColumns ? heightColumns[itemIndex] + 'px' : 'revert-layer'}"
               >
                         <textarea
                           rtAutofocus
