@@ -293,21 +293,22 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
       let maxNumbers: number[] = [];
       let maxColumnIndexes: number[] = [];
 
-      for (let j = 0; j < tempHeights[0].length; j++) {
-        let maxNumber = Number.MIN_VALUE;
-        let maxRowIndex = -1;
+      if (tempHeights[0]) {
+        for (let j = 0; j < tempHeights[0].length; j++) {
+          let maxNumber = Number.MIN_VALUE;
+          let maxRowIndex = -1;
 
-        for (let i = 0; i < tempHeights.length; i++) {
-          if (tempHeights[i][j] > maxNumber) {
-            maxNumber = tempHeights[i][j];
-            maxRowIndex = i;
+          for (let i = 0; i < tempHeights.length; i++) {
+            if (tempHeights[i][j] > maxNumber) {
+              maxNumber = tempHeights[i][j];
+              maxRowIndex = i;
+            }
           }
+
+          maxNumbers.push(maxNumber);
+          maxColumnIndexes.push(maxRowIndex);
         }
-
-        maxNumbers.push(maxNumber);
-        maxColumnIndexes.push(maxRowIndex);
       }
-
       for (let k = 0; k < maxNumbers.length; k++) {
         this.heightColumns[maxColumnIndexes[k]] = maxNumbers[k];
       }
