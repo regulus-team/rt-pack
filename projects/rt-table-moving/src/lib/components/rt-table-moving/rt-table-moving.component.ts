@@ -1,15 +1,28 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormControl }                                                                        from '@angular/forms';
-import { Subscription }                                                                       from 'rxjs';
-import { map }                                                                                from 'rxjs/operators';
-import { FADE_IN, FADE_OUT }                                                                  from '../../animations';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  QueryList,
+  ViewChildren,
+}                            from '@angular/core';
+import { FormControl }       from '@angular/forms';
+import { Subscription }      from 'rxjs';
+import { map }               from 'rxjs/operators';
+import { FADE_IN, FADE_OUT } from '../../animations';
 import {
   RtTableGroupedDataModel,
   RtTableMovingChangedData,
   RtTableMovingItemModel,
   RtTableMovingModel,
   RtTableSelectedData,
-}                                                                                             from '../../symbols';
+}                            from '../../symbols';
 
 
 @Component({
@@ -19,7 +32,7 @@ import {
   animations: [FADE_IN, FADE_OUT],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RtTableMovingComponent implements OnInit, OnDestroy {
+export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit {
   @Output() changedData: EventEmitter<RtTableMovingChangedData> = new EventEmitter<RtTableMovingChangedData>();
   @Output() endEditing: EventEmitter<RtTableMovingChangedData> = new EventEmitter<RtTableMovingChangedData>();
   @Output() isValid: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -27,8 +40,13 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
 
   @Input() hideControls = false;
   @Input() matTooltipClass = [];
+  @Input() syncHeightColumns = false;
+
+  @ViewChildren('dynamicColumns') dynamicColumns: QueryList<ElementRef>;
+  @ViewChildren('staticColumns') staticColumns: QueryList<ElementRef>;
 
   public readonly singleItemInput = new FormControl();
+  public heightColumns: number[] = [];
   public itemOnEdit: number;
   public groupIndex: number;
   public groupOnEdit: 'static' | 'dynamic' | 'endEdited';
@@ -42,7 +60,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
   public columnsNumberInView = [1, 2, 3, 4];
   private subscription = new Subscription();
 
-  constructor() {
+  constructor(private cd: ChangeDetectorRef) {
     if (this.autoHideControls === undefined) {
       this.autoHideControls = true;
     }
@@ -77,7 +95,6 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
 
   @Input({required: true}) set data(value: RtTableMovingModel) {
     this._data = value;
-
     this.itemsOnPage = this._dynamicItemsOnPage;
     if (!value) {
       return;
@@ -246,6 +263,55 @@ export class RtTableMovingComponent implements OnInit, OnDestroy {
             });
           }),
     );
+  }
+
+  public ngAfterViewInit() {
+    const tempHeights: number[][] = [];
+
+    this.staticColumns.forEach((item) => {
+      const itemIndex = +item.nativeElement.attributes.itemIndex.value;
+      if (!tempHeights?.[itemIndex]) {
+        tempHeights[itemIndex] = [];
+      }
+      tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
+    });
+
+
+    this.dynamicColumns.forEach((item) => {
+      const itemIndex = +item.nativeElement.attributes.itemIndex.value;
+      if (!tempHeights?.[itemIndex]) {
+        tempHeights[itemIndex] = [];
+      }
+      tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
+    });
+
+
+    let maxNumbers: number[] = [];
+    let maxColumnIndexes: number[] = [];
+
+    for (let j = 0; j < tempHeights[0].length; j++) {
+      let maxNumber = Number.MIN_VALUE;
+      let maxRowIndex = -1;
+
+      for (let i = 0; i < tempHeights.length; i++) {
+        if (tempHeights[i][j] > maxNumber) {
+          maxNumber = tempHeights[i][j];
+          maxRowIndex = i;
+        }
+      }
+
+      maxNumbers.push(maxNumber);
+      maxColumnIndexes.push(maxRowIndex);
+    }
+
+    for (let k = 0; k < maxNumbers.length; k++) {
+      this.heightColumns[maxColumnIndexes[k]] = maxNumbers[k];
+    }
+
+    console.log(this.heightColumns);
+    this.cd.detectChanges();
+
+
   }
 
   ngOnDestroy(): void {

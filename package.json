@@ -42,7 +42,7 @@
     "rt-query-params-router-link": "^2.0.0",
     "rt-skeleton": "^1.4.2",
     "rt-tab-carousel": "^1.1.1",
-    "rt-table-moving": "^1.5.0",
+    "rt-table-moving": "^1.5.1",
     "rt-virtual-scroll": "^1.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

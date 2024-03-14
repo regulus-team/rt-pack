@@ -42,10 +42,10 @@ export class RtTableMovingComponent implements OnInit {
             validators: [Validators.maxLength(10)],
             errorMessages: {maxlength: 'Max length is 10'},
           },
-          {header: {title: 'Column 1'}, data: 'Dynamic data 3'},
+          {header: {title: 'Column 1'}, data: '<div>Dynamic data 3</div><div>Sub text</div><div>Sub text</div>'},
 
           {header: {title: 'Column 2', isRemovable: true}, data: 'Dynamic data 4'},
-          {header: {title: 'Column 2'}, data: 'Dynamic data 5'},
+          {header: {title: 'Column 2'}, data: '<div>Dynamic data 5</div><div>Sub text</div>'},
           {header: {title: 'Column 2'}, data: 'Dynamic data 6', isClickable: true},
 
           {header: {title: 'Column 3'}, data: 'Dynamic data 7'},
