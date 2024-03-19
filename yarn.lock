@@ -8207,6 +8207,13 @@ rt-table-moving@^1.5.10:
     rt-auto-focus "^1.0.1"
     rt-overflow-tooltip "^1.0.6"
 
+rt-toasts@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/rt-toasts/-/rt-toasts-1.0.1.tgz#7213d2f1aacbfa96173c62aead1828321400e660"
+  integrity sha512-OxF5gPpc94dbXLruEelxCtE8LAKHGLgGkw2VVcNemJxrHg3vvtsEONKTq34SB0GI76YazeUSLGbobOj1a5hnqA==
+  dependencies:
+    tslib "^2.3.0"
+
 rt-virtual-scroll@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/rt-virtual-scroll/-/rt-virtual-scroll-1.0.1.tgz#ebc182369b1afb8fda147f71506b1705000c595d"

@@ -52,6 +52,9 @@
       "rt-skeleton": [
         "dist/rt-skeleton"
       ],
+      "rt-toasts": [
+        "dist/rt-toasts"
+      ],
       "rt-virtual-scroll": [
         "dist/rt-virtual-scroll"
       ]

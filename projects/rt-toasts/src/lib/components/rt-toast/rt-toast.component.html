@@ -1,0 +1,32 @@
+<div
+  class="rt-toast"
+  [ngClass]="'rt-toast__'+toast.type"
+  [@payAttentionAnimation]="toast.isDuplicate ? 'triggered' : 'none'"
+  (@payAttentionAnimation.done)="forgotAboutDuplicate(toast.id)"
+>
+  <div
+    class="rt-toast__content"
+    [ngClass]="'rt-toast__content_'+toast.type"
+  >
+    <div>
+      <div class="rt-toast__title">{{ toast.label }}</div>
+      <div class="rt-toast__message" [innerHTML]="toast.message"></div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="close-icon"
+      (click)="closeToast()"
+    >
+    </div>
+    <div
+      *ngIf="toast.isShowTimeout"
+      [style.width]="segment * toastTimeout + '%'"
+      [style.bottom]="isHoveredContainer ? '-4px' : 0"
+      [style.opacity]="isHoveredContainer ? 0.7 : 1"
+      class="time-progress"
+      [ngClass]="'time-progress__'+toast.type"
+    >
+    </div>
+  </div>
+</div>

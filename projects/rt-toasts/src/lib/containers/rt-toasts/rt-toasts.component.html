@@ -1,0 +1,24 @@
+<div
+  class="rt-toasts"
+  [ngClass]="rtToastsPositionRelatedClasses[config.position]"
+>
+  <ng-container *ngFor="let toast of toastService.toasts | async; trackBy: trackBy">
+    <ng-container *ngIf="fadeInTop[config.position]; else bottomPosition">
+      <rt-toast
+        [@fadeInTop]="'in'"
+        [toast]="toast"
+        [isHoveredContainer]="isHovered"
+      >
+      </rt-toast>
+    </ng-container>
+
+    <ng-template #bottomPosition>
+      <rt-toast
+        [@fadeInBottom]="'in'"
+        [toast]="toast"
+      >
+      </rt-toast>
+    </ng-template>
+  </ng-container>
+
+</div>

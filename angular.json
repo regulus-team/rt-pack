@@ -32,6 +32,11 @@
                 "glob": "**/*",
                 "input": "node_modules/rt-table-moving/src/lib/assets/",
                 "output": "/assets/rt-table-moving/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/rt-toasts/src/lib/assets/",
+                "output": "/assets/rt-toasts/"
               }
             ],
             "styles": [
@@ -513,6 +518,39 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/rt-pin-navigation/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "rt-toasts": {
+      "projectType": "library",
+      "root": "projects/rt-toasts",
+      "sourceRoot": "projects/rt-toasts/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rt-toasts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rt-toasts/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rt-toasts/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/rt-toasts/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

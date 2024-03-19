@@ -1,0 +1,35 @@
+.rt-toasts {
+  position: absolute;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  
+  &__top-left {
+    top: 0;
+    left: 0;
+  }
+  &__top-right {
+    top: 0;
+    right: 0;
+  }
+  &__bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+  &__bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+  &__top-center {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__bottom-center {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

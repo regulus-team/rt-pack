@@ -1,0 +1,31 @@
+{
+  "name": "rt-toasts",
+  "version": "1.0.1",
+  "scripts": {
+    "lib:build": "ng build rt-toasts",
+    "lib:watch": "ng build rt-toasts --watch",
+    "lib:publish": "npm run lib:build && cd ../../dist/rt-toasts && npm pack && npm publish"
+  },
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "toasts",
+    "alert",
+    "notifications"
+  ],
+  "bugs": {
+    "url": "git+https://github.com/regulus-team/rt-pack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regulus-team/rt-pack.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
