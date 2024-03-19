@@ -6,6 +6,7 @@
 
 - Version 1.0.1 - Create library
 - Version 1.0.2 - Tweak icons styles
+- Version 1.0.3 - Add shadow to toasts and fix stop timer in bottom sections
 
 ## Install
 
@@ -25,6 +26,7 @@ yarn add rt-toasts
 
 ```scss
 .rt-toast {
+  box-shadow: 0 0 10px 0 #c2c2c2;
   border-radius: 14px;
   width: 400px;
   padding: 14px;

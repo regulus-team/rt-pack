@@ -6,8 +6,8 @@
     <ng-container *ngIf="fadeInTop[config.position]; else bottomPosition">
       <rt-toast
         [@fadeInTop]="'in'"
-        [toast]="toast"
         [isHoveredContainer]="isHovered"
+        [toast]="toast"
       >
       </rt-toast>
     </ng-container>
@@ -15,6 +15,7 @@
     <ng-template #bottomPosition>
       <rt-toast
         [@fadeInBottom]="'in'"
+        [isHoveredContainer]="isHovered"
         [toast]="toast"
       >
       </rt-toast>
