@@ -1,6 +1,6 @@
 {
   "name": "rt-toasts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "lib:build": "ng build rt-toasts",
     "lib:watch": "ng build rt-toasts --watch",

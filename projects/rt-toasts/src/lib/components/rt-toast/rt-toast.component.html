@@ -6,8 +6,11 @@
 >
   <div
     class="rt-toast__content"
-    [ngClass]="'rt-toast__content_'+toast.type"
   >
+    <div
+      class="rt-toast__icon"
+      [ngClass]="'rt-toast__icon_'+toast.type"
+    ></div>
     <div>
       <div class="rt-toast__title">{{ toast.label }}</div>
       <div class="rt-toast__message" [innerHTML]="toast.message"></div>

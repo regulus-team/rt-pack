@@ -5,6 +5,7 @@
 ## About
 
 - Version 1.0.1 - Create library
+- Version 1.0.2 - Tweak icons styles
 
 ## Install
 
@@ -38,6 +39,10 @@ yarn add rt-toasts
     display: flex;
     align-items: center;
     gap: 14px;
+  }
+
+  &__icon {
+    display: flex;
 
     &_success:before {
       content: "";
@@ -145,6 +150,7 @@ yarn add rt-toasts
   color: #333333;
   margin-bottom: 8px;
 }
+
 
 ```
 

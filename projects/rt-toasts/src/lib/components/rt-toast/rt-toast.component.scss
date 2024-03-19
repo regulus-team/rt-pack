@@ -13,6 +13,10 @@
     display: flex;
     align-items: center;
     gap: 14px;
+  }
+
+  &__icon {
+    display: flex;
 
     &_success:before {
       content: "";
