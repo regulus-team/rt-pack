@@ -35,6 +35,7 @@ import { RtToastsComponent } from './rt-toasts/rt-toasts.component';
       timeout: 5000,
       isShowTimeout: true,
       groupByDuplicate: true,
+      width: 450,
     }),
     BrowserAnimationsModule,
     MarkdownModule,

@@ -40,8 +40,15 @@ export interface RtToastConfig {
   timeout?: number;
   isShowTimeout?: boolean;
   groupByDuplicate?: boolean;
+  width?: number;
 }
 
+export interface RtToastData {
+  label: string;
+  message: string;
+  timeout?: number;
+  isShowTimeout?: boolean;
+}
 export interface RtToast {
   id?: string;
   label: string;
@@ -58,6 +65,7 @@ export const defaultRtToastsConfig: Required<RtToastConfig> = {
   timeout: 5000,
   isShowTimeout: true,
   groupByDuplicate: true,
+  width: 400,
 };
 
 

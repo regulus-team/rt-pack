@@ -1,5 +1,6 @@
 <div
   class="rt-toasts"
+  [style.width]="config.width + 'px'"
   [ngClass]="rtToastsPositionRelatedClasses[config.position]"
 >
   <ng-container *ngFor="let toast of toastService.toasts | async; trackBy: trackBy">

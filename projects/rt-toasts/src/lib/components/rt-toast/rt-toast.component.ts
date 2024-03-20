@@ -1,6 +1,6 @@
 import { animate, keyframes, style, transition, trigger }                                  from '@angular/animations';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { interval, Subject, Subscription }                                                 from 'rxjs';
+import { config, interval, Subject, Subscription }                                         from 'rxjs';
 import { takeUntil }                                                                       from 'rxjs/operators';
 import {
   RtToastService,

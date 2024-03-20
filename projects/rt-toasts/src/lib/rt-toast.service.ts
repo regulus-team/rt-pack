@@ -1,7 +1,7 @@
-import { Inject, Injectable }                                       from '@angular/core';
-import uniqueId                                                     from 'lodash/uniqueId';
-import { BehaviorSubject }                                          from 'rxjs';
-import { RtToast, RtToastConfig, RtToastsConfigToken, RtToastType } from './symbols';
+import { Inject, Injectable }                                                    from '@angular/core';
+import uniqueId                                                                  from 'lodash/uniqueId';
+import { BehaviorSubject }                                                       from 'rxjs';
+import { RtToast, RtToastConfig, RtToastData, RtToastsConfigToken, RtToastType } from './symbols';
 
 @Injectable()
 export class RtToastService {
@@ -13,6 +13,22 @@ export class RtToastService {
 
   get toasts(): BehaviorSubject<RtToast[]> {
     return this._toasts;
+  }
+
+  public createSuccessToast(data: RtToastData): void {
+    this.createToast({...this.config, type: RtToastType.Success, ...data});
+  }
+
+  public createErrorToast(data: RtToastData): void {
+    this.createToast({...this.config, type: RtToastType.Error, ...data});
+  }
+
+  public createWarningToast(data: RtToastData): void {
+    this.createToast({...this.config, type: RtToastType.Warning, ...data});
+  }
+
+  public createInfoToast(data: RtToastData): void {
+    this.createToast({...this.config, type: RtToastType.Info, ...data});
   }
 
   public createToast(toast: RtToast): void {
