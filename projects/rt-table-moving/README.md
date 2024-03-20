@@ -42,6 +42,8 @@
 - Version 1.5.0 - Add property isClickable
 - Version 1.5.1 - Add property for sync height columns
 - Version 1.5.11 - Tweak calculate height for columns
+- Version 1.5.12 - Tweak calculate height for columns
+- Version 1.5.13 - Tweak calculate height for columns
 
 ## Install
 

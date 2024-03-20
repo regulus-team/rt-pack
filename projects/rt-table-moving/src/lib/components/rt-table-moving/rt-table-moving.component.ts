@@ -4,25 +4,26 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter, HostListener,
+  EventEmitter,
+  HostListener,
   Input,
   OnDestroy,
   OnInit,
   Output,
   QueryList,
   ViewChildren,
-} from '@angular/core';
-import { FormControl }                                                                from '@angular/forms';
-import { BehaviorSubject, combineLatest, debounceTime, startWith, Subscription, tap } from 'rxjs';
-import { map }                                                                        from 'rxjs/operators';
-import { FADE_IN, FADE_OUT }                                         from '../../animations';
+}                                                                       from '@angular/core';
+import { FormControl }                                                  from '@angular/forms';
+import { BehaviorSubject, combineLatest, startWith, Subscription, tap } from 'rxjs';
+import { map }                                                          from 'rxjs/operators';
+import { FADE_IN, FADE_OUT }                                            from '../../animations';
 import {
   RtTableGroupedDataModel,
   RtTableMovingChangedData,
   RtTableMovingItemModel,
   RtTableMovingModel,
   RtTableSelectedData,
-}                                                                    from '../../symbols';
+}                                                                       from '../../symbols';
 
 
 @Component({
@@ -69,7 +70,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-   this.resize$.next(event);
+    this.resize$.next(event);
   }
 
   private _autoHideControls: boolean;
@@ -279,7 +280,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
     if (this.isSyncHeightColumns) {
 
       this.subscription.add(
-        combineLatest([this.dynamicColumns.changes, this.staticColumns.changes,  this.resize$])
+        combineLatest([this.dynamicColumns.changes, this.staticColumns.changes, this.resize$])
           .pipe(
             startWith([this.dynamicColumns, this.staticColumns]),
             tap(() => {
@@ -292,7 +293,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
 
             this.staticColumns.forEach((item) => {
               const itemIndex = +item.nativeElement.attributes.itemIndex.value;
-              if (!tempHeights?.[itemIndex]) {
+              if (!tempHeights[itemIndex]) {
                 tempHeights[itemIndex] = [];
               }
               tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
@@ -300,34 +301,25 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
 
             this.dynamicColumns.forEach((item) => {
               const itemIndex = +item.nativeElement.attributes.itemIndex.value;
-              if (!tempHeights?.[itemIndex]) {
+              if (!tempHeights[itemIndex]) {
                 tempHeights[itemIndex] = [];
               }
               tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
             });
 
-            let maxNumbers: number[] = [];
-            let maxColumnIndexes: number[] = [];
 
-            if (tempHeights[0]) {
-              for (let j = 0; j < tempHeights[0].length; j++) {
+            for (let i = 0; i < tempHeights.length; i++) {
+              if (tempHeights[i]) {
                 let maxNumber = Number.MIN_VALUE;
-                let maxRowIndex = -1;
-
-                for (let i = 0; i < tempHeights.length; i++) {
-                  if (tempHeights[i][j] > maxNumber) {
-                    maxNumber = tempHeights[i][j];
-                    maxRowIndex = i;
+                tempHeights[i].forEach((height) => {
+                  if (height > maxNumber) {
+                    maxNumber = height;
                   }
-                }
-
-                maxNumbers.push(maxNumber);
-                maxColumnIndexes.push(maxRowIndex);
+                });
+                this.heightColumns[i] = maxNumber;
               }
             }
-            for (let k = 0; k < maxNumbers.length; k++) {
-              this.heightColumns[maxColumnIndexes[k]] = maxNumbers[k];
-            }
+
             this.cd.detectChanges();
 
           }),
