@@ -4,25 +4,25 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter,
+  EventEmitter, HostListener,
   Input,
   OnDestroy,
   OnInit,
   Output,
   QueryList,
   ViewChildren,
-}                                                 from '@angular/core';
-import { FormControl }                            from '@angular/forms';
-import { combineLatest, startWith, Subscription } from 'rxjs';
-import { map }                                    from 'rxjs/operators';
-import { FADE_IN, FADE_OUT }                      from '../../animations';
+} from '@angular/core';
+import { FormControl }                                                                from '@angular/forms';
+import { BehaviorSubject, combineLatest, debounceTime, startWith, Subscription, tap } from 'rxjs';
+import { map }                                                                        from 'rxjs/operators';
+import { FADE_IN, FADE_OUT }                                         from '../../animations';
 import {
   RtTableGroupedDataModel,
   RtTableMovingChangedData,
   RtTableMovingItemModel,
   RtTableMovingModel,
   RtTableSelectedData,
-}                                                 from '../../symbols';
+}                                                                    from '../../symbols';
 
 
 @Component({
@@ -45,6 +45,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
   @ViewChildren('dynamicColumns') dynamicColumns: QueryList<ElementRef>;
   @ViewChildren('staticColumns') staticColumns: QueryList<ElementRef>;
 
+  resize$ = new BehaviorSubject(null);
   public readonly singleItemInput = new FormControl();
   public heightColumns: number[] = [];
   public itemOnEdit: number;
@@ -64,6 +65,11 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
     if (this.autoHideControls === undefined) {
       this.autoHideControls = true;
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+   this.resize$.next(event);
   }
 
   private _autoHideControls: boolean;
@@ -268,15 +274,23 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   syncHeightColumns(): void {
-    const tempHeights: number[][] = [];
+
+
     if (this.isSyncHeightColumns) {
 
-
       this.subscription.add(
-        combineLatest([this.dynamicColumns.changes, this.staticColumns.changes])
-          .pipe(startWith([this.dynamicColumns, this.staticColumns]))
-          .subscribe(([dynamicItems, staticItems]) => {
-            staticItems.forEach((item) => {
+        combineLatest([this.dynamicColumns.changes, this.staticColumns.changes,  this.resize$])
+          .pipe(
+            startWith([this.dynamicColumns, this.staticColumns]),
+            tap(() => {
+              this.heightColumns = [];
+              this.cd.detectChanges();
+            }),
+          )
+          .subscribe(() => {
+            const tempHeights: number[][] = [];
+
+            this.staticColumns.forEach((item) => {
               const itemIndex = +item.nativeElement.attributes.itemIndex.value;
               if (!tempHeights?.[itemIndex]) {
                 tempHeights[itemIndex] = [];
@@ -284,7 +298,7 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
               tempHeights[itemIndex].push(item.nativeElement.offsetHeight);
             });
 
-            dynamicItems.forEach((item) => {
+            this.dynamicColumns.forEach((item) => {
               const itemIndex = +item.nativeElement.attributes.itemIndex.value;
               if (!tempHeights?.[itemIndex]) {
                 tempHeights[itemIndex] = [];
@@ -316,10 +330,9 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
             }
             this.cd.detectChanges();
 
-
+            console.log(this.heightColumns);
           }),
       );
-
 
     }
   }
