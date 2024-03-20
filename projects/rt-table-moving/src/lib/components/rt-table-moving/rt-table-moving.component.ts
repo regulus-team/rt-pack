@@ -330,7 +330,6 @@ export class RtTableMovingComponent implements OnInit, OnDestroy, AfterViewInit 
             }
             this.cd.detectChanges();
 
-            console.log(this.heightColumns);
           }),
       );
 
