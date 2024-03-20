@@ -5,6 +5,10 @@
 ## About
 
 - Version 1.0.1 - Create library
+- Version 1.0.2 - Tweak icons styles
+- Version 1.0.3 - Add shadow to toasts and fix stop timer in bottom sections
+- Version 1.1.0 - Add methods to create toasts for each type
+- Version 1.1.1 - Add width property for config
 
 ## Install
 
@@ -24,8 +28,10 @@ yarn add rt-toasts
 
 ```scss
 .rt-toast {
+  box-shadow: 0 0 10px 0 #00000047;
+  box-sizing: border-box;
   border-radius: 14px;
-  width: 400px;
+  width: 100%;
   padding: 14px;
   display: flex;
   justify-content: space-between;
@@ -38,6 +44,10 @@ yarn add rt-toasts
     display: flex;
     align-items: center;
     gap: 14px;
+  }
+
+  &__icon {
+    display: flex;
 
     &_success:before {
       content: "";
@@ -146,6 +156,7 @@ yarn add rt-toasts
   margin-bottom: 8px;
 }
 
+
 ```
 
 ### add config to your angular.json in assets section
@@ -194,6 +205,14 @@ export class YourComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
+    this.rtToastService.createSuccessToast({label: 'Success', message: 'This is a success toast'});
+    this.rtToastService.createWarningToast({label: 'Warning', message: 'This is a warning toast'});
+    this.rtToastService.createInfoToast({label: 'Info', message: 'This is a info toast'});
+    this.rtToastService.createErrorToast({label: 'Error', message: 'This is a error toast'});
+    
+    // or
+    
     this.rtToastService.createToast({
       type: RtToastType.Success,
       label: 'Success',
