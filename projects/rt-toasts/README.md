@@ -9,6 +9,7 @@
 - Version 1.0.3 - Add shadow to toasts and fix stop timer in bottom sections
 - Version 1.1.0 - Add methods to create toasts for each type
 - Version 1.1.1 - Add width property for config
+- Version 1.1.2 - Remove from DOM if toast list is empty
 
 ## Install
 
