@@ -10,6 +10,7 @@
 - Version 1.1.0 - Add methods to create toasts for each type
 - Version 1.1.1 - Add width property for config
 - Version 1.1.2 - Remove from DOM if toast list is empty
+- Version 1.1.3 - Fix position of toasts
 
 ## Install
 

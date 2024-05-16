@@ -8207,10 +8207,10 @@ rt-table-moving@^1.5.13:
     rt-auto-focus "^1.0.1"
     rt-overflow-tooltip "^1.0.6"
 
-rt-toasts@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/rt-toasts/-/rt-toasts-1.1.1.tgz#0d56e3dc24b54ae985ee998f221a1ff00003ce37"
-  integrity sha512-t2RWIKNG+w74cNbRP77mllzE08S0/iewCf47wfxUE4/VXfTw05Zj+Ye14YG4vjZ9IXZK9yeR7O/UNRw0cE1Lrw==
+rt-toasts@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/rt-toasts/-/rt-toasts-1.1.3.tgz#5e14d10234c5a48f33b2ae6c688c018b4ee8d1a2"
+  integrity sha512-GQbjez89P1M00NAiDlbrQH8MPbXhLVy507ted3lTp6zLrPOF5iR6Cf+wOvr8+hpjFHdks8ApEDDj5G5ELl4Hbg==
   dependencies:
     tslib "^2.3.0"
 
