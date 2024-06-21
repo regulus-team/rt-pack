@@ -10,6 +10,7 @@
   max-width: calc(100vw - 30px);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(6px);
 
   &__content {
     display: flex;
@@ -66,19 +67,19 @@
   }
 
   &__success {
-    background: #DEFFE9;
+    background: rgba(222, 255, 233, 0.6);
   }
 
   &__error {
-    background: #FFE9E9;
+    background: rgba(255, 233, 233, 0.6);
   }
 
   &__warning {
-    background: #FEF2DF;
+    background: rgba(254, 242, 223, 0.6);
   }
 
   &__info {
-    background: #E0EEFF;
+    background: rgba(224, 238, 255, 0.6);
   }
 }
 
@@ -104,19 +105,19 @@
   transition: all .5s;
 
   &__error {
-    background: #CD2222;
+    background: linear-gradient(45deg, #ffffff00, #CD2222);
   }
 
   &__warning {
-    background: #F8A320;
+    background: linear-gradient(45deg, #ffffff00, #F8A320);
   }
 
   &__info {
-    background: #2674E8;
+    background: linear-gradient(45deg, #ffffff00, #2674E8);
   }
 
   &__success {
-    background: #02A876;
+    background: linear-gradient(45deg, #ffffff00, #02a876);
   }
 }
 
