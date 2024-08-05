@@ -1,6 +1,6 @@
 {
   "name": "rt-skeleton",
-  "version": "18.0.0",
+  "version": "18.0.1",
   "license": "MIT",
   "scripts": {
     "lib:build": "ng build rt-skeleton",

@@ -1,5 +1,6 @@
 import {NgForOf, NgForOfContext} from '@angular/common';
 import {
+  ChangeDetectorRef,
   Directive,
   Input,
   IterableDiffers,
@@ -26,6 +27,7 @@ export class RtForDirective<T, U extends NgIterable<T> = NgIterable<T>> extends 
     private templateRef: TemplateRef<NgForOfContext<T, U>>,
     private viewContainer: ViewContainerRef,
     private differs: IterableDiffers,
+    private cd: ChangeDetectorRef,
   ) {
     super(viewContainer, templateRef, differs);
   }
@@ -56,18 +58,18 @@ export class RtForDirective<T, U extends NgIterable<T> = NgIterable<T>> extends 
     this.subscription.add(
       this.container.while$
         .pipe(
-          tap((whileValue: boolean) =>  this.container.updateViewSkeleton(!whileValue)),
+          tap((whileValue: boolean) => this.container.updateViewSkeleton(!whileValue)),
           switchMap(() => this.container.ngForTrigger$),
           distinctUntilChanged(),
-          )
+        )
         .subscribe((show) => {
-        if (!show) {
-          super['ngForOf'] = null;
-        } else {
-          super['ngForOf'] = this._items;
-        }
-
-      }),
+          if (!show) {
+            super['ngForOf'] = null;
+          } else {
+            super['ngForOf'] = this._items;
+          }
+          this.cd.detectChanges();
+        }),
     );
   }
 
